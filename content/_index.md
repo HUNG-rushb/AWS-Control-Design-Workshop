@@ -1,21 +1,29 @@
 ---
-title: "AWS S3 Logging"
+title: "AWS Control Design"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: false
 ---
 
-# AWS S3 Logging Workshop
+# Welcome to the AWS Control Design workshop
 
-### Overall
+In this session, you will experience the process on identifying, designing and implementing security configurations, detective and preventive guardrails to meet your custom control requirements. You will get hands on a pre-built AWS 3 Tier environment with EC2 Instances and RDS. You will use a main customer scenario and 4 customer exercises to identify their profile and specific service user stories to determine their security control needs. For each scenario you will get to choose the right configuration and control monitoring mechanism for each level. The goal of this workshop is to practice the design and implementation of security configurations and guardrails that meets custom needs beyond AWS Best practices.
 
-In this workshop, we will use **AWS S3 server access logging** and **AWS CloudTrail** to logging when thereis operation on our S3 objects. Then we will use **AWS Athena** to query log.
+- **Audience**: Security Governance, Risk and Compliance
+- **Level**: 300 - Advanced - Sessions dive deeper into the selected topic.
+- **Presenters** assume that the audience has some familiarity with the topic, but may or may not have direct experience implementing a similar solution.
+- **Duration** 120 min
+- **Prerequisites**: AWS Account, Admin IAM User/Role.
+
+Authors:
+
+- **Pablo Pagani** - Security Practice Manager, ProServe LatAm
+- **Miguel Segura** - Security Assurance Consultant
+- **Andrea Di Fabio** - Security Assurance Consultant
+- **Issa Basza** - Security Assurance Consultant
 
 ### Content
 
 1.  [Introduction](1-Introduce/)
 2.  [Preparation](2-Prerequiste/)
 3.  [S3 Server Access Logging](3-s3sal/)
-4.  [Apply AWS CloudTrail](4-s3cloudtrail/)
-5.  [Log query with Athena](5-s3athena/)
-6.  [Clean up](6-cleanup/)

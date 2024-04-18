@@ -1,5 +1,5 @@
 ---
-title: "AWS Blue/Green Deployment"
+title: "AWS Control Design"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: false
@@ -14,6 +14,13 @@ Trong workshop này, chúng ta sẽ cùng nhau xây dựng một CD pipeline s�
 ![FCJ_ws2](/images/1.introduce/1.png)
 
 **AWS CodePipeline** là dịch vụ continuous delivery mà bạn có thể sử dụng để lập mô hình, trực quan hóa và tự động hóa các bước cần thiết để deploy phần mềm của mình. Bạn có thể nhanh chóng thiết lập mô hình, xác định cấu hình các giai đoạn khác nhau của quy trình phát hành phần mềm. **CodePipeline** tự động hóa các bước cần thiết để liên tục deploy các thay đổi phần mềm.
+
+Authors:
+
+- **Pablo Pagani** - Security Practice Manager, ProServe LatAm
+- **Miguel Segura** - Security Assurance Consultant
+- **Andrea Di Fabio** - Security Assurance Consultant
+- **Issa Basza** - Security Assurance Consultant
 
 ### Nội dung
 
