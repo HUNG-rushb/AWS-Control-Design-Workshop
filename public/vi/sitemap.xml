@@ -14,16 +14,16 @@
                 href="//localhost:1313/vi/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/3-s3sal/3.1-sal/</loc>
+    <loc>//localhost:1313/vi/3-support/3.1-troubleshoot/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-s3sal/3.1-sal/"
+                href="//localhost:1313/3-support/3.1-troubleshoot/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-s3sal/3.1-sal/"
+                href="//localhost:1313/vi/3-support/3.1-troubleshoot/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/1-introduce/</loc>
@@ -38,136 +38,136 @@
                 href="//localhost:1313/vi/1-introduce/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-prerequiste/2.1-2buckets/</loc>
+    <loc>//localhost:1313/vi/1-introduce/1.1-architecture/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-prerequiste/2.1-2buckets/"
+                href="//localhost:1313/1-introduce/1.1-architecture/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-prerequiste/2.1-2buckets/"
+                href="//localhost:1313/vi/1-introduce/1.1-architecture/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-prerequiste/</loc>
+    <loc>//localhost:1313/vi/1-introduce/1.2-naae/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-prerequiste/"
+                href="//localhost:1313/1-introduce/1.2-naae/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-prerequiste/"
+                href="//localhost:1313/vi/1-introduce/1.2-naae/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-prerequiste/2.2-permission/</loc>
+    <loc>//localhost:1313/vi/1-introduce/1.3-aae/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-prerequiste/2.2-permission/"
+                href="//localhost:1313/1-introduce/1.3-aae/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-prerequiste/2.2-permission/"
+                href="//localhost:1313/vi/1-introduce/1.3-aae/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/3-s3sal/3.2-log/</loc>
+    <loc>//localhost:1313/vi/2-scenario/2.1-infra_protect/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-s3sal/3.2-log/"
+                href="//localhost:1313/2-scenario/2.1-infra_protect/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-s3sal/3.2-log/"
+                href="//localhost:1313/vi/2-scenario/2.1-infra_protect/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/3-s3sal/</loc>
+    <loc>//localhost:1313/vi/2-scenario/2.2-data_protect/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-s3sal/"
+                href="//localhost:1313/2-scenario/2.2-data_protect/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-s3sal/"
+                href="//localhost:1313/vi/2-scenario/2.2-data_protect/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-prerequiste/2.3-upload/</loc>
+    <loc>//localhost:1313/vi/2-scenario/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-prerequiste/2.3-upload/"
+                href="//localhost:1313/2-scenario/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-prerequiste/2.3-upload/"
+                href="//localhost:1313/vi/2-scenario/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/4-s3cloudtrail/</loc>
+    <loc>//localhost:1313/vi/2-scenario/2.3-security_assurance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/4-s3cloudtrail/"
+                href="//localhost:1313/2-scenario/2.3-security_assurance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/4-s3cloudtrail/"
+                href="//localhost:1313/vi/2-scenario/2.3-security_assurance/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-prerequiste/2.4-policy/</loc>
+    <loc>//localhost:1313/vi/3-support/3.2-cleanup/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-prerequiste/2.4-policy/"
+                href="//localhost:1313/3-support/3.2-cleanup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-prerequiste/2.4-policy/"
+                href="//localhost:1313/vi/3-support/3.2-cleanup/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-prerequiste/2.5-file/</loc>
+    <loc>//localhost:1313/vi/3-support/3.2-resources/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-prerequiste/2.5-file/"
+                href="//localhost:1313/3-support/3.2-resources/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-prerequiste/2.5-file/"
+                href="//localhost:1313/vi/3-support/3.2-resources/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/5-s3athena/</loc>
+    <loc>//localhost:1313/vi/3-support/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/5-s3athena/"
+                href="//localhost:1313/3-support/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/5-s3athena/"
+                href="//localhost:1313/vi/3-support/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/6-cleanup/</loc>
+    <loc>//localhost:1313/vi/2-scenario/2.4-iam/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/6-cleanup/"
+                href="//localhost:1313/2-scenario/2.4-iam/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/6-cleanup/"
+                href="//localhost:1313/vi/2-scenario/2.4-iam/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/categories/</loc>

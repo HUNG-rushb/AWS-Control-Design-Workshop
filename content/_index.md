@@ -25,5 +25,5 @@ Authors:
 ### Content
 
 1.  [Introduction](1-Introduce/)
-2.  [Preparation](2-Prerequiste/)
-3.  [S3 Server Access Logging](3-s3sal/)
+2.  [Preparation](2-Scenario/)
+3.  [S3 Server Access Logging](3-Support/)
