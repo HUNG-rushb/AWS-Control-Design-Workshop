@@ -6,7 +6,19 @@ chapter: false
 pre: " <b> 2.1 </b> "
 ---
 
-### Create 2 bucket
+### Infrastructure Protection
+
+Introduction
+Time to complete: 25 minutes
+
+Learning Objectives:
+
+Understand how to configure patching for EC2 instances
+Create a mechanism to ensure that your instances are periodically updated.
+Implement reporting mechanism for patching compliance
+Exercise
+Requirements Scenario
+Voyager Security team has provided the controls and technical requirements to ensure that EC2 Linux instances are patched with only security updates regularly every Saturday after 10:00 pm automatically. Voyager does not have a current solution and is looking to adopt a cloud native approach that can be quickly implemented. Additionally, the Security team is asking for evidence that a detective mechanism is in place to ensure that this requirement is satisfied. You as a Cloud Architect will need to understand the current architecture and determine, based on the EC2 User Guide and AWS Config Manage Rules or conformance packages which options are available to configure a patching solution that meets customer requirements.
 
 1. At **AWS Management Console**, find **S3** and select **S3**.
 

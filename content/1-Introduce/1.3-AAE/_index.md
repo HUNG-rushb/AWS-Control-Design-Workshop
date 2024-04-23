@@ -6,30 +6,46 @@ chapter: false
 pre: " <b> 1.3 </b> "
 ---
 
-### Create 2 bucket
+{{% notice info %}}
+If you are NOT attending an AWS hosted event, you can stop reading an continue with next step using your own test account.
+{{% /notice %}}
 
-1. At **AWS Management Console**, find **S3** and select **S3**.
+If you are attending an AWS hosted event, you will be provided with an AWS account via the AWS Event Engine service. A team hash will be provided to you by event staff.
 
-2. At **S3** console, select **Create bucket**.
+{{% notice note %}}
+If you are currently logged in to an AWS Account, you should [log out](https://console.aws.amazon.com/console/logout!doLogout) or open an incognito window in your browser
+{{% /notice %}}
 
-3. In create bucket steps:
+### Logging into Event Engine Dashboard
 
-- For **AWS Region**, select **Asia Pacific (Singapore) ap-southeast-1**.
-- For **Bucket name**, insert **`logging-workshop`**.
+1. Connect to the portal by clicking the button or browsing to[ https://dashboard.eventengine.run/](https://dashboard.eventengine.run/). The following screen shows up. Enter the provided hash in the text box. The button in the bottom right corner changes to Accept Terms & Login. Click on that button to continue.
 
-4. Tiếp tục:
+![FCJ_ws2](/images/1.introduce/8.png)
 
-- For **Block Public Access settings for this bucket**, untick **Block all public access**.
-- For **Turning off block all public access might result in this bucket and the objects within becoming public**, confirm this.
+2. Choose OTP (Email One-Time Password). Enter your personal or corporate email to receive a one-time password.
 
-5. Scroll down, select **Create bucket**.
+![FCJ_ws2](/images/1.introduce/9.png)
 
-6. Confirm bucket is created successfully.
+3. Enter your personal or corporate email to receive a one-time password.
 
-7. Continue creating bucket **logging-workshop-destination**
+![FCJ_ws2](/images/1.introduce/10.png)
 
-- For **AWS Region**, select **Asia Pacific (Singapore) ap-southeast-1**.
-- For **Bucket name**, insert **`logging-workshop-destination`**.
-- No need to untick **Block Public Access settings for this bucket**.
-- Scroll down, select **Create bucket**.
-- Confirm bucket is created successfully.
+4. Copy the passcode that was sent to your email, paste in the console and click Sign In.
+
+![FCJ_ws2](/images/1.introduce/11.png)
+
+5. Click on AWS Console.
+
+![FCJ_ws2](/images/1.introduce/12.png)
+
+6. Click on Open AWS Console.
+
+![FCJ_ws2](/images/1.introduce/13.png)
+
+7. Use a single region for the duration of this workshop. Please select US East (N.Virginia) in the top right corner.
+
+![FCJ_ws2](/images/1.introduce/14.png)
+
+{{% notice info %}}
+Once you finish this workshop, go to the Support/Cleanup section, to reduce incurred costs.
+{{% /notice %}}

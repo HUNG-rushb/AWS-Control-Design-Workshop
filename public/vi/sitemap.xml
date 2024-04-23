@@ -134,16 +134,16 @@
                 href="//localhost:1313/vi/3-support/3.2-cleanup/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/3-support/3.2-resources/</loc>
+    <loc>//localhost:1313/vi/3-support/3.3-resources/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-support/3.2-resources/"
+                href="//localhost:1313/3-support/3.3-resources/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-support/3.2-resources/"
+                href="//localhost:1313/vi/3-support/3.3-resources/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/3-support/</loc>
