@@ -12,21 +12,21 @@
     <title>Infrastructure Protection :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1713983101" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1713983101" rel="stylesheet">
-    <link href="/css/hybrid.css?1713983101" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1713983101" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1713983101" rel="stylesheet">
-    <link href="/css/auto-complete.css?1713983101" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1713983101" rel="stylesheet">
-    <link href="/css/theme.css?1713983101" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1713983101" rel="stylesheet">
+    <link href="/css/nucleus.css?1713984470" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1713984470" rel="stylesheet">
+    <link href="/css/hybrid.css?1713984470" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1713984470" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1713984470" rel="stylesheet">
+    <link href="/css/auto-complete.css?1713984470" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1713984470" rel="stylesheet">
+    <link href="/css/theme.css?1713984470" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1713984470" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1713983101" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1713984470" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1713983101"></script>
+    <script src="/js/jquery-3.3.1.min.js?1713984470"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1713983101"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1713983101"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1713984470"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1713984470"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1713983101"></script>
+<script type="text/javascript" src="/js/search.js?1713984470"></script>
 
     
   </div>
@@ -652,9 +652,11 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#infrastructure-protection">Infrastructure Protection</a>
       <ul>
-        <li><a href="#infrastructure-protection">Infrastructure Protection</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#exercise">Exercise</a></li>
+        <li><a href="#instructions">Instructions</a></li>
       </ul>
     </li>
   </ul>
@@ -682,56 +684,99 @@
 
 
 
-	<h3 id="infrastructure-protection">Infrastructure Protection</h3>
-<p>Introduction
-Time to complete: 25 minutes</p>
-<p>Learning Objectives:</p>
-<p>Understand how to configure patching for EC2 instances
-Create a mechanism to ensure that your instances are periodically updated.
-Implement reporting mechanism for patching compliance
-Exercise
-Requirements Scenario
-Voyager Security team has provided the controls and technical requirements to ensure that EC2 Linux instances are patched with only security updates regularly every Saturday after 10:00 pm automatically. Voyager does not have a current solution and is looking to adopt a cloud native approach that can be quickly implemented. Additionally, the Security team is asking for evidence that a detective mechanism is in place to ensure that this requirement is satisfied. You as a Cloud Architect will need to understand the current architecture and determine, based on the EC2 User Guide and AWS Config Manage Rules or conformance packages which options are available to configure a patching solution that meets customer requirements.</p>
-<ol>
-<li>
-<p>At <strong>AWS Management Console</strong>, find <strong>S3</strong> and select <strong>S3</strong>.</p>
-</li>
-<li>
-<p>At <strong>S3</strong> console, select <strong>Create bucket</strong>.</p>
-</li>
-<li>
-<p>In create bucket steps:</p>
-</li>
-</ol>
+	<h2 id="infrastructure-protection">Infrastructure Protection</h2>
+<h3 id="introduction">Introduction</h3>
+<p><strong>Time to complete</strong>: 25 minutes</p>
+<p><strong>Learning Objectives</strong>:</p>
 <ul>
-<li>For <strong>AWS Region</strong>, select <strong>Asia Pacific (Singapore) ap-southeast-1</strong>.</li>
-<li>For <strong>Bucket name</strong>, insert <strong><code>logging-workshop</code></strong>.</li>
+<li>Understand how to configure patching for EC2 instances</li>
+<li>Create a mechanism to ensure that your instances are periodically updated.</li>
+<li>Implement reporting mechanism for patching compliance</li>
 </ul>
-<ol start="4">
-<li>Tiếp tục:</li>
-</ol>
-<ul>
-<li>For <strong>Block Public Access settings for this bucket</strong>, untick <strong>Block all public access</strong>.</li>
-<li>For <strong>Turning off block all public access might result in this bucket and the objects within becoming public</strong>, confirm this.</li>
-</ul>
-<ol start="5">
-<li>
-<p>Scroll down, select <strong>Create bucket</strong>.</p>
-</li>
-<li>
-<p>Confirm bucket is created successfully.</p>
-</li>
-<li>
-<p>Continue creating bucket <strong>logging-workshop-destination</strong></p>
-</li>
-</ol>
-<ul>
-<li>For <strong>AWS Region</strong>, select <strong>Asia Pacific (Singapore) ap-southeast-1</strong>.</li>
-<li>For <strong>Bucket name</strong>, insert <strong><code>logging-workshop-destination</code></strong>.</li>
-<li>No need to untick <strong>Block Public Access settings for this bucket</strong>.</li>
-<li>Scroll down, select <strong>Create bucket</strong>.</li>
-<li>Confirm bucket is created successfully.</li>
-</ul>
+<h3 id="exercise">Exercise</h3>
+<h4 id="requirements-scenario">Requirements Scenario</h4>
+<p>Voyager Security team has provided the controls and technical requirements to ensure that EC2 Linux instances are patched with only security updates regularly every Saturday after 10:00 pm automatically. Voyager does not have a current solution and is looking to adopt a cloud native approach that can be quickly implemented. Additionally, the Security team is asking for evidence that a detective mechanism is in place to ensure that this requirement is satisfied. You as a Cloud Architect will need to understand the current architecture and determine, based on the EC2 User Guide and AWS Config Manage Rules or conformance packages which options are available to configure a patching solution that meets customer requirements.</p>
+<p><strong>NIST Requirement</strong></p>
+<table>
+<thead>
+<tr>
+<th>Control ID</th>
+<th style="text-align:center">Control Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SI-2c</td>
+<td style="text-align:center">Install security-relevant software and firmware updates within [Assignment: organization-defined time period] of the release of the updates.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Customer Requirement</strong></p>
+<table>
+<thead>
+<tr>
+<th>Control ID</th>
+<th style="text-align:center">Control Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voyager-ctrl-inf-03</td>
+<td style="text-align:center">Instances must be patched with security updates weekly on Saturdays.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AWS resources review and conclusions</strong></p>
+<p>By reviewing the following available resources, you will come to conclude what needs to be done to meet Voyager’s control requirements. See below the conclusions.</p>
+<table>
+<thead>
+<tr>
+<th>Resource type</th>
+<th style="text-align:center">Resource name</th>
+<th style="text-align:center">Conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWS service user guide</td>
+<td style="text-align:center"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/update-management.html">Amazon EC2 User guide / Update management in Amazon EC2</a></td>
+<td style="text-align:center">You can use AWS Systems Manager Patch Manager to automate the process of installing security-related updates for both the operating system and applications.</td>
+</tr>
+<tr>
+<td>AWS service user guide</td>
+<td style="text-align:center"><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-patching-configuration.html">AWS Systems Manager User guide / Creating a patching configuration</a></td>
+<td style="text-align:center">In a patching configuration, you associate a patching configuration with an existing maintenance window, create a new maintenance window for the configuration, or run a one-time manual patching operation on a set of managed nodes.</td>
+</tr>
+<tr>
+<td>AWS Conformance pack (NIST)</td>
+<td style="text-align:center"><a href="https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist-800-53_rev_5.html">AWS operational best practices for NIST 800 53 rev5</a></td>
+<td style="text-align:center">(Search for SI-2 ) Enable ec2-managedinstance-patch-compliance-status-check AWS Config rule to check if Amazon EC2 instance patch compliance in AWS Systems Manager is set as required by your organization.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="instructions">Instructions</h3>
+<p>SSM agent has been installed and pre-configured for you. You are going to confirm that the EC2 instances in the environment are reporting to the SSM console. You need to configure SSM patch manager to run periodically during the pre-approved maintenance window. Configure AWS Config rule to report patching compliance.</p>
+<p>Open the AWS Systems Manager console , in the left navigation pane, choose Patch Manager.</p>
+<p>Choose Configure patching. In the Instances to patch section, choose Select Instances Manually: Select the check box next to the name of each managed node you want to patch.</p>
+<p>In the Patching schedule section, choose:</p>
+<p>Schedule in a new Maintenance Window and select a Maintenance Window schedule. Use a CRON schedule builder
+Under Maintenance Window run frequency, change to Every Saturday at 12:00
+Under Maintenance duration select 3
+Under Maintenance window name write: NISTPatch or as desired
+Under Patching Operation select Scan and install
+Finally press configure patching</p>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/1.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/1.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/1.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/1.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/1.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/1.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/1.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/1.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/1.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/10.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/11.png">
+<img alt="FCJ_ws2" src="/images/2.scenario/12.png"></p>
 
 
 
@@ -1011,19 +1056,19 @@ Voyager Security team has provided the controls and technical requirements to en
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1713983101"></script>
-    <script src="/js/perfect-scrollbar.min.js?1713983101"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1713983101"></script>
-    <script src="/js/jquery.sticky.js?1713983101"></script>
-    <script src="/js/featherlight.min.js?1713983101"></script>
-    <script src="/js/highlight.pack.js?1713983101"></script>
+    <script src="/js/clipboard.min.js?1713984470"></script>
+    <script src="/js/perfect-scrollbar.min.js?1713984470"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1713984470"></script>
+    <script src="/js/jquery.sticky.js?1713984470"></script>
+    <script src="/js/featherlight.min.js?1713984470"></script>
+    <script src="/js/highlight.pack.js?1713984470"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1713983101"></script>
-    <script src="/js/learn.js?1713983101"></script>
-    <script src="/js/hugo-learn.js?1713983101"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1713984470"></script>
+    <script src="/js/learn.js?1713984470"></script>
+    <script src="/js/hugo-learn.js?1713984470"></script>
 
-    <link href="/mermaid/mermaid.css?1713983101" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1713983101"></script>
+    <link href="/mermaid/mermaid.css?1713984470" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1713984470"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
