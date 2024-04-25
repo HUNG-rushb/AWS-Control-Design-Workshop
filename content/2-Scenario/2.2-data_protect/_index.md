@@ -49,27 +49,91 @@ By reviewing the following available resources, you will come to conclude what n
 
 ### Instructions
 
-SSM agent has been installed and pre-configured for you. You are going to confirm that the EC2 instances in the environment are reporting to the SSM console. You need to configure SSM patch manager to run periodically during the pre-approved maintenance window. Configure AWS Config rule to report patching compliance.
+1. Open the [Amazon RDS console](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#)
 
-Open the AWS Systems Manager console , in the left navigation pane, choose Patch Manager.
-
-Choose Configure patching. In the Instances to patch section, choose Select Instances Manually: Select the check box next to the name of each managed node you want to patch.
-
-In the Patching schedule section, choose:
-
-Schedule in a new Maintenance Window and select a Maintenance Window schedule. Use a CRON schedule builder
-Under Maintenance Window run frequency, change to Every Saturday at 12:00
-Under Maintenance duration select 3
-Under Maintenance window name write: NISTPatch or as desired
-Under Patching Operation select Scan and install
-Finally press configure patching
+2. Select the Databases section and click on the DB identifier to open instance properties
 
 ![FCJ_ws2](/images/2.scenario/51.png)
-![FCJ_ws2](/images/2.scenario/51.png)
-![FCJ_ws2](/images/2.scenario/51.png)
-![FCJ_ws2](/images/2.scenario/51.png)
-![FCJ_ws2](/images/2.scenario/51.png)
-![FCJ_ws2](/images/2.scenario/51.png)
-![FCJ_ws2](/images/2.scenario/51.png)
-![FCJ_ws2](/images/2.scenario/51.png)
-![FCJ_ws2](/images/2.scenario/51.png)
+
+3. Select Tags tab and click on Add
+
+![FCJ_ws2](/images/2.scenario/52.png)
+
+4. Enter Tag Key: Classification, and Value: Restricted. Click Add
+
+![FCJ_ws2](/images/2.scenario/53.png)
+
+5. Select the Configuration tab, click on the AWS KMS Key ID to navigate into its properties.
+
+![FCJ_ws2](/images/2.scenario/54.png)
+
+6. Click Edit and review the Key policy. You will find that:
+
+- It allows the KMSAdminRole and root (Administrator Principal) to decrypt data. Typically, Admins should not be allowed this Action.
+- It allows the DevOpsRole (User Principal) to Delete or Revoke the key. Typically, users should not be allowed this Action.
+
+7. Click Edit to update the Key policy:
+
+- Remove the following Action(s) from the Administrators section (KMSAdminRole)
+
+```
+"kms:Encrypt",
+"kms:Decrypt",
+"kms:ReEncrypt*",
+"kms:GenerateDataKey*",
+```
+
+- Remove the following Action(s) from the User section (DevOpsRole)
+
+```
+"kms:Revoke*",
+"kms:Disable*",
+"kms:Delete*",
+```
+
+- Once you finish Save changes
+
+![FCJ_ws2](/images/2.scenario/55.png)
+
+8. Go to the [AWS Config console](https://console.aws.amazon.com/config/home?region=us-east-1) to validate if the RDS instance has been tagged with data classification key. Click on Rules, Add rule
+
+![FCJ_ws2](/images/2.scenario/56.png)
+
+9. Select Add AWS Managed rule and search for required-tags. Select it and click Next.
+
+![FCJ_ws2](/images/2.scenario/57.png)
+
+10. Under Resource category, select AWS resources. Under Resource type pick AWS RDS DBInstance.
+
+![FCJ_ws2](/images/2.scenario/58.png)
+
+11. Under Parameters enter the following Key/Value
+
+```
+Key: tag1Key
+Value: Classification
+(Replace the value from CostCenter to Classification)
+
+Key: tag1Value
+Value: Public,Confidential,Restricted
+```
+
+![FCJ_ws2](/images/2.scenario/59.png)
+
+12. Click Next
+
+13. Review and click Add rule.
+
+14. Click on the new rule name (required-tags)
+
+15. Click on Actions, Re-evaluate
+
+16. In the Resources in scope, click the Refresh arrow and validate compliance status. (It can take a moment to update the compliance status)
+
+![FCJ_ws2](/images/2.scenario/60.png)
+
+17. Optional) Go back to the resource, change or remove the tagValue and validate if it changes the compliance status. Remember to re-evaluate, wait a moment, and refresh the resources in scope section to see the Compliance change.
+
+![FCJ_ws2](/images/2.scenario/61.png)
+
+**You have completed exercise two. Please proceed to the next exercise.**

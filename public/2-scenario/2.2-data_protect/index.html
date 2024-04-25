@@ -12,21 +12,21 @@
     <title>Data Protection :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1714048563" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1714048563" rel="stylesheet">
-    <link href="/css/hybrid.css?1714048563" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1714048563" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1714048563" rel="stylesheet">
-    <link href="/css/auto-complete.css?1714048563" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1714048563" rel="stylesheet">
-    <link href="/css/theme.css?1714048563" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1714048563" rel="stylesheet">
+    <link href="/css/nucleus.css?1714052389" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714052389" rel="stylesheet">
+    <link href="/css/hybrid.css?1714052389" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714052389" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714052389" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714052389" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714052389" rel="stylesheet">
+    <link href="/css/theme.css?1714052389" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714052389" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1714048563" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714052389" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1714048563"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714052389"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1714048563"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1714048563"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714052389"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714052389"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1714048563"></script>
+<script type="text/javascript" src="/js/search.js?1714052389"></script>
 
     
   </div>
@@ -762,25 +762,99 @@
 </tbody>
 </table>
 <h3 id="instructions">Instructions</h3>
-<p>SSM agent has been installed and pre-configured for you. You are going to confirm that the EC2 instances in the environment are reporting to the SSM console. You need to configure SSM patch manager to run periodically during the pre-approved maintenance window. Configure AWS Config rule to report patching compliance.</p>
-<p>Open the AWS Systems Manager console , in the left navigation pane, choose Patch Manager.</p>
-<p>Choose Configure patching. In the Instances to patch section, choose Select Instances Manually: Select the check box next to the name of each managed node you want to patch.</p>
-<p>In the Patching schedule section, choose:</p>
-<p>Schedule in a new Maintenance Window and select a Maintenance Window schedule. Use a CRON schedule builder
-Under Maintenance Window run frequency, change to Every Saturday at 12:00
-Under Maintenance duration select 3
-Under Maintenance window name write: NISTPatch or as desired
-Under Patching Operation select Scan and install
-Finally press configure patching</p>
-<p><img alt="FCJ_ws2" src="/images/2.scenario/51.png">
-<img alt="FCJ_ws2" src="/images/2.scenario/51.png">
-<img alt="FCJ_ws2" src="/images/2.scenario/51.png">
-<img alt="FCJ_ws2" src="/images/2.scenario/51.png">
-<img alt="FCJ_ws2" src="/images/2.scenario/51.png">
-<img alt="FCJ_ws2" src="/images/2.scenario/51.png">
-<img alt="FCJ_ws2" src="/images/2.scenario/51.png">
-<img alt="FCJ_ws2" src="/images/2.scenario/51.png">
-<img alt="FCJ_ws2" src="/images/2.scenario/51.png"></p>
+<ol>
+<li>
+<p>Open the <a href="https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1">Amazon RDS console</a></p>
+</li>
+<li>
+<p>Select the Databases section and click on the DB identifier to open instance properties</p>
+</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/51.png"></p>
+<ol start="3">
+<li>Select Tags tab and click on Add</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/52.png"></p>
+<ol start="4">
+<li>Enter Tag Key: Classification, and Value: Restricted. Click Add</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/53.png"></p>
+<ol start="5">
+<li>Select the Configuration tab, click on the AWS KMS Key ID to navigate into its properties.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/54.png"></p>
+<ol start="6">
+<li>Click Edit and review the Key policy. You will find that:</li>
+</ol>
+<ul>
+<li>It allows the KMSAdminRole and root (Administrator Principal) to decrypt data. Typically, Admins should not be allowed this Action.</li>
+<li>It allows the DevOpsRole (User Principal) to Delete or Revoke the key. Typically, users should not be allowed this Action.</li>
+</ul>
+<ol start="7">
+<li>Click Edit to update the Key policy:</li>
+</ol>
+<ul>
+<li>Remove the following Action(s) from the Administrators section (KMSAdminRole)</li>
+</ul>
+<pre tabindex="0"><code>&#34;kms:Encrypt&#34;,
+&#34;kms:Decrypt&#34;,
+&#34;kms:ReEncrypt*&#34;,
+&#34;kms:GenerateDataKey*&#34;,
+</code></pre><ul>
+<li>Remove the following Action(s) from the User section (DevOpsRole)</li>
+</ul>
+<pre tabindex="0"><code>&#34;kms:Revoke*&#34;,
+&#34;kms:Disable*&#34;,
+&#34;kms:Delete*&#34;,
+</code></pre><ul>
+<li>Once you finish Save changes</li>
+</ul>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/55.png"></p>
+<ol start="8">
+<li>Go to the <a href="https://console.aws.amazon.com/config/home?region=us-east-1">AWS Config console</a> to validate if the RDS instance has been tagged with data classification key. Click on Rules, Add rule</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/56.png"></p>
+<ol start="9">
+<li>Select Add AWS Managed rule and search for required-tags. Select it and click Next.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/57.png"></p>
+<ol start="10">
+<li>Under Resource category, select AWS resources. Under Resource type pick AWS RDS DBInstance.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/58.png"></p>
+<ol start="11">
+<li>Under Parameters enter the following Key/Value</li>
+</ol>
+<pre tabindex="0"><code>Key: tag1Key
+Value: Classification
+(Replace the value from CostCenter to Classification)
+
+Key: tag1Value
+Value: Public,Confidential,Restricted
+</code></pre><p><img alt="FCJ_ws2" src="/images/2.scenario/59.png"></p>
+<ol start="12">
+<li>
+<p>Click Next</p>
+</li>
+<li>
+<p>Review and click Add rule.</p>
+</li>
+<li>
+<p>Click on the new rule name (required-tags)</p>
+</li>
+<li>
+<p>Click on Actions, Re-evaluate</p>
+</li>
+<li>
+<p>In the Resources in scope, click the Refresh arrow and validate compliance status. (It can take a moment to update the compliance status)</p>
+</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/60.png"></p>
+<ol start="17">
+<li>Optional) Go back to the resource, change or remove the tagValue and validate if it changes the compliance status. Remember to re-evaluate, wait a moment, and refresh the resources in scope section to see the Compliance change.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/61.png"></p>
+<p><strong>You have completed exercise two. Please proceed to the next exercise.</strong></p>
 
 
 
@@ -1063,19 +1137,19 @@ Finally press configure patching</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1714048563"></script>
-    <script src="/js/perfect-scrollbar.min.js?1714048563"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1714048563"></script>
-    <script src="/js/jquery.sticky.js?1714048563"></script>
-    <script src="/js/featherlight.min.js?1714048563"></script>
-    <script src="/js/highlight.pack.js?1714048563"></script>
+    <script src="/js/clipboard.min.js?1714052389"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714052389"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714052389"></script>
+    <script src="/js/jquery.sticky.js?1714052389"></script>
+    <script src="/js/featherlight.min.js?1714052389"></script>
+    <script src="/js/highlight.pack.js?1714052389"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1714048563"></script>
-    <script src="/js/learn.js?1714048563"></script>
-    <script src="/js/hugo-learn.js?1714048563"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714052389"></script>
+    <script src="/js/learn.js?1714052389"></script>
+    <script src="/js/hugo-learn.js?1714052389"></script>
 
-    <link href="/mermaid/mermaid.css?1714048563" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1714048563"></script>
+    <link href="/mermaid/mermaid.css?1714052389" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714052389"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
