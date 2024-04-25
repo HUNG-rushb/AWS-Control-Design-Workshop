@@ -68,13 +68,65 @@ These logs can be collected by the CloudWatch agent , an agent application that 
 
 CloudWatch agent is pre-installed and configured to collect the logs in all the EC2 instances for this part of the workshop.
 
+1. To see the logs, open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/)
+2. In the left navigation pane, under Logs, choose Log groups.
+
 ![FCJ_ws2](/images/2.scenario/111.png)
-![FCJ_ws2](/images/2.scenario/111.png)
-![FCJ_ws2](/images/2.scenario/111.png)
-![FCJ_ws2](/images/2.scenario/111.png)
-![FCJ_ws2](/images/2.scenario/111.png)
-![FCJ_ws2](/images/2.scenario/111.png)
-![FCJ_ws2](/images/2.scenario/111.png)
-![FCJ_ws2](/images/2.scenario/111.png)
-![FCJ_ws2](/images/2.scenario/111.png)
-![FCJ_ws2](/images/2.scenario/111.png)
+
+3. There is already one log group named /var/log/secure. Click on it and you should see the log group details and a few log streams under for each instance.
+
+![FCJ_ws2](/images/2.scenario/112.png)
+
+4. Click Actions/Edit retention setting. Select the desired expiration time. (for this exercise choose 12 month). Click Save.
+
+![FCJ_ws2](/images/2.scenario/113.png)
+
+5. Click Actions from the top-right corner and click create metric filter.
+
+![FCJ_ws2](/images/2.scenario/114.png)
+
+6. Define a pattern to search for. You can input `session opened for user root` and it will look for it in the logs. Click Next.
+
+![FCJ_ws2](/images/2.scenario/115.png)
+
+7. Complete the metric filter details as shown in the image. Click Next
+
+![FCJ_ws2](/images/2.scenario/116.png)
+
+8. Review details and click on Create metric filter.
+
+![FCJ_ws2](/images/2.scenario/117.png)
+
+9. Click on Audit under Metric.
+
+![FCJ_ws2](/images/2.scenario/118.png)
+
+10. An empty graph will appear. CloudWatch will only generate metrics from events generated after the metric was generated.
+
+![FCJ_ws2](/images/2.scenario/119.png)
+
+11. Navigate to the [EC2 console](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:), click on instances, select one of the instances and click Connect(top right) .
+
+![FCJ_ws2](/images/2.scenario/120.png)
+
+12. Under Session Manager, click Connect.
+
+![FCJ_ws2](/images/2.scenario/121.png)
+
+13. Once the terminal connection opens. you can run sudo su to escalate to root user. This way you will generate additional events in the log. Click Terminate twice.
+
+![FCJ_ws2](/images/2.scenario/122.png)
+
+14. Go back to [CloudWatch console](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#) on the left under Metrics, click All Metrics, and under Custom namespaces, click Audit and then Metrics with no dimensions.
+
+![FCJ_ws2](/images/2.scenario/123.png)
+
+15. Check session opened for user root checkbox. A dot with the session we generated will appear in the graph. (It can take up to 5 mins for the information to get displayed)
+
+![FCJ_ws2](/images/2.scenario/124.png)
+
+16. (Optional) To learn more about filter patterns look at the [CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html)
+
+17. (Optional) Once you configure a metric you can configure [CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) to receive a notification every time someone logins with root user.
+
+**You have completed exercise three. Please proceed to the next exercise.**
