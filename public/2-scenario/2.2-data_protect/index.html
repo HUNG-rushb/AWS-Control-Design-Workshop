@@ -12,21 +12,21 @@
     <title>Data Protection :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1713984470" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1713984470" rel="stylesheet">
-    <link href="/css/hybrid.css?1713984470" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1713984470" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1713984470" rel="stylesheet">
-    <link href="/css/auto-complete.css?1713984470" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1713984470" rel="stylesheet">
-    <link href="/css/theme.css?1713984470" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1713984470" rel="stylesheet">
+    <link href="/css/nucleus.css?1714048563" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714048563" rel="stylesheet">
+    <link href="/css/hybrid.css?1714048563" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714048563" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714048563" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714048563" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714048563" rel="stylesheet">
+    <link href="/css/theme.css?1714048563" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714048563" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1713984470" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714048563" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1713984470"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714048563"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1713984470"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1713984470"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714048563"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714048563"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1713984470"></script>
+<script type="text/javascript" src="/js/search.js?1714048563"></script>
 
     
   </div>
@@ -652,7 +652,7 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#infrastructure-protection">Infrastructure Protection</a>
+    <li><a href="#data-protection">Data Protection</a>
       <ul>
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#exercise">Exercise</a></li>
@@ -684,18 +684,17 @@
 
 
 
-	<h2 id="infrastructure-protection">Infrastructure Protection</h2>
+	<h2 id="data-protection">Data Protection</h2>
 <h3 id="introduction">Introduction</h3>
 <p><strong>Time to complete</strong>: 25 minutes</p>
 <p><strong>Learning Objectives</strong>:</p>
 <ul>
-<li>Understand how to configure patching for EC2 instances</li>
-<li>Create a mechanism to ensure that your instances are periodically updated.</li>
-<li>Implement reporting mechanism for patching compliance</li>
+<li>Learn how to tag your <a href="https://aws.amazon.com/rds/">Amazon Relational Database Service (Amazon RDS)</a> as Restricted.</li>
+<li>Modify an <a href="https://aws.amazon.com/kms/">AWS Key Management Service (KMS)</a> Customer Managed Key (CMK) policy to be more restrictive.</li>
 </ul>
 <h3 id="exercise">Exercise</h3>
 <h4 id="requirements-scenario">Requirements Scenario</h4>
-<p>Voyager Security team has provided the controls and technical requirements to ensure that EC2 Linux instances are patched with only security updates regularly every Saturday after 10:00 pm automatically. Voyager does not have a current solution and is looking to adopt a cloud native approach that can be quickly implemented. Additionally, the Security team is asking for evidence that a detective mechanism is in place to ensure that this requirement is satisfied. You as a Cloud Architect will need to understand the current architecture and determine, based on the EC2 User Guide and AWS Config Manage Rules or conformance packages which options are available to configure a patching solution that meets customer requirements.</p>
+<p>Voyager Security team has provided the controls and technical requirements to ensure that databases are tagged according to their data classification requirements and where applicable approved key types with restrictive policies are in use. In this case the FRL application RDS, needs to be classified as restricted (tag key: restricted) and according to the requirements there must be an AWS KMS Customer managed Key (CMK) with some policy restrictions to ensure access follows least privileges. You as a Cloud Architect will need to understand the current architecture and determine, based on the RDS and KMS User Guides how to configure the right tag and an appropriate encryption key policy. Additionally, you will need to find and enable the appropriate AWS Config Manage Rule that should detect if a tag key: restricted is in place.</p>
 <p><strong>NIST Requirement</strong></p>
 <table>
 <thead>
@@ -706,8 +705,12 @@
 </thead>
 <tbody>
 <tr>
-<td>SI-2c</td>
-<td style="text-align:center">Install security-relevant software and firmware updates within [Assignment: organization-defined time period] of the release of the updates.</td>
+<td>SC-8(4)</td>
+<td style="text-align:center">Implement cryptographic mechanisms to conceal or randomize communication patterns unless otherwise protected by [Assignment: organization-defined alternative physical controls].</td>
+</tr>
+<tr>
+<td>SC-12</td>
+<td style="text-align:center">Establish and manage cryptographic keys when cryptography is employed within the system in accordance with the following key management requirements: [Assignment: organization-defined requirements for key generation, distribution, storage, access, and destruction].</td>
 </tr>
 </tbody>
 </table>
@@ -721,8 +724,12 @@
 </thead>
 <tbody>
 <tr>
-<td>Voyager-ctrl-inf-03</td>
-<td style="text-align:center">Instances must be patched with security updates weekly on Saturdays.</td>
+<td>Voyager-ctrl-dp-02</td>
+<td style="text-align:center">Storage resources including Databases shall be tagged with Data classification key (public, internal or restricted)</td>
+</tr>
+<tr>
+<td>Voyager-ctrl-dp-04</td>
+<td style="text-align:center">Cryptographic key access policy to protect restricted data shall be limited to the authorized service and resource. Access to this key shall not be granted to individuals.</td>
 </tr>
 </tbody>
 </table>
@@ -732,25 +739,25 @@
 <thead>
 <tr>
 <th>Resource type</th>
-<th style="text-align:center">Resource name</th>
-<th style="text-align:center">Conclusion</th>
+<th>Resource name</th>
+<th>Conclusion</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>AWS service user guide</td>
-<td style="text-align:center"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/update-management.html">Amazon EC2 User guide / Update management in Amazon EC2</a></td>
-<td style="text-align:center">You can use AWS Systems Manager Patch Manager to automate the process of installing security-related updates for both the operating system and applications.</td>
+<td><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Amazon RDS user guide / Tagging Amazon RDS resources</a></td>
+<td>An Amazon RDS tag is a name-value pair that you define and associate with an Amazon RDS resource. The name is referred to as the key. Supplying a value for the key is optional. You can use tags to assign arbitrary information to an Amazon RDS resource.</td>
 </tr>
 <tr>
 <td>AWS service user guide</td>
-<td style="text-align:center"><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-patching-configuration.html">AWS Systems Manager User guide / Creating a patching configuration</a></td>
-<td style="text-align:center">In a patching configuration, you associate a patching configuration with an existing maintenance window, create a new maintenance window for the configuration, or run a one-time manual patching operation on a set of managed nodes.</td>
+<td><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html">Amazon RDS user guide / Encrypting Amazon RDS resources</a></td>
+<td>Amazon RDS uses an AWS KMS key to encrypt its resources. For an Amazon RDS encrypted DB instance, all logs, backups, and snapshots are encrypted.</td>
 </tr>
 <tr>
-<td>AWS Conformance pack (NIST)</td>
-<td style="text-align:center"><a href="https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist-800-53_rev_5.html">AWS operational best practices for NIST 800 53 rev5</a></td>
-<td style="text-align:center">(Search for SI-2 ) Enable ec2-managedinstance-patch-compliance-status-check AWS Config rule to check if Amazon EC2 instance patch compliance in AWS Systems Manager is set as required by your organization.</td>
+<td>AWS service user guide</td>
+<td><a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-services.html">AWS KMS user guide / Permissions for AWS services in key policies</a></td>
+<td>AWS KMS key policy must allow the service the minimum permissions that it requires to protect the resource on your behalf. We recommend that you follow the principle of least privilege: give the service only the permissions that it requires. You can do this effectively by learning which permissions the service needs and using AWS global condition keys and AWS KMS condition keys to refine the permissions.</td>
 </tr>
 </tbody>
 </table>
@@ -1056,19 +1063,19 @@ Finally press configure patching</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1713984470"></script>
-    <script src="/js/perfect-scrollbar.min.js?1713984470"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1713984470"></script>
-    <script src="/js/jquery.sticky.js?1713984470"></script>
-    <script src="/js/featherlight.min.js?1713984470"></script>
-    <script src="/js/highlight.pack.js?1713984470"></script>
+    <script src="/js/clipboard.min.js?1714048563"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714048563"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714048563"></script>
+    <script src="/js/jquery.sticky.js?1714048563"></script>
+    <script src="/js/featherlight.min.js?1714048563"></script>
+    <script src="/js/highlight.pack.js?1714048563"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1713984470"></script>
-    <script src="/js/learn.js?1713984470"></script>
-    <script src="/js/hugo-learn.js?1713984470"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714048563"></script>
+    <script src="/js/learn.js?1714048563"></script>
+    <script src="/js/hugo-learn.js?1714048563"></script>
 
-    <link href="/mermaid/mermaid.css?1713984470" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1713984470"></script>
+    <link href="/mermaid/mermaid.css?1714048563" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714048563"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

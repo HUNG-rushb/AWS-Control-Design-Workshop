@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 2.2 </b> "
 ---
 
-## Infrastructure Protection
+## Data Protection
 
 ### Introduction
 
@@ -14,37 +14,38 @@ pre: " <b> 2.2 </b> "
 
 **Learning Objectives**:
 
-- Understand how to configure patching for EC2 instances
-- Create a mechanism to ensure that your instances are periodically updated.
-- Implement reporting mechanism for patching compliance
+- Learn how to tag your [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/) as Restricted.
+- Modify an [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/) Customer Managed Key (CMK) policy to be more restrictive.
 
 ### Exercise
 
 #### Requirements Scenario
 
-Voyager Security team has provided the controls and technical requirements to ensure that EC2 Linux instances are patched with only security updates regularly every Saturday after 10:00 pm automatically. Voyager does not have a current solution and is looking to adopt a cloud native approach that can be quickly implemented. Additionally, the Security team is asking for evidence that a detective mechanism is in place to ensure that this requirement is satisfied. You as a Cloud Architect will need to understand the current architecture and determine, based on the EC2 User Guide and AWS Config Manage Rules or conformance packages which options are available to configure a patching solution that meets customer requirements.
+Voyager Security team has provided the controls and technical requirements to ensure that databases are tagged according to their data classification requirements and where applicable approved key types with restrictive policies are in use. In this case the FRL application RDS, needs to be classified as restricted (tag key: restricted) and according to the requirements there must be an AWS KMS Customer managed Key (CMK) with some policy restrictions to ensure access follows least privileges. You as a Cloud Architect will need to understand the current architecture and determine, based on the RDS and KMS User Guides how to configure the right tag and an appropriate encryption key policy. Additionally, you will need to find and enable the appropriate AWS Config Manage Rule that should detect if a tag key: restricted is in place.
 
 **NIST Requirement**
 
-| Control ID |                                                             Control Description                                                              |
-| ---------- | :------------------------------------------------------------------------------------------------------------------------------------------: |
-| SI-2c      | Install security-relevant software and firmware updates within [Assignment: organization-defined time period] of the release of the updates. |
+| Control ID |                                                                                                                            Control Description                                                                                                                            |
+| ---------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| SC-8(4)    |                                             Implement cryptographic mechanisms to conceal or randomize communication patterns unless otherwise protected by [Assignment: organization-defined alternative physical controls].                                             |
+| SC-12      | Establish and manage cryptographic keys when cryptography is employed within the system in accordance with the following key management requirements: [Assignment: organization-defined requirements for key generation, distribution, storage, access, and destruction]. |
 
 **Customer Requirement**
 
-| Control ID          |                         Control Description                          |
-| ------------------- | :------------------------------------------------------------------: |
-| Voyager-ctrl-inf-03 | Instances must be patched with security updates weekly on Saturdays. |
+| Control ID         |                                                                             Control Description                                                                             |
+| ------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| Voyager-ctrl-dp-02 |                             Storage resources including Databases shall be tagged with Data classification key (public, internal or restricted)                             |
+| Voyager-ctrl-dp-04 | Cryptographic key access policy to protect restricted data shall be limited to the authorized service and resource. Access to this key shall not be granted to individuals. |
 
 **AWS resources review and conclusions**
 
 By reviewing the following available resources, you will come to conclude what needs to be done to meet Voyager’s control requirements. See below the conclusions.
 
-| Resource type               |                                                                             Resource name                                                                             |                                                                                                               Conclusion                                                                                                               |
-| --------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| AWS service user guide      |                 [Amazon EC2 User guide / Update management in Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/update-management.html)                 |                                      You can use AWS Systems Manager Patch Manager to automate the process of installing security-related updates for both the operating system and applications.                                      |
-| AWS service user guide      | [AWS Systems Manager User guide / Creating a patching configuration](https://docs.aws.amazon.com/systems-manager/latest/userguide/create-patching-configuration.html) | In a patching configuration, you associate a patching configuration with an existing maintenance window, create a new maintenance window for the configuration, or run a one-time manual patching operation on a set of managed nodes. |
-| AWS Conformance pack (NIST) | [AWS operational best practices for NIST 800 53 rev5](https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist-800-53_rev_5.html) |              (Search for SI-2 ) Enable ec2-managedinstance-patch-compliance-status-check AWS Config rule to check if Amazon EC2 instance patch compliance in AWS Systems Manager is set as required by your organization.              |
+| Resource type          | Resource name                                                                                                                                       | Conclusion                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS service user guide | [Amazon RDS user guide / Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html)                    | An Amazon RDS tag is a name-value pair that you define and associate with an Amazon RDS resource. The name is referred to as the key. Supplying a value for the key is optional. You can use tags to assign arbitrary information to an Amazon RDS resource.                                                                                                                                                            |
+| AWS service user guide | [Amazon RDS user guide / Encrypting Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html)          | Amazon RDS uses an AWS KMS key to encrypt its resources. For an Amazon RDS encrypted DB instance, all logs, backups, and snapshots are encrypted.                                                                                                                                                                                                                                                                       |
+| AWS service user guide | [AWS KMS user guide / Permissions for AWS services in key policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-services.html) | AWS KMS key policy must allow the service the minimum permissions that it requires to protect the resource on your behalf. We recommend that you follow the principle of least privilege: give the service only the permissions that it requires. You can do this effectively by learning which permissions the service needs and using AWS global condition keys and AWS KMS condition keys to refine the permissions. |
 
 ### Instructions
 

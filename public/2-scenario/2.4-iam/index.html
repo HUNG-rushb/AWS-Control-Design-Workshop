@@ -12,21 +12,21 @@
     <title>Identity and Access Management :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1713984470" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1713984470" rel="stylesheet">
-    <link href="/css/hybrid.css?1713984470" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1713984470" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1713984470" rel="stylesheet">
-    <link href="/css/auto-complete.css?1713984470" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1713984470" rel="stylesheet">
-    <link href="/css/theme.css?1713984470" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1713984470" rel="stylesheet">
+    <link href="/css/nucleus.css?1714048563" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714048563" rel="stylesheet">
+    <link href="/css/hybrid.css?1714048563" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714048563" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714048563" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714048563" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714048563" rel="stylesheet">
+    <link href="/css/theme.css?1714048563" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714048563" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1713984470" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714048563" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1713984470"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714048563"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1713984470"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1713984470"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714048563"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714048563"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1713984470"></script>
+<script type="text/javascript" src="/js/search.js?1714048563"></script>
 
     
   </div>
@@ -652,7 +652,7 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#infrastructure-protection">Infrastructure Protection</a>
+    <li><a href="#identity-and-access-management">Identity and Access Management</a>
       <ul>
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#exercise">Exercise</a></li>
@@ -684,18 +684,17 @@
 
 
 
-	<h2 id="infrastructure-protection">Infrastructure Protection</h2>
+	<h2 id="identity-and-access-management">Identity and Access Management</h2>
 <h3 id="introduction">Introduction</h3>
 <p><strong>Time to complete</strong>: 25 minutes</p>
 <p><strong>Learning Objectives</strong>:</p>
 <ul>
-<li>Understand how to configure patching for EC2 instances</li>
-<li>Create a mechanism to ensure that your instances are periodically updated.</li>
-<li>Implement reporting mechanism for patching compliance</li>
+<li>Configure your IAM policies to prevent unauthorized traffic mirroring of your VPC network.</li>
+<li>Deploy an AWS Config custom rule to detect traffic mirroring on the VPC.</li>
 </ul>
 <h3 id="exercise">Exercise</h3>
 <h4 id="requirements-scenario">Requirements Scenario</h4>
-<p>Voyager Security team has provided the controls and technical requirements to ensure that EC2 Linux instances are patched with only security updates regularly every Saturday after 10:00 pm automatically. Voyager does not have a current solution and is looking to adopt a cloud native approach that can be quickly implemented. Additionally, the Security team is asking for evidence that a detective mechanism is in place to ensure that this requirement is satisfied. You as a Cloud Architect will need to understand the current architecture and determine, based on the EC2 User Guide and AWS Config Manage Rules or conformance packages which options are available to configure a patching solution that meets customer requirements.</p>
+<p>Voyager Security team has provided the controls and technical requirements to ensure that their developers follow least privileges when it comes to manage their VPC network components. The developer team is using the IAM Role DevOps which is now permissive enough to allow them to place a traffic mirror listener in the account without the security team knowing. Even if this traffic is internal, it is considered highly restricted. Your goal as a Cloud Architect will be to configure the right IAM permissions to prevent traffic mirror action and a detective mechanism to alert.</p>
 <p><strong>NIST Requirement</strong></p>
 <table>
 <thead>
@@ -706,8 +705,12 @@
 </thead>
 <tbody>
 <tr>
-<td>SI-2c</td>
-<td style="text-align:center">Install security-relevant software and firmware updates within [Assignment: organization-defined time period] of the release of the updates.</td>
+<td>AC-4(21)</td>
+<td style="text-align:center">Separate information flows logically or physically using [Assignment: organization-defined mechanisms and/or techniques] to accomplish [Assignment: organization-defined required separations by types of information].</td>
+</tr>
+<tr>
+<td>AC-3</td>
+<td style="text-align:center">Enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.</td>
 </tr>
 </tbody>
 </table>
@@ -721,8 +724,8 @@
 </thead>
 <tbody>
 <tr>
-<td>Voyager-ctrl-inf-03</td>
-<td style="text-align:center">Instances must be patched with security updates weekly on Saturdays.</td>
+<td>Voyager-ctrl-net-05</td>
+<td style="text-align:center">Developers must be restricted to make changes on VPC resources that could expose the network to unauthorized resources.</td>
 </tr>
 </tbody>
 </table>
@@ -738,33 +741,43 @@
 </thead>
 <tbody>
 <tr>
-<td>AWS service user guide</td>
-<td style="text-align:center"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/update-management.html">Amazon EC2 User guide / Update management in Amazon EC2</a></td>
+<td>AWS service IAM actions</td>
+<td style="text-align:center"><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html">Amazon VPC actions</a></td>
 <td style="text-align:center">You can use AWS Systems Manager Patch Manager to automate the process of installing security-related updates for both the operating system and applications.</td>
 </tr>
 <tr>
 <td>AWS service user guide</td>
-<td style="text-align:center"><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-patching-configuration.html">AWS Systems Manager User guide / Creating a patching configuration</a></td>
-<td style="text-align:center">In a patching configuration, you associate a patching configuration with an existing maintenance window, create a new maintenance window for the configuration, or run a one-time manual patching operation on a set of managed nodes.</td>
+<td style="text-align:center"><a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">AWS Config / Managed rules</a></td>
+<td style="text-align:center">There isn’t a managed AWS config rule available to detect traffic mirror so we need to build a custom check.</td>
 </tr>
 <tr>
-<td>AWS Conformance pack (NIST)</td>
-<td style="text-align:center"><a href="https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist-800-53_rev_5.html">AWS operational best practices for NIST 800 53 rev5</a></td>
-<td style="text-align:center">(Search for SI-2 ) Enable ec2-managedinstance-patch-compliance-status-check AWS Config rule to check if Amazon EC2 instance patch compliance in AWS Systems Manager is set as required by your organization.</td>
+<td>AWS Service user guide</td>
+<td style="text-align:center"><a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules_lambda-functions.html">AWS Config / Creating AWS Config custom Lambda rules</a></td>
+<td style="text-align:center">You can develop custom rules and add them to AWS Config with AWS Lambda functions. You associate each custom rule with an Lambda function, which contains the logic that evaluates whether your AWS resources comply with the rule.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="instructions">Instructions</h3>
 <p>SSM agent has been installed and pre-configured for you. You are going to confirm that the EC2 instances in the environment are reporting to the SSM console. You need to configure SSM patch manager to run periodically during the pre-approved maintenance window. Configure AWS Config rule to report patching compliance.</p>
-<p>Open the AWS Systems Manager console , in the left navigation pane, choose Patch Manager.</p>
+<ol>
+<li>
+<p>Open the <a href="https://console.aws.amazon.com/systems-manager/">AWS Systems Manager console</a> , in the left navigation pane, choose Patch Manager.</p>
+</li>
+<li>
 <p>Choose Configure patching. In the Instances to patch section, choose Select Instances Manually: Select the check box next to the name of each managed node you want to patch.</p>
+</li>
+<li>
 <p>In the Patching schedule section, choose:</p>
-<p>Schedule in a new Maintenance Window and select a Maintenance Window schedule. Use a CRON schedule builder
-Under Maintenance Window run frequency, change to Every Saturday at 12:00
-Under Maintenance duration select 3
-Under Maintenance window name write: NISTPatch or as desired
-Under Patching Operation select Scan and install
-Finally press configure patching</p>
+</li>
+</ol>
+<ul>
+<li>Schedule in a new Maintenance Window and select a Maintenance Window schedule. Use a CRON schedule builder</li>
+<li>Under Maintenance Window run frequency, change to Every Saturday at 12:00</li>
+<li>Under Maintenance duration select 3</li>
+<li>Under Maintenance window name write: NISTPatch or as desired</li>
+<li>Under Patching Operation select Scan and install</li>
+<li>Finally press configure patching</li>
+</ul>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/211.png">
 <img alt="FCJ_ws2" src="/images/2.scenario/211.png">
 <img alt="FCJ_ws2" src="/images/2.scenario/211.png">
@@ -1058,19 +1071,19 @@ Finally press configure patching</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1713984470"></script>
-    <script src="/js/perfect-scrollbar.min.js?1713984470"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1713984470"></script>
-    <script src="/js/jquery.sticky.js?1713984470"></script>
-    <script src="/js/featherlight.min.js?1713984470"></script>
-    <script src="/js/highlight.pack.js?1713984470"></script>
+    <script src="/js/clipboard.min.js?1714048563"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714048563"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714048563"></script>
+    <script src="/js/jquery.sticky.js?1714048563"></script>
+    <script src="/js/featherlight.min.js?1714048563"></script>
+    <script src="/js/highlight.pack.js?1714048563"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1713984470"></script>
-    <script src="/js/learn.js?1713984470"></script>
-    <script src="/js/hugo-learn.js?1713984470"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714048563"></script>
+    <script src="/js/learn.js?1714048563"></script>
+    <script src="/js/hugo-learn.js?1714048563"></script>
 
-    <link href="/mermaid/mermaid.css?1713984470" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1713984470"></script>
+    <link href="/mermaid/mermaid.css?1714048563" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714048563"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
