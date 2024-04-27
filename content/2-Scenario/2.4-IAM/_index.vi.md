@@ -25,14 +25,14 @@ Nhóm Voyager Security đã cung cấp các biện pháp kiểm soát và yêu c
 
 **NIST yêu cầu**
 
-| Control ID |                                                                                                   Control Description                                                                                                   |
+| Control ID |                                                                                                     Miêu tả control                                                                                                     |
 | ---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | AC-4(21)   | Separate information flows logically or physically using [Assignment: organization-defined mechanisms and/or techniques] to accomplish [Assignment: organization-defined required separations by types of information]. |
 | AC-3       |                                      Enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.                                      |
 
 **Khách hàng yêu cầu**
 
-| Control ID          |                                                   Control Description                                                   |
+| Control ID          |                                                     Miêu tả control                                                     |
 | ------------------- | :---------------------------------------------------------------------------------------------------------------------: |
 | Voyager-ctrl-net-05 | Developers must be restricted to make changes on VPC resources that could expose the network to unauthorized resources. |
 
@@ -46,7 +46,7 @@ Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đ�
 | AWS service user guide  |                       [AWS Config / Managed rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html)                        |                                                            There isn’t a managed AWS config rule available to detect traffic mirror so we need to build a custom check.                                                             |
 | AWS Service user guide  | [AWS Config / Creating AWS Config custom Lambda rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules_lambda-functions.html) | You can develop custom rules and add them to AWS Config with AWS Lambda functions. You associate each custom rule with an Lambda function, which contains the logic that evaluates whether your AWS resources comply with the rule. |
 
-### Instructions
+### Hướng dẫn
 
 1. Open to the [IAM Console](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#) under the Roles section, search for the DevOps role, and click over the Role Name. (it may have an aleatory suffix)
 

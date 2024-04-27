@@ -25,7 +25,7 @@ Nhóm Voyager Security đã cung cấp các yêu cầu kỹ thuật để đảm
 
 **NIST yêu cầu**
 
-| Control ID |             Control Description              |
+| Control ID |               Miêu tả control                |
 | ---------- | :------------------------------------------: |
 | AC-6(9)    |  Log the execution of privileged functions.  |
 | AU-2       |                Event Logging                 |
@@ -33,7 +33,7 @@ Nhóm Voyager Security đã cung cấp các yêu cầu kỹ thuật để đảm
 
 **Khách hàng yêu cầu**
 
-| Control ID          |                                                                       Control Description                                                                       |
+| Control ID          |                                                                         Miêu tả control                                                                         |
 | ------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | Voyager-ctrl-mon-01 | Systems must be appropriately monitored. Logs needs to be captured at the OS level and alerts will need to be triggered and sent to SOC team when root is used. |
 
@@ -48,7 +48,7 @@ Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đ�
 | AWS service user guide      | [CloudWatch Alarm events and EventBridge](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-and-eventbridge.html)                                                                                            | CloudWatch sends events to Amazon EventBridge whenever a CloudWatch alarm is created, updated, deleted, or changes alarm state. You can use EventBridge and these events to write rules that take actions, such as notifying you, when an alarm changes state. |
 | AWS Conformance pack (NIST) | [AWS operational best practices for NIST 800 53 rev5](https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist-800-53_rev_5.html)                                                                | (Search for AC-6(9), AU-2, AU-6(1)) Use Amazon CloudWatch to centrally collect and manage log event activity. Inclusion of AWS CloudTrail data provides details of API call activity within your AWS account.                                                  |
 
-### Instructions
+### Hướng dẫn
 
 #### CloudWatch Logs introduction
 

@@ -12,21 +12,21 @@
     <title>Bảo vệ hạ tầng :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1714219571" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1714219571" rel="stylesheet">
-    <link href="/css/hybrid.css?1714219571" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1714219571" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1714219571" rel="stylesheet">
-    <link href="/css/auto-complete.css?1714219571" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1714219571" rel="stylesheet">
-    <link href="/css/theme.css?1714219571" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1714219571" rel="stylesheet">
+    <link href="/css/nucleus.css?1714223258" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714223258" rel="stylesheet">
+    <link href="/css/hybrid.css?1714223258" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714223258" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714223258" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714223258" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714223258" rel="stylesheet">
+    <link href="/css/theme.css?1714223258" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714223258" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1714219571" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714223258" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1714219571"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714223258"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1714219571"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1714219571"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714223258"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714223258"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1714219571"></script>
+<script type="text/javascript" src="/js/search.js?1714223258"></script>
 
     
   </div>
@@ -656,7 +656,7 @@
       <ul>
         <li><a href="#giới-thiệu">Giới thiệu</a></li>
         <li><a href="#bài-tập">Bài tập</a></li>
-        <li><a href="#instructions">Instructions</a></li>
+        <li><a href="#hướng-dẫn">Hướng dẫn</a></li>
       </ul>
     </li>
   </ul>
@@ -740,92 +740,92 @@
 <tr>
 <td>AWS service user guide</td>
 <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/update-management.html">Amazon EC2 User guide / Update management in Amazon EC2</a></td>
-<td>You can use AWS Systems Manager Patch Manager to automate the process of installing security-related updates for both the operating system and applications.</td>
+<td>Bạn có thể sử dụng <strong>AWS Systems Manager Patch Manager</strong> để tự động hóa quá trình cài đặt các bản cập nhật liên quan đến bảo mật cho cả hệ điều hành và ứng dụng.</td>
 </tr>
 <tr>
 <td>AWS service user guide</td>
 <td><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-patching-configuration.html">AWS Systems Manager User guide / Creating a patching configuration</a></td>
-<td>In a patching configuration, you associate a patching configuration with an existing maintenance window, create a new maintenance window for the configuration, or run a one-time manual patching operation on a set of managed nodes.</td>
+<td>Trong cấu hình vá lỗi, bạn liên kết cấu hình vá lỗi với cửa sổ bảo trì hiện có, tạo cửa sổ bảo trì mới cho cấu hình đó hoặc chạy thao tác vá lỗi thủ công một lần trên một tập hợp các nút được quản lý.</td>
 </tr>
 <tr>
 <td>AWS Conformance pack (NIST)</td>
 <td><a href="https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist-800-53_rev_5.html">AWS operational best practices for NIST 800 53 rev5</a></td>
-<td>(Search for SI-2 ) Enable ec2-managedinstance-patch-compliance-status-check AWS Config rule to check if Amazon EC2 instance patch compliance in AWS Systems Manager is set as required by your organization.</td>
+<td>(Search for SI-2 ) Bật AWS Config rule <strong>ec2-managedinstance-patch-compliance-status-check</strong> để kiểm tra xem việc tuân thủ bản vá phiên bản <strong>Amazon EC2</strong> trong <strong>AWS Systems Manager</strong> có được đặt theo yêu cầu của tổ chức của bạn hay không.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="instructions">Instructions</h3>
-<p>SSM agent has been installed and pre-configured for you. You are going to confirm that the EC2 instances in the environment are reporting to the SSM console. You need to configure SSM patch manager to run periodically during the pre-approved maintenance window. Configure AWS Config rule to report patching compliance.</p>
+<h3 id="hướng-dẫn">Hướng dẫn</h3>
+<p>Agent SSM đã được cài đặt và cấu hình sẵn cho bạn. Bạn sẽ xác nhận rằng các phiên bản EC2 trong môi trường đang báo cáo lên bảng điều khiển SSM. Bạn cần định cấu hình trình quản lý bản vá SSM để chạy định kỳ trong thời gian bảo trì được phê duyệt trước. Cấu hình rule AWS Config để báo cáo việc tuân thủ bản vá.</p>
 <ol>
 <li>
-<p>Open the <a href="https://console.aws.amazon.com/systems-manager/">AWS Systems Manager console</a> , in the left navigation pane, choose Patch Manager.</p>
+<p>Mở <a href="https://console.aws.amazon.com/systems-manager/">AWS Systems Manager console</a>, ở menu bên trái, chọn <strong>Patch Manager</strong>.</p>
 </li>
 <li>
-<p>Choose Configure patching. In the Instances to patch section, choose Select Instances Manually: Select the check box next to the name of each managed node you want to patch.</p>
+<p>Chọn <strong>Configure patching</strong>. Mục <strong>Instances to patch</strong>, chọn <strong>Select Instances Manually</strong>: Chọn tên của từng node được quản lý mà bạn muốn vá.</p>
 </li>
 <li>
-<p>In the Patching schedule section, choose:</p>
+<p>Mục <strong>Patching schedule</strong>, chọn:</p>
 </li>
 </ol>
 <ul>
-<li>Schedule in a new Maintenance Window and select a Maintenance Window schedule. Use a CRON schedule builder</li>
-<li>Under Maintenance Window run frequency, change to Every Saturday at 12:00</li>
-<li>Under Maintenance duration select 3</li>
-<li>Under Maintenance window name write: NISTPatch or as desired</li>
-<li>Under Patching Operation select Scan and install</li>
-<li>Finally press configure patching</li>
+<li>Chọn <strong>Schedule in a new Maintenance Window</strong> và chọn <strong>Maintenance Window schedule</strong>, sau đó chọn <strong>CRON schedule builder</strong>.</li>
+<li>Mục <strong>Maintenance Window run frequency</strong>, chọn <strong>Every Saturday at 12:00</strong>.</li>
+<li>Mục <strong>Maintenance duration</strong> nhập <code>3</code>.</li>
+<li>Mục <strong>Maintenance window name</strong>, nhập <code>NISTPatch</code> hoặc tên bạn muốn.</li>
+<li>Mục <strong>Patching Operation</strong>, chọn <strong>Scan and install</strong>.</li>
+<li>Nhấn <strong>configure patching</strong>.</li>
 </ul>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/1.png"></p>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/2.png"></p>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/3.png"></p>
 <ol start="4">
-<li>Now that you setup a patching schedule, click on Patch Now, to get current patching status</li>
+<li>Bây giờ bạn đã thiết lập lịch vá lỗi, hãy nhấp vào <strong>Patch Now</strong> để biết trạng thái vá lỗi hiện tại.</li>
 </ol>
-<p><img alt="FCJ_ws2" src="/images/2.scenario/1.png"></p>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/4.png"></p>
 <ol start="5">
-<li>Leave default configuration to only Scan, and press Patch Now</li>
+<li>Để lại cấu hình mặc định <strong>Scan</strong>, và nhấn <strong>Patch Now</strong>.</li>
 </ol>
-<p><img alt="FCJ_ws2" src="/images/2.scenario/1.png"></p>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/5.png"></p>
 <ol start="6">
-<li>Wait a moment for the operation to complete. You should see a Succeeded notification</li>
+<li>Đợi một lát để thao tác hoàn tất. Bạn sẽ thấy thông báo thành công.</li>
 </ol>
-<p><img alt="FCJ_ws2" src="/images/2.scenario/1.png"></p>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/6.png"></p>
 <ol start="7">
-<li>To set up the detection mechanism go to <a href="https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1">AWS Config</a>, click on Rules, and Add rule</li>
+<li>Để set up detection mechanism, truy cập <a href="https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1">AWS Config</a>, Nhấn <strong>Rules</strong>, và <strong>Add rule</strong>.</li>
 </ol>
-<p><img alt="FCJ_ws2" src="/images/2.scenario/1.png"></p>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/7.png"></p>
 <ol start="8">
-<li>Select an AWS Config Managed rule and find the one named: ec2-managedinstance-patch-compliance-status-check. Click Next</li>
+<li>Chọn <strong>AWS Config Managed rule</strong> và tìm: <strong><code>ec2-managedinstance-patch-compliance-status-check</code></strong>. Nhấn <strong>Next</strong>.</li>
 </ol>
-<p><img alt="FCJ_ws2" src="/images/2.scenario/1.png"></p>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/8.png"></p>
 <ol start="9">
-<li>On the trigger type keep: all changes. Click Next.</li>
+<li>Mục <strong>trigger type</strong> giữ nguyên: <strong>all changes</strong>. Nhấn <strong>Next</strong>.</li>
 </ol>
-<p><img alt="FCJ_ws2" src="/images/2.scenario/1.png"></p>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/9.png"></p>
 <ol start="10">
-<li>Review and confirm details. Click Add rule.</li>
+<li>Xem xét và xác nhận <strong>Details</strong>. Nhấn <strong>Add rule</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/10.png"></p>
 <ol start="11">
-<li>Success notification should appear on the top.</li>
+<li>Thông báo thành công sẽ xuất hiện ở trên.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/11.png"></p>
 <ol start="12">
 <li>
-<p>Click on the rule name (ec2-managedinstance-patch-compliance-status-check).</p>
+<p>Nhấn rule <strong>ec2-managedinstance-patch-compliance-status-check</strong>.</p>
 </li>
 <li>
-<p>Click on Actions / Re-evaluate.</p>
+<p>Nhấn <strong>Actions / Re-evaluate</strong>.</p>
 </li>
 <li>
-<p>In the Resources in scop drop-down, select All.</p>
+<p>Mục <strong>Resources</strong> trong drop-down, chọn <strong>All</strong>.</p>
 </li>
 <li>
-<p>Confirm the Compliance status is Compliant.</p>
+<p>Xác nhận <strong>Compliance status</strong> là <strong>Compliant</strong>.</p>
 </li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/12.png"></p>
-<p><strong>You have completed the first exercise. Please proceed to the next.</strong></p>
+<p><strong>Bạn đã hoàn thành bài tập đầu tiên. Hãy chuyển sang phần tiếp theo.</strong></p>
 
 
 
@@ -1105,19 +1105,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1714219571"></script>
-    <script src="/js/perfect-scrollbar.min.js?1714219571"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1714219571"></script>
-    <script src="/js/jquery.sticky.js?1714219571"></script>
-    <script src="/js/featherlight.min.js?1714219571"></script>
-    <script src="/js/highlight.pack.js?1714219571"></script>
+    <script src="/js/clipboard.min.js?1714223258"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714223258"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714223258"></script>
+    <script src="/js/jquery.sticky.js?1714223258"></script>
+    <script src="/js/featherlight.min.js?1714223258"></script>
+    <script src="/js/highlight.pack.js?1714223258"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1714219571"></script>
-    <script src="/js/learn.js?1714219571"></script>
-    <script src="/js/hugo-learn.js?1714219571"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714223258"></script>
+    <script src="/js/learn.js?1714223258"></script>
+    <script src="/js/hugo-learn.js?1714223258"></script>
 
-    <link href="/mermaid/mermaid.css?1714219571" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1714219571"></script>
+    <link href="/mermaid/mermaid.css?1714223258" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714223258"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

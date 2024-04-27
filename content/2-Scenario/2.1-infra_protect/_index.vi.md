@@ -40,28 +40,28 @@ Nhóm Voyager Security đã cung cấp các biện pháp kiểm soát và yêu c
 
 Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đến kết luận những gì cần phải làm để đáp ứng các yêu cầu kiểm soát của Voyager. Xem phần kết luận bên dưới.
 
-| Loại                        | Tên                                                                                                                                                                   | Kết luận                                                                                                                                                                                                                               |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS service user guide      | [Amazon EC2 User guide / Update management in Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/update-management.html)                                 | You can use AWS Systems Manager Patch Manager to automate the process of installing security-related updates for both the operating system and applications.                                                                           |
-| AWS service user guide      | [AWS Systems Manager User guide / Creating a patching configuration](https://docs.aws.amazon.com/systems-manager/latest/userguide/create-patching-configuration.html) | In a patching configuration, you associate a patching configuration with an existing maintenance window, create a new maintenance window for the configuration, or run a one-time manual patching operation on a set of managed nodes. |
-| AWS Conformance pack (NIST) | [AWS operational best practices for NIST 800 53 rev5](https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist-800-53_rev_5.html) | (Search for SI-2 ) Enable ec2-managedinstance-patch-compliance-status-check AWS Config rule to check if Amazon EC2 instance patch compliance in AWS Systems Manager is set as required by your organization.                           |
+| Loại                        | Tên                                                                                                                                                                   | Kết luận                                                                                                                                                                                                                                         |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| AWS service user guide      | [Amazon EC2 User guide / Update management in Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/update-management.html)                                 | Bạn có thể sử dụng **AWS Systems Manager Patch Manager** để tự động hóa quá trình cài đặt các bản cập nhật liên quan đến bảo mật cho cả hệ điều hành và ứng dụng.                                                                                |
+| AWS service user guide      | [AWS Systems Manager User guide / Creating a patching configuration](https://docs.aws.amazon.com/systems-manager/latest/userguide/create-patching-configuration.html) | Trong cấu hình vá lỗi, bạn liên kết cấu hình vá lỗi với cửa sổ bảo trì hiện có, tạo cửa sổ bảo trì mới cho cấu hình đó hoặc chạy thao tác vá lỗi thủ công một lần trên một tập hợp các nút được quản lý.                                         |
+| AWS Conformance pack (NIST) | [AWS operational best practices for NIST 800 53 rev5](https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist-800-53_rev_5.html) | (Search for SI-2 ) Bật AWS Config rule **ec2-managedinstance-patch-compliance-status-check** để kiểm tra xem việc tuân thủ bản vá phiên bản **Amazon EC2** trong **AWS Systems Manager** có được đặt theo yêu cầu của tổ chức của bạn hay không. |
 
-### Instructions
+### Hướng dẫn
 
-SSM agent has been installed and pre-configured for you. You are going to confirm that the EC2 instances in the environment are reporting to the SSM console. You need to configure SSM patch manager to run periodically during the pre-approved maintenance window. Configure AWS Config rule to report patching compliance.
+Agent SSM đã được cài đặt và cấu hình sẵn cho bạn. Bạn sẽ xác nhận rằng các phiên bản EC2 trong môi trường đang báo cáo lên bảng điều khiển SSM. Bạn cần định cấu hình trình quản lý bản vá SSM để chạy định kỳ trong thời gian bảo trì được phê duyệt trước. Cấu hình rule AWS Config để báo cáo việc tuân thủ bản vá.
 
-1. Open the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/) , in the left navigation pane, choose Patch Manager.
+1. Mở [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/), ở menu bên trái, chọn **Patch Manager**.
 
-2. Choose Configure patching. In the Instances to patch section, choose Select Instances Manually: Select the check box next to the name of each managed node you want to patch.
+2. Chọn **Configure patching**. Mục **Instances to patch**, chọn **Select Instances Manually**: Chọn tên của từng node được quản lý mà bạn muốn vá.
 
-3. In the Patching schedule section, choose:
+3. Mục **Patching schedule**, chọn:
 
-- Schedule in a new Maintenance Window and select a Maintenance Window schedule. Use a CRON schedule builder
-- Under Maintenance Window run frequency, change to Every Saturday at 12:00
-- Under Maintenance duration select 3
-- Under Maintenance window name write: NISTPatch or as desired
-- Under Patching Operation select Scan and install
-- Finally press configure patching
+- Chọn **Schedule in a new Maintenance Window** và chọn **Maintenance Window schedule**, sau đó chọn **CRON schedule builder**.
+- Mục **Maintenance Window run frequency**, chọn **Every Saturday at 12:00**.
+- Mục **Maintenance duration** nhập `3`.
+- Mục **Maintenance window name**, nhập `NISTPatch` hoặc tên bạn muốn.
+- Mục **Patching Operation**, chọn **Scan and install**.
+- Nhấn **configure patching**.
 
 ![FCJ_ws2](/images/2.scenario/1.png)
 
@@ -69,46 +69,46 @@ SSM agent has been installed and pre-configured for you. You are going to confir
 
 ![FCJ_ws2](/images/2.scenario/3.png)
 
-4. Now that you setup a patching schedule, click on Patch Now, to get current patching status
+4. Bây giờ bạn đã thiết lập lịch vá lỗi, hãy nhấp vào **Patch Now** để biết trạng thái vá lỗi hiện tại.
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/4.png)
 
-5. Leave default configuration to only Scan, and press Patch Now
+5. Để lại cấu hình mặc định **Scan**, và nhấn **Patch Now**.
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/5.png)
 
-6. Wait a moment for the operation to complete. You should see a Succeeded notification
+6. Đợi một lát để thao tác hoàn tất. Bạn sẽ thấy thông báo thành công.
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/6.png)
 
-7. To set up the detection mechanism go to [AWS Config](https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1#), click on Rules, and Add rule
+7. Để set up detection mechanism, truy cập [AWS Config](https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1#), Nhấn **Rules**, và **Add rule**.
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/7.png)
 
-8. Select an AWS Config Managed rule and find the one named: ec2-managedinstance-patch-compliance-status-check. Click Next
+8. Chọn **AWS Config Managed rule** và tìm: **`ec2-managedinstance-patch-compliance-status-check`**. Nhấn **Next**.
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/8.png)
 
-9. On the trigger type keep: all changes. Click Next.
+9. Mục **trigger type** giữ nguyên: **all changes**. Nhấn **Next**.
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/9.png)
 
-10. Review and confirm details. Click Add rule.
+10. Xem xét và xác nhận **Details**. Nhấn **Add rule**.
 
 ![FCJ_ws2](/images/2.scenario/10.png)
 
-11. Success notification should appear on the top.
+11. Thông báo thành công sẽ xuất hiện ở trên.
 
 ![FCJ_ws2](/images/2.scenario/11.png)
 
-12. Click on the rule name (ec2-managedinstance-patch-compliance-status-check).
+12. Nhấn rule **ec2-managedinstance-patch-compliance-status-check**.
 
-13. Click on Actions / Re-evaluate.
+13. Nhấn **Actions / Re-evaluate**.
 
-14. In the Resources in scop drop-down, select All.
+14. Mục **Resources** trong drop-down, chọn **All**.
 
-15. Confirm the Compliance status is Compliant.
+15. Xác nhận **Compliance status** là **Compliant**.
 
 ![FCJ_ws2](/images/2.scenario/12.png)
 
-**You have completed the first exercise. Please proceed to the next.**
+**Bạn đã hoàn thành bài tập đầu tiên. Hãy chuyển sang phần tiếp theo.**

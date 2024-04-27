@@ -71,27 +71,27 @@ SSM agent has been installed and pre-configured for you. You are going to confir
 
 4. Now that you setup a patching schedule, click on Patch Now, to get current patching status
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/4.png)
 
 5. Leave default configuration to only Scan, and press Patch Now
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/5.png)
 
 6. Wait a moment for the operation to complete. You should see a Succeeded notification
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/6.png)
 
 7. To set up the detection mechanism go to [AWS Config](https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1#), click on Rules, and Add rule
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/7.png)
 
 8. Select an AWS Config Managed rule and find the one named: ec2-managedinstance-patch-compliance-status-check. Click Next
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/8.png)
 
 9. On the trigger type keep: all changes. Click Next.
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/images/2.scenario/9.png)
 
 10. Review and confirm details. Click Add rule.
 

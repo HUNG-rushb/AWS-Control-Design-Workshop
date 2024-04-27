@@ -14,8 +14,8 @@ pre: " <b> 2.2 </b> "
 
 **Mục tiêu thực hành**:
 
-- Learn how to tag your [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/) as Restricted.
-- Modify an [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/) Customer Managed Key (CMK) policy to be more restrictive.
+- Thực hiện tag [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/) với Restricted.
+- Thay đổi [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/) Customer Managed Key (CMK) policy để trở nên chặt chẽ hơn.
 
 ### Bài tập
 
@@ -25,14 +25,14 @@ Nhóm Voyager Security đã cung cấp các biện pháp kiểm soát và yêu c
 
 **NIST yêu cầu**
 
-| Control ID |                                                                                                                            Control Description                                                                                                                            |
+| Control ID |                                                                                                                              Miêu tả control                                                                                                                              |
 | ---------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | SC-8(4)    |                                             Implement cryptographic mechanisms to conceal or randomize communication patterns unless otherwise protected by [Assignment: organization-defined alternative physical controls].                                             |
 | SC-12      | Establish and manage cryptographic keys when cryptography is employed within the system in accordance with the following key management requirements: [Assignment: organization-defined requirements for key generation, distribution, storage, access, and destruction]. |
 
 **Khách hàng yêu cầu**
 
-| Control ID         |                                                                             Control Description                                                                             |
+| Control ID         |                                                                               Miêu tả control                                                                               |
 | ------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | Voyager-ctrl-dp-02 |                             Storage resources including Databases shall be tagged with Data classification key (public, internal or restricted)                             |
 | Voyager-ctrl-dp-04 | Cryptographic key access policy to protect restricted data shall be limited to the authorized service and resource. Access to this key shall not be granted to individuals. |
@@ -47,7 +47,7 @@ Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đ�
 | AWS service user guide | [Amazon RDS user guide / Encrypting Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html)          | Amazon RDS uses an AWS KMS key to encrypt its resources. For an Amazon RDS encrypted DB instance, all logs, backups, and snapshots are encrypted.                                                                                                                                                                                                                                                                       |
 | AWS service user guide | [AWS KMS user guide / Permissions for AWS services in key policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-services.html) | AWS KMS key policy must allow the service the minimum permissions that it requires to protect the resource on your behalf. We recommend that you follow the principle of least privilege: give the service only the permissions that it requires. You can do this effectively by learning which permissions the service needs and using AWS global condition keys and AWS KMS condition keys to refine the permissions. |
 
-### Instructions
+### Hướng dẫn
 
 1. Open the [Amazon RDS console](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#)
 
