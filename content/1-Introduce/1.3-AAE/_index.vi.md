@@ -1,5 +1,5 @@
 ---
-title: "Attending AWS hosted event"
+title: "Có tham dự event của AWS"
 date: "`r Sys.Date()`"
 weight: 3
 chapter: false

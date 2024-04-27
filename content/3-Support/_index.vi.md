@@ -1,13 +1,13 @@
 ---
-title: "Support"
+title: "Hỗ trợ"
 date: "`r Sys.Date()`"
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-### Support
+### Hỗ trợ
 
 1.  [Troubleshooting](3.1-troubleshoot/)
-2.  [Cleanup](3.2-cleanup/)
-3.  [Resources](3.3-resources/)
+2.  [Dọn dẹp](3.2-cleanup/)
+3.  [Tham khảo](3.3-resources/)

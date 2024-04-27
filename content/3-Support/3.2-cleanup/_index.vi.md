@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3.2 </b> "
 ---
 
-### Clean Up
+### Dọn dẹp
 
 {{% notice note  %}}
 Nếu bạn đang sử dụng điều này trong phiên LED của người hướng dẫn, với AWS Event Engine, bạn không cần phải chạy các bước dọn dẹp.

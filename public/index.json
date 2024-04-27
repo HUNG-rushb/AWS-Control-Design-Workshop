@@ -4,7 +4,7 @@
 	"title": "Architecture",
 	"tags": [],
 	"description": "",
-	"content": "Architecture The architecture is a 3-Tier web app based on Amazon EC2 Auto Scaling group using Amazon RDS database instance as persistent application storage.\nBase Services The workshops uses the following services as the base infrastructure:\nAmazon Elastic Cloud Computing (EC2) Amazon Relational Database Service (RDS) Amazon Elastic Load Balancer (ELB) mazon Virtual Private Cloud (VPC) - Internet Gateway (IG) Control Services The workshops leverages the following services to implement our controls:\nAWS Key Management Service (KMS) AWS Identity and Access Management (IAM) AWS Systems Manager (SSM) - Patch Manager AWS Config Amazon CloudWatch Amazon Simple Notification Service (SNS) AWS Secrets Manager "
+	"content": "Architecture The architecture is a 3-Tier web app based on Amazon EC2 Auto Scaling group using Amazon RDS database instance as persistent application storage.\nBase Services The workshops uses the following services as the base infrastructure:\nAmazon Elastic Cloud Computing (EC2) Amazon Relational Database Service (RDS) Amazon Elastic Load Balancer (ELB) Amazon Virtual Private Cloud (VPC) - Internet Gateway (IG) Control Services The workshops leverages the following services to implement our controls:\nAWS Key Management Service (KMS) AWS Identity and Access Management (IAM) AWS Systems Manager (SSM) - Patch Manager AWS Config Amazon CloudWatch Amazon Simple Notification Service (SNS) AWS Secrets Manager "
 },
 {
 	"uri": "//localhost:1313/",

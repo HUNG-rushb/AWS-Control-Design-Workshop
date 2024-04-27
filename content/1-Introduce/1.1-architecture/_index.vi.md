@@ -19,7 +19,7 @@ Các workshop dụng các dịch vụ sau làm cơ sở hạ tầng cơ sở:
 - Amazon Elastic Cloud Computing (EC2)
 - Amazon Relational Database Service (RDS)
 - Amazon Elastic Load Balancer (ELB)
-- mazon Virtual Private Cloud (VPC) - Internet Gateway (IG)
+- Amazon Virtual Private Cloud (VPC) - Internet Gateway (IG)
 
 ### Dịch vụ quản lý
 
