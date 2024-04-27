@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo 2 bucket :: AWS System Manager</title>
+    <title>Kiến trúc :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1714038408" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1714038408" rel="stylesheet">
-    <link href="/css/hybrid.css?1714038408" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1714038408" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1714038408" rel="stylesheet">
-    <link href="/css/auto-complete.css?1714038408" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1714038408" rel="stylesheet">
-    <link href="/css/theme.css?1714038408" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1714038408" rel="stylesheet">
+    <link href="/css/nucleus.css?1714212913" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714212913" rel="stylesheet">
+    <link href="/css/hybrid.css?1714212913" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714212913" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714212913" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714212913" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714212913" rel="stylesheet">
+    <link href="/css/theme.css?1714212913" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714212913" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1714038408" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714212913" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1714038408"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714212913"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1714038408"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1714038408"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714212913"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714212913"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1714038408"></script>
+<script type="text/javascript" src="/js/search.js?1714212913"></script>
 
     
   </div>
@@ -111,13 +111,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
         parent
         
         
         ">
       <a href="/vi/1-introduce/">
-           <b> 1. </b> Giới thiệu
+           <b> 1. </b> Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -142,13 +142,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/1.1-architecture/" title="Tạo 2 bucket" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/1.1-architecture/" title="Kiến trúc" class="dd-item 
         
         active
         
         ">
       <a href="/vi/1-introduce/1.1-architecture/">
-           <b> 2.1 </b> Tạo 2 bucket
+           <b> 1.1 </b> Kiến trúc
           
             <i class="fas fa-check read-icon"></i>
           
@@ -170,13 +170,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/1.2-naae/" title="Tạo 2 bucket" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/1.2-naae/" title="Không tham dự event của AWS" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/1.2-naae/">
-           <b> 2.1 </b> Tạo 2 bucket
+           <b> 1.2 </b> Không tham dự event của AWS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -198,13 +198,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/1.3-aae/" title="Tạo 2 bucket" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/1.3-aae/" title="Attending AWS hosted event" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/1.3-aae/">
-           <b> 2.1 </b> Tạo 2 bucket
+           <b> 1.3 </b> Attending AWS hosted event
           
             <i class="fas fa-check read-icon"></i>
           
@@ -621,6 +621,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -635,7 +637,7 @@
             
           
           
-            <a href='/vi/'>AWS Control Design</a> > <a href='/vi/1-introduce/'>Giới thiệu</a> > Tạo 2 bucket
+            <a href='/vi/'>AWS Control Design</a> > <a href='/vi/1-introduce/'>Giới thiệu</a> > Kiến trúc
           
         
           
@@ -646,6 +648,23 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#kiến-trúc">Kiến trúc</a></li>
+        <li><a href="#các-dịch-vụ-nền-tảng">Các dịch vụ nền tảng</a></li>
+        <li><a href="#dịch-vụ-quản-lý">Dịch vụ quản lý</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -653,55 +672,39 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Kiến trúc
+            </h1>
           
 
         
 
 
 
-	<h3 id="tạo-2-bucket">Tạo 2 bucket</h3>
-<ol>
-<li>
-<p>Truy cập vào <strong>AWS Management Console</strong>, tìm <strong>S3</strong> và chọn <strong>S3</strong>.</p>
-</li>
-<li>
-<p>Trong giao diện <strong>S3</strong>, chọn <strong>Create bucket</strong>.</p>
-</li>
-<li>
-<p>Trong giao diện create bucket:</p>
-</li>
-</ol>
+	<h3 id="kiến-trúc">Kiến trúc</h3>
+<p>Kiến trúc này là một ứng dụng web 3 tầng dựa trên nhóm <a href="https://aws.amazon.com/pt/ec2/autoscaling/">Amazon EC2 Auto Scaling</a> sử dụng [cơ sở dữ liệu Amazon RDS](<a href="https://aws.amazon">https://aws.amazon</a> .com/rds/) làm bộ lưu trữ ứng dụng liên tục.</p>
+<p><img alt="FCJ_ws2" src="/images/1.introduce/1.png"></p>
+<h3 id="các-dịch-vụ-nền-tảng">Các dịch vụ nền tảng</h3>
+<p>Các workshop dụng các dịch vụ sau làm cơ sở hạ tầng cơ sở:</p>
 <ul>
-<li>Mục <strong>AWS Region</strong>, chọn <strong>Asia Pacific (Singapore) ap-southeast-1</strong>.</li>
-<li>Mục <strong>Bucket name</strong>, nhập <strong><code>logging-workshop</code></strong>.</li>
+<li>Amazon Elastic Cloud Computing (EC2)</li>
+<li>Amazon Relational Database Service (RDS)</li>
+<li>Amazon Elastic Load Balancer (ELB)</li>
+<li>mazon Virtual Private Cloud (VPC) - Internet Gateway (IG)</li>
 </ul>
-<ol start="4">
-<li>Tiếp tục:</li>
-</ol>
+<h3 id="dịch-vụ-quản-lý">Dịch vụ quản lý</h3>
+<p>Các workshop tận dụng các dịch vụ sau để thực hiện các biện pháp kiểm soát của chúng tôi:</p>
 <ul>
-<li>Mục <strong>Block Public Access settings for this bucket</strong>, bỏ chọn <strong>Block all public access</strong>.</li>
-<li>Mục <strong>Turning off block all public access might result in this bucket and the objects within becoming public</strong>, xác nhận mục này.</li>
-</ul>
-<ol start="5">
-<li>
-<p>Kéo xuống dưới cùng, chọn <strong>Create bucket</strong>.</p>
-</li>
-<li>
-<p>Xác nhận bucket đã được tạo thành công.</p>
-</li>
-<li>
-<p>Tiếp tục tạo bucket <strong>logging-workshop-destination</strong></p>
-</li>
-</ol>
-<ul>
-<li>Mục <strong>AWS Region</strong>, chọn <strong>Asia Pacific (Singapore) ap-southeast-1</strong>.</li>
-<li>Mục <strong>Bucket name</strong>, nhập <strong><code>logging-workshop-destination</code></strong>.</li>
-<li>Không cần bỏ chọn mục <strong>Block Public Access settings for this bucket</strong>.</li>
-<li>Kéo xuống dưới cùng, chọn <strong>Create bucket</strong>.</li>
-<li>Xác nhận bucket đã được tạo thành công.</li>
+<li>AWS Key Management Service (KMS)</li>
+<li>AWS Identity and Access Management (IAM)</li>
+<li>AWS Systems Manager (SSM) - Patch Manager</li>
+<li>AWS Config</li>
+<li>Amazon CloudWatch</li>
+<li>Amazon Simple Notification Service (SNS)</li>
+<li>AWS Secrets Manager</li>
 </ul>
 
 
@@ -712,8 +715,6 @@
 	
 </footer>
 
-        
-            </div> 
         
         </div> 
         
@@ -968,10 +969,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/1-introduce/" title="Giới thiệu"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/1-introduce/" title="Giới thiệu"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/1-introduce/1.2-naae/" title="Tạo 2 bucket" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/1-introduce/1.2-naae/" title="Không tham dự event của AWS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -981,19 +982,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1714038408"></script>
-    <script src="/js/perfect-scrollbar.min.js?1714038408"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1714038408"></script>
-    <script src="/js/jquery.sticky.js?1714038408"></script>
-    <script src="/js/featherlight.min.js?1714038408"></script>
-    <script src="/js/highlight.pack.js?1714038408"></script>
+    <script src="/js/clipboard.min.js?1714212913"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714212913"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714212913"></script>
+    <script src="/js/jquery.sticky.js?1714212913"></script>
+    <script src="/js/featherlight.min.js?1714212913"></script>
+    <script src="/js/highlight.pack.js?1714212913"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1714038408"></script>
-    <script src="/js/learn.js?1714038408"></script>
-    <script src="/js/hugo-learn.js?1714038408"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714212913"></script>
+    <script src="/js/learn.js?1714212913"></script>
+    <script src="/js/hugo-learn.js?1714212913"></script>
 
-    <link href="/mermaid/mermaid.css?1714038408" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1714038408"></script>
+    <link href="/mermaid/mermaid.css?1714212913" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714212913"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

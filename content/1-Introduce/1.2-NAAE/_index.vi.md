@@ -1,35 +1,45 @@
 ---
-title: "Tạo 2 bucket"
+title: "Không tham dự event của AWS"
 date: "`r Sys.Date()`"
-weight: 1
-chapter: true
-pre: " <b> 2.1 </b> "
+weight: 2
+chapter: false
+pre: " <b> 1.2 </b> "
 ---
 
-### Tạo 2 bucket
+### Không tham dự event của AWS
 
-1. Truy cập vào **AWS Management Console**, tìm **S3** và chọn **S3**.
+{{% notice info %}}
+Nếu bạn đang tham dự một sự kiện do AWS tổ chức, bạn có thể ngừng đọc phần tiếp tục với bước tiếp theo bằng cách sử dụng các tài khoản được cung cấp.
+{{% /notice %}}
 
-2. Trong giao diện **S3**, chọn **Create bucket**.
+1. Tải xuống (chuột phải và nhấn Save link as...) [CloudFormation template cho kiến trúc cơ bản](https://static.us-east-1.prod.workshops.aws/public/7609f68d-8f02-45f1-ac24-da0e810d440f/static/architecture.json) cần cho workshop này.
 
-3. Trong giao diện create bucket:
+2. Sử dụng tài khoản thử nghiệm của riêng bạn (vui lòng không sử dụng tài khoản product) đi tới [CloudFormation console](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=control-design)
 
-- Mục **AWS Region**, chọn **Asia Pacific (Singapore) ap-southeast-1**.
-- Mục **Bucket name**, nhập **`logging-workshop`**.
+3. Nhấn vào **create stack**, sau đó **With new resources (standard)**
 
-4. Tiếp tục:
+![FCJ_ws2](/images/1.introduce/2.png)
 
-- Mục **Block Public Access settings for this bucket**, bỏ chọn **Block all public access**.
-- Mục **Turning off block all public access might result in this bucket and the objects within becoming public**, xác nhận mục này.
+4. Nhập Stack name `control-design`. Nhấn Next
 
-5. Kéo xuống dưới cùng, chọn **Create bucket**.
+![FCJ_ws2](/images/1.introduce/4.png)
 
-6. Xác nhận bucket đã được tạo thành công.
+5. Sử dụng **default stack options**. Nhấn Next
 
-7. Tiếp tục tạo bucket **logging-workshop-destination**
+![FCJ_ws2](/images/1.introduce/3.png)
 
-- Mục **AWS Region**, chọn **Asia Pacific (Singapore) ap-southeast-1**.
-- Mục **Bucket name**, nhập **`logging-workshop-destination`**.
-- Không cần bỏ chọn mục **Block Public Access settings for this bucket**.
-- Kéo xuống dưới cùng, chọn **Create bucket**.
-- Xác nhận bucket đã được tạo thành công.
+6. Kiểm tra lại **Details**
+
+![FCJ_ws2](/images/1.introduce/5.png)
+
+7. Nhấn **"I acknowledge..."** checkbox. Nhấn **Create stack**
+
+![FCJ_ws2](/images/1.introduce/6.png)
+
+8. Đợi tất cả các tài nguyên Khởi tạo. Nếu bất kỳ lỗi nào xuất hiện, hãy tham khảo phần **Hỗ trợ/Troubleshooting**.
+
+![FCJ_ws2](/images/1.introduce/7.png)
+
+{{% notice info %}}
+Khi bạn hoàn thành workshop này, hãy đến phần **Hỗ trợ/Dọn dẹp**, để giảm chi phí phát sinh.
+{{% /notice %}}

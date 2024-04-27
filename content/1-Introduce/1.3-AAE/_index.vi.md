@@ -1,35 +1,50 @@
 ---
-title: "Tạo 2 bucket"
+title: "Attending AWS hosted event"
 date: "`r Sys.Date()`"
-weight: 1
-chapter: true
-pre: " <b> 2.1 </b> "
+weight: 3
+chapter: false
+pre: " <b> 1.3 </b> "
 ---
 
-### Tạo 2 bucket
+{{% notice info %}}
+Nếu bạn **không** tham dự một sự kiện AWS, bạn có thể ngừng đọc tiếp tục với bước tiếp theo bằng tài khoản của riêng bạn.
+{{% /notice %}}
 
-1. Truy cập vào **AWS Management Console**, tìm **S3** và chọn **S3**.
+Nếu bạn đang tham dự một sự kiện được lưu trữ AWS, bạn sẽ được cung cấp tài khoản AWS thông qua Dịch vụ **AWS Event Engine**. Một team hash sẽ được cung cấp cho bạn bởi nhân viên sự kiện.
 
-2. Trong giao diện **S3**, chọn **Create bucket**.
+{{% notice note %}}
+Nếu bạn hiện đang đăng nhập vào tài khoản AWS, bạn nên [log out](https://console.aws.amazon.com/console/logout!dologout) hoặc mở cửa sổ Ẩn danh trong trình duyệt của bạn
+{{% /notice %}}
 
-3. Trong giao diện create bucket:
+### Đăng nhập vào Event Engine Dashboard
 
-- Mục **AWS Region**, chọn **Asia Pacific (Singapore) ap-southeast-1**.
-- Mục **Bucket name**, nhập **`logging-workshop`**.
+1. Truy cập [ https://dashboard.eventengine.run/](https://dashboard.eventengine.run/). Màn hình sau đây hiển thị. Nhập hash được cung cấp. Sau đó nhấn **Accept Terms & Login**
 
-4. Tiếp tục:
+![FCJ_ws2](/images/1.introduce/8.png)
 
-- Mục **Block Public Access settings for this bucket**, bỏ chọn **Block all public access**.
-- Mục **Turning off block all public access might result in this bucket and the objects within becoming public**, xác nhận mục này.
+2. Chọn **OTP (Email One-Time Password)**. Nhập email cá nhân hoặc công ty của bạn để nhận mật khẩu một lần.
 
-5. Kéo xuống dưới cùng, chọn **Create bucket**.
+![FCJ_ws2](/images/1.introduce/9.png)
 
-6. Xác nhận bucket đã được tạo thành công.
+3. Nhập email cá nhân hoặc công ty của bạn để nhận mật khẩu một lần.
+4. ![FCJ_ws2](/images/1.introduce/10.png)
 
-7. Tiếp tục tạo bucket **logging-workshop-destination**
+5. Copy mật mã được gửi vào email của bạn, dán vào console và Nhấn **Sign In**.
 
-- Mục **AWS Region**, chọn **Asia Pacific (Singapore) ap-southeast-1**.
-- Mục **Bucket name**, nhập **`logging-workshop-destination`**.
-- Không cần bỏ chọn mục **Block Public Access settings for this bucket**.
-- Kéo xuống dưới cùng, chọn **Create bucket**.
-- Xác nhận bucket đã được tạo thành công.
+![FCJ_ws2](/images/1.introduce/11.png)
+
+5. Nhấn **AWS Console**.
+
+![FCJ_ws2](/images/1.introduce/12.png)
+
+6. Nhấn **Open AWS Console**.
+
+![FCJ_ws2](/images/1.introduce/13.png)
+
+7. Sử dụng một region duy nhất trong suốt workshop này. Chọn **US East (N.Virginia)** ở góc phải phía trên.
+
+![FCJ_ws2](/images/1.introduce/14.png)
+
+{{% notice info %}}
+Khi bạn hoàn thành workshop này, hãy đến phần **Hỗ trợ/Dọn dẹp**, để giảm chi phí phát sinh.
+{{% /notice %}}

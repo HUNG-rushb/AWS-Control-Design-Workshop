@@ -12,21 +12,21 @@
     <title>AWS Control Design :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1714038408" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1714038408" rel="stylesheet">
-    <link href="/css/hybrid.css?1714038408" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1714038408" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1714038408" rel="stylesheet">
-    <link href="/css/auto-complete.css?1714038408" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1714038408" rel="stylesheet">
-    <link href="/css/theme.css?1714038408" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1714038408" rel="stylesheet">
+    <link href="/css/nucleus.css?1714212913" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714212913" rel="stylesheet">
+    <link href="/css/hybrid.css?1714212913" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714212913" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714212913" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714212913" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714212913" rel="stylesheet">
+    <link href="/css/theme.css?1714212913" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714212913" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1714038408" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714212913" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1714038408"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714212913"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1714038408"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1714038408"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714212913"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714212913"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1714038408"></script>
+<script type="text/javascript" src="/js/search.js?1714212913"></script>
 
     
   </div>
@@ -111,13 +111,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/">
-           <b> 1. </b> Giới thiệu
+           <b> 1. </b> Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -142,13 +142,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/1.1-architecture/" title="Tạo 2 bucket" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/1.1-architecture/" title="Kiến trúc" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/1.1-architecture/">
-           <b> 2.1 </b> Tạo 2 bucket
+           <b> 1.1 </b> Kiến trúc
           
             <i class="fas fa-check read-icon"></i>
           
@@ -170,13 +170,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/1.2-naae/" title="Tạo 2 bucket" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/1.2-naae/" title="Không tham dự event của AWS" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/1.2-naae/">
-           <b> 2.1 </b> Tạo 2 bucket
+           <b> 1.2 </b> Không tham dự event của AWS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -198,13 +198,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/1.3-aae/" title="Tạo 2 bucket" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/1.3-aae/" title="Attending AWS hosted event" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/1.3-aae/">
-           <b> 2.1 </b> Tạo 2 bucket
+           <b> 1.3 </b> Attending AWS hosted event
           
             <i class="fas fa-check read-icon"></i>
           
@@ -624,11 +624,15 @@
 </span>
 
  
-<h1 id="triển-khai-bluegreen-pipeline-trên-nền-tảng-aws">Triển khai Blue/Green pipeline trên nền tảng AWS</h1>
-<h3 id="tổng-quan">Tổng quan</h3>
-<p>Trong workshop này, chúng ta sẽ cùng nhau xây dựng một CD pipeline sử dụng <strong>AWS CodePipeline</strong>.</p>
-<p><img alt="FCJ_ws2" src="/images/1.introduce/1.png"></p>
-<p><strong>AWS CodePipeline</strong> là dịch vụ continuous delivery mà bạn có thể sử dụng để lập mô hình, trực quan hóa và tự động hóa các bước cần thiết để deploy phần mềm của mình. Bạn có thể nhanh chóng thiết lập mô hình, xác định cấu hình các giai đoạn khác nhau của quy trình phát hành phần mềm. <strong>CodePipeline</strong> tự động hóa các bước cần thiết để liên tục deploy các thay đổi phần mềm.</p>
+<h1 id="workshop-control-design">Workshop Control Design</h1>
+<p>Trong workshop này, bạn sẽ trải nghiệm quy trình xác định, thiết kế và triển khai các cấu hình bảo mật, rào chắn phát hiện và phòng ngừa để đáp ứng các yêu cầu kiểm soát tùy chỉnh của bạn. Bạn sẽ được sử dụng môi trường AWS 3 Tier dựng sẵn với Phiên bản EC2 và RDS. Bạn sẽ sử dụng một tình huống chính về khách hàng và 4 bài tập về khách hàng để xác định hồ sơ của họ và các câu chuyện của người dùng dịch vụ cụ thể nhằm xác định nhu cầu kiểm soát bảo mật của họ. Đối với mỗi kịch bản, bạn sẽ có thể chọn cấu hình và cơ chế giám sát kiểm soát phù hợp cho từng cấp độ. Mục tiêu của hội thảo này là thực hành thiết kế và triển khai các cấu hình bảo mật và biện pháp bảo vệ đáp ứng nhu cầu tùy chỉnh ngoài các biện pháp thực hành tốt nhất của AWS.</p>
+<ul>
+<li><strong>Đối tượng</strong>: Security Governance, Risk and Compliance</li>
+<li><strong>Level</strong>: 300 - Advanced - Sessions dive deeper into the selected topic.</li>
+<li><strong>Người hướng dẫn</strong> giả sử rằng người đọc đã quen thuộc với chủ đề này, nhưng có thể hoặc không có kinh nghiệm trực tiếp khi thực hiện một giải pháp tương tự.</li>
+<li><strong>Duration</strong> 120 phút</li>
+<li><strong>Điều kiện</strong>: AWS Account, Admin IAM User/Role.</li>
+</ul>
 <p>Authors:</p>
 <ul>
 <li><strong>Pablo Pagani</strong> - Security Practice Manager, ProServe LatAm</li>
@@ -636,15 +640,11 @@
 <li><strong>Andrea Di Fabio</strong> - Security Assurance Consultant</li>
 <li><strong>Issa Basza</strong> - Security Assurance Consultant</li>
 </ul>
-<h3 id="nội-dung">Nội dung</h3>
+<h3 id="content">Content</h3>
 <ol>
-<li><a href="/vi/1-introduce/">Giới thiệu</a></li>
-<li><a href="2-Prerequiste/">Các bước chuẩn bị</a></li>
-<li><a href="3-codecommit/">AWS CodeCommit</a></li>
-<li><a href="4-codebuild/">AWS CodeBuild</a></li>
-<li><a href="5-codedeploy/">AWS CodeDeploy và AWS ECS</a></li>
-<li><a href="6-codepipeline/">AWS CodePipeline</a></li>
-<li><a href="7-cleanup/">Dọn dẹp tài nguyên</a></li>
+<li><a href="/vi/1-introduce/">Giới thiệu</a></li>
+<li><a href="/vi/2-scenario/">Các tình huống</a></li>
+<li><a href="/vi/3-support/">Hỗ trợ</a></li>
 </ol>
 	
   
@@ -901,7 +901,7 @@
 	 
 		
 		
-			<a class="nav nav-next" href="/vi/1-introduce/" title="Giới thiệu" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/1-introduce/" title="Giới thiệu" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -911,19 +911,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1714038408"></script>
-    <script src="/js/perfect-scrollbar.min.js?1714038408"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1714038408"></script>
-    <script src="/js/jquery.sticky.js?1714038408"></script>
-    <script src="/js/featherlight.min.js?1714038408"></script>
-    <script src="/js/highlight.pack.js?1714038408"></script>
+    <script src="/js/clipboard.min.js?1714212913"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714212913"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714212913"></script>
+    <script src="/js/jquery.sticky.js?1714212913"></script>
+    <script src="/js/featherlight.min.js?1714212913"></script>
+    <script src="/js/highlight.pack.js?1714212913"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1714038408"></script>
-    <script src="/js/learn.js?1714038408"></script>
-    <script src="/js/hugo-learn.js?1714038408"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714212913"></script>
+    <script src="/js/learn.js?1714212913"></script>
+    <script src="/js/hugo-learn.js?1714212913"></script>
 
-    <link href="/mermaid/mermaid.css?1714038408" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1714038408"></script>
+    <link href="/mermaid/mermaid.css?1714212913" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714212913"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

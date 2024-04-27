@@ -1,35 +1,34 @@
 ---
-title: "Tạo 2 bucket"
+title: "Kiến trúc"
 date: "`r Sys.Date()`"
 weight: 1
-chapter: true
-pre: " <b> 2.1 </b> "
+chapter: false
+pre: " <b> 1.1 </b> "
 ---
 
-### Tạo 2 bucket
+### Kiến trúc
 
-1. Truy cập vào **AWS Management Console**, tìm **S3** và chọn **S3**.
+Kiến trúc này là một ứng dụng web 3 tầng dựa trên nhóm [Amazon EC2 Auto Scaling](https://aws.amazon.com/pt/ec2/autoscaling/) sử dụng [cơ sở dữ liệu Amazon RDS](https://aws.amazon .com/rds/) làm bộ lưu trữ ứng dụng liên tục.
 
-2. Trong giao diện **S3**, chọn **Create bucket**.
+![FCJ_ws2](/images/1.introduce/1.png)
 
-3. Trong giao diện create bucket:
+### Các dịch vụ nền tảng
 
-- Mục **AWS Region**, chọn **Asia Pacific (Singapore) ap-southeast-1**.
-- Mục **Bucket name**, nhập **`logging-workshop`**.
+Các workshop dụng các dịch vụ sau làm cơ sở hạ tầng cơ sở:
 
-4. Tiếp tục:
+- Amazon Elastic Cloud Computing (EC2)
+- Amazon Relational Database Service (RDS)
+- Amazon Elastic Load Balancer (ELB)
+- mazon Virtual Private Cloud (VPC) - Internet Gateway (IG)
 
-- Mục **Block Public Access settings for this bucket**, bỏ chọn **Block all public access**.
-- Mục **Turning off block all public access might result in this bucket and the objects within becoming public**, xác nhận mục này.
+### Dịch vụ quản lý
 
-5. Kéo xuống dưới cùng, chọn **Create bucket**.
+Các workshop tận dụng các dịch vụ sau để thực hiện các biện pháp kiểm soát của chúng tôi:
 
-6. Xác nhận bucket đã được tạo thành công.
-
-7. Tiếp tục tạo bucket **logging-workshop-destination**
-
-- Mục **AWS Region**, chọn **Asia Pacific (Singapore) ap-southeast-1**.
-- Mục **Bucket name**, nhập **`logging-workshop-destination`**.
-- Không cần bỏ chọn mục **Block Public Access settings for this bucket**.
-- Kéo xuống dưới cùng, chọn **Create bucket**.
-- Xác nhận bucket đã được tạo thành công.
+- AWS Key Management Service (KMS)
+- AWS Identity and Access Management (IAM)
+- AWS Systems Manager (SSM) - Patch Manager
+- AWS Config
+- Amazon CloudWatch
+- Amazon Simple Notification Service (SNS)
+- AWS Secrets Manager

@@ -18,7 +18,7 @@ If you are currently logged in to an AWS Account, you should [log out](https://c
 
 ### Logging into Event Engine Dashboard
 
-1. Connect to the portal by clicking the button or browsing to[ https://dashboard.eventengine.run/](https://dashboard.eventengine.run/). The following screen shows up. Enter the provided hash in the text box. The button in the bottom right corner changes to Accept Terms & Login. Click on that button to continue.
+1. Connect to the portal by clicking the button or browsing to [https://dashboard.eventengine.run/](https://dashboard.eventengine.run/). The following screen shows up. Enter the provided hash in the text box. The button in the bottom right corner changes to Accept Terms & Login. Click on that button to continue.
 
 ![FCJ_ws2](/images/1.introduce/8.png)
 
