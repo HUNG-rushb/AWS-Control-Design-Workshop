@@ -1,5 +1,5 @@
-baseURL="https://github.com/HUNG-rushb/AWS-Control-Design-Workshop"
-BaseURL="https://github.com/HUNG-rushb/AWS-Control-Design-Workshop"
+baseURL="https://hung-rushb.github.io/AWS-Control-Design-Workshop"
+BaseURL="https://hung-rushb.github.io/AWS-Control-Design-Workshop"
 
 
 # Change the default theme to be use when building the site with Hugo
