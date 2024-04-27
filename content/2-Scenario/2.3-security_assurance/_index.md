@@ -117,7 +117,7 @@ CloudWatch agent is pre-installed and configured to collect the logs in all the 
 
 ![FCJ_ws2](/images/2.scenario/122.png)
 
-14. Go back to [CloudWatch console](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#) on the left under Metrics, click All Metrics, and under Custom namespaces, click Audit and then Metrics with no dimensions.
+14. Go back to [CloudWatch console](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#). On the left under Metrics, click All Metrics, and under Custom namespaces, click Audit and then Metrics with no dimensions.
 
 ![FCJ_ws2](/images/2.scenario/123.png)
 
