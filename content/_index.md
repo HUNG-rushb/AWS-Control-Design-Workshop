@@ -22,6 +22,8 @@ Authors:
 - **Andrea Di Fabio** - Security Assurance Consultant
 - **Issa Basza** - Security Assurance Consultant
 
+[Original workshop](https://catalog.workshops.aws/control-design/en-US)
+
 ### Content
 
 1.  [Introduction](1-Introduce/)

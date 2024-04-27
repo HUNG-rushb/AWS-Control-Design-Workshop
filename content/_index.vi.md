@@ -22,6 +22,8 @@ Các tác giả:
 - **Andrea Di Fabio** - Security Assurance Consultant
 - **Issa Basza** - Security Assurance Consultant
 
+[Workshop gốc](https://catalog.workshops.aws/control-design/en-US)
+
 ### Nội dung
 
 1.  [Giới thiệu](1-Introduce/)
