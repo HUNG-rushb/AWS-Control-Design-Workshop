@@ -20,30 +20,32 @@ Nếu bạn hiện đang đăng nhập vào tài khoản AWS, bạn nên [log ou
 
 1. Truy cập [ https://dashboard.eventengine.run/](https://dashboard.eventengine.run/). Màn hình sau đây hiển thị. Nhập hash được cung cấp. Sau đó nhấn **Accept Terms & Login**
 
-![FCJ_ws2](/images/1.introduce/8.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/8.png)
 
 2. Chọn **OTP (Email One-Time Password)**. Nhập email cá nhân hoặc công ty của bạn để nhận mật khẩu một lần.
 
-![FCJ_ws2](/images/1.introduce/9.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/9.png)
 
 3. Nhập email cá nhân hoặc công ty của bạn để nhận mật khẩu một lần.
-4. ![FCJ_ws2](/images/1.introduce/10.png)
+4. Copy và nhập passcode từ email và nhấn **Sign In**.
+
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/10.png)
 
 5. Copy mật mã được gửi vào email của bạn, dán vào console và Nhấn **Sign In**.
 
-![FCJ_ws2](/images/1.introduce/11.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/11.png)
 
 5. Nhấn **AWS Console**.
 
-![FCJ_ws2](/images/1.introduce/12.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/12.png)
 
 6. Nhấn **Open AWS Console**.
 
-![FCJ_ws2](/images/1.introduce/13.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/13.png)
 
 7. Sử dụng một region duy nhất trong suốt workshop này. Chọn **US East (N.Virginia)** ở góc phải phía trên.
 
-![FCJ_ws2](/images/1.introduce/14.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/14.png)
 
 {{% notice info %}}
 Khi bạn hoàn thành workshop này, hãy đến phần **Hỗ trợ/Dọn dẹp**, để giảm chi phí phát sinh.

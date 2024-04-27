@@ -18,27 +18,27 @@ Nếu bạn đang tham dự một sự kiện do AWS tổ chức, bạn có th�
 
 3. Nhấn vào **create stack**, sau đó **With new resources (standard)**
 
-![FCJ_ws2](/images/1.introduce/2.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/2.png)
 
 4. Nhập Stack name `control-design`. Nhấn Next
 
-![FCJ_ws2](/images/1.introduce/4.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/4.png)
 
 5. Sử dụng **default stack options**. Nhấn Next
 
-![FCJ_ws2](/images/1.introduce/3.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/3.png)
 
 6. Kiểm tra lại **Details**
 
-![FCJ_ws2](/images/1.introduce/5.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/5.png)
 
 7. Nhấn **"I acknowledge..."** checkbox. Nhấn **Create stack**
 
-![FCJ_ws2](/images/1.introduce/6.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/6.png)
 
 8. Đợi tất cả các tài nguyên Khởi tạo. Nếu bất kỳ lỗi nào xuất hiện, hãy tham khảo phần **Hỗ trợ/Troubleshooting**.
 
-![FCJ_ws2](/images/1.introduce/7.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/7.png)
 
 {{% notice info %}}
 Khi bạn hoàn thành workshop này, hãy đến phần **Hỗ trợ/Dọn dẹp**, để giảm chi phí phát sinh.

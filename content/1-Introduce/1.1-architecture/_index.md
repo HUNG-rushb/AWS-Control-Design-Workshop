@@ -10,7 +10,7 @@ pre: " <b> 1.1 </b> "
 
 The architecture is a 3-Tier web app based on [Amazon EC2 Auto Scaling](https://aws.amazon.com/pt/ec2/autoscaling/) group using [Amazon RDS database](https://aws.amazon.com/rds/) instance as persistent application storage.
 
-![FCJ_ws2](/images/1.introduce/1.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/1.png)
 
 ### Base Services
 

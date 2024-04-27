@@ -63,43 +63,43 @@ Agent SSM đã được cài đặt và cấu hình sẵn cho bạn. Bạn sẽ 
 - Mục **Patching Operation**, chọn **Scan and install**.
 - Nhấn **configure patching**.
 
-![FCJ_ws2](/images/2.scenario/1.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/1.png)
 
-![FCJ_ws2](/images/2.scenario/2.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/2.png)
 
-![FCJ_ws2](/images/2.scenario/3.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/3.png)
 
 4. Bây giờ bạn đã thiết lập lịch vá lỗi, hãy nhấp vào **Patch Now** để biết trạng thái vá lỗi hiện tại.
 
-![FCJ_ws2](/images/2.scenario/4.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/4.png)
 
 5. Để lại cấu hình mặc định **Scan**, và nhấn **Patch Now**.
 
-![FCJ_ws2](/images/2.scenario/5.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/5.png)
 
 6. Đợi một lát để thao tác hoàn tất. Bạn sẽ thấy thông báo thành công.
 
-![FCJ_ws2](/images/2.scenario/6.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/6.png)
 
 7. Để set up detection mechanism, truy cập [AWS Config](https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1#), Nhấn **Rules**, và **Add rule**.
 
-![FCJ_ws2](/images/2.scenario/7.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/7.png)
 
 8. Chọn **AWS Config Managed rule** và tìm: **`ec2-managedinstance-patch-compliance-status-check`**. Nhấn **Next**.
 
-![FCJ_ws2](/images/2.scenario/8.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/8.png)
 
 9. Mục **trigger type** giữ nguyên: **all changes**. Nhấn **Next**.
 
-![FCJ_ws2](/images/2.scenario/9.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/9.png)
 
 10. Xem xét và xác nhận **Details**. Nhấn **Add rule**.
 
-![FCJ_ws2](/images/2.scenario/10.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/10.png)
 
 11. Thông báo thành công sẽ xuất hiện ở trên.
 
-![FCJ_ws2](/images/2.scenario/11.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/11.png)
 
 12. Nhấn rule **ec2-managedinstance-patch-compliance-status-check**.
 
@@ -109,6 +109,6 @@ Agent SSM đã được cài đặt và cấu hình sẵn cho bạn. Bạn sẽ 
 
 15. Xác nhận **Compliance status** là **Compliant**.
 
-![FCJ_ws2](/images/2.scenario/12.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/12.png)
 
 **Bạn đã hoàn thành bài tập đầu tiên. Hãy chuyển sang phần tiếp theo.**

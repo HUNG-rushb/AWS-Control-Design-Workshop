@@ -10,7 +10,7 @@ pre: " <b> 1.1 </b> "
 
 Kiến trúc này là một ứng dụng web 3 tầng dựa trên nhóm [Amazon EC2 Auto Scaling](https://aws.amazon.com/pt/ec2/autoscaling/) sử dụng [cơ sở dữ liệu Amazon RDS](https://aws.amazon .com/rds/) làm bộ lưu trữ ứng dụng liên tục.
 
-![FCJ_ws2](/images/1.introduce/1.png)
+![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/1.png)
 
 ### Các dịch vụ nền tảng
 
