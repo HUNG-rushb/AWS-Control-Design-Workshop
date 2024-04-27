@@ -25,26 +25,26 @@ Nhóm Voyager Security đã cung cấp các biện pháp kiểm soát và yêu c
 
 **NIST yêu cầu**
 
-| Control ID |                                                                                                     Miêu tả control                                                                                                     |
-| ---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| AC-4(21)   | Separate information flows logically or physically using [Assignment: organization-defined mechanisms and/or techniques] to accomplish [Assignment: organization-defined required separations by types of information]. |
-| AC-3       |                                      Enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.                                      |
+| Control ID |                                                                                                     Miêu tả control                                                                                                      |
+| ---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| AC-4(21)   | Phân tách các luồng thông tin một cách logic hoặc vật lý bằng cách sử dụng [Nhiệm vụ: cơ chế và/hoặc kỹ thuật do tổ chức xác định] để hoàn thành [Nhiệm vụ: phân tách bắt buộc do tổ chức xác định theo loại thông tin]. |
+| AC-3       |                                    Thực thi các ủy quyền đã được phê duyệt để truy cập hợp lý vào thông tin và tài nguyên hệ thống theo các chính sách kiểm soát truy cập hiện hành.                                     |
 
 **Khách hàng yêu cầu**
 
-| Control ID          |                                                     Miêu tả control                                                     |
-| ------------------- | :---------------------------------------------------------------------------------------------------------------------: |
-| Voyager-ctrl-net-05 | Developers must be restricted to make changes on VPC resources that could expose the network to unauthorized resources. |
+| Control ID          |                                                          Miêu tả control                                                          |
+| ------------------- | :-------------------------------------------------------------------------------------------------------------------------------: |
+| Voyager-ctrl-net-05 | Nhà phát triển phải bị hạn chế thực hiện các thay đổi đối với tài nguyên VPC có thể khiến mạng tiếp cận các tài nguyên trái phép. |
 
 **AWS đánh giá tài nguyên**
 
 Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đến kết luận những gì cần phải làm để đáp ứng các yêu cầu kiểm soát của Voyager. Xem phần kết luận bên dưới.
 
-| Loại                    |                                                                                 Tên                                                                                  |                                                                                                              Kết luận                                                                                                               |
-| ----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| AWS service IAM actions |                              [Amazon VPC actions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html)                               |                                    You can use AWS Systems Manager Patch Manager to automate the process of installing security-related updates for both the operating system and applications.                                     |
-| AWS service user guide  |                       [AWS Config / Managed rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html)                        |                                                            There isn’t a managed AWS config rule available to detect traffic mirror so we need to build a custom check.                                                             |
-| AWS Service user guide  | [AWS Config / Creating AWS Config custom Lambda rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules_lambda-functions.html) | You can develop custom rules and add them to AWS Config with AWS Lambda functions. You associate each custom rule with an Lambda function, which contains the logic that evaluates whether your AWS resources comply with the rule. |
+| Loại                    |                                                                                 Tên                                                                                  |                                                                                                                      Kết luận                                                                                                                       |
+| ----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| AWS service IAM actions |                              [Amazon VPC actions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html)                               |                                               Sử dụng **AWS Systems Manager Patch Manager** để tự động hóa quá trình cài đặt các bản cập nhật liên quan đến bảo mật cho cả hệ điều hành và ứng dụng.                                                |
+| AWS service user guide  |                       [AWS Config / Managed rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html)                        |                                                              Không có sẵn quy tắc cấu hình AWS để phát hiện traffic mirror nên chúng ta cần xây dựng một quy trình kiểm tra tùy chỉnh.                                                              |
+| AWS Service user guide  | [AWS Config / Creating AWS Config custom Lambda rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules_lambda-functions.html) | Bạn có thể phát triển các quy tắc tùy chỉnh và thêm chúng vào **AWS Config** bằng các hàm **AWS Lambda**. Bạn liên kết từng quy tắc tùy chỉnh với hàm Lambda, hàm này chứa logic đánh giá xem tài nguyên AWS của bạn có tuân thủ quy tắc hay không. |
 
 ### Hướng dẫn
 
@@ -118,4 +118,4 @@ Now that you have reduced the DevOpsRole privileges, it's time to create a mecha
 
 ![FCJ_ws2](/images/2.scenario/222.png)
 
-**Congratulations! You have completed the last exercise.**
+**Chúc mừng! Bạn đã hoàn thành bài tập cuối cùng.**

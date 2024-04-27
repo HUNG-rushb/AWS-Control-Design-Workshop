@@ -136,4 +136,4 @@ Value: Public,Confidential,Restricted
 
 ![FCJ_ws2](/images/2.scenario/61.png)
 
-**You have completed exercise two. Please proceed to the next exercise.**
+**Bạn đã hoàn thành bài tập thứ hai. Hãy chuyển sang bài tập tiếp theo.**

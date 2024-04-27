@@ -25,48 +25,48 @@ Nhóm Voyager Security đã cung cấp các yêu cầu kỹ thuật để đảm
 
 **NIST yêu cầu**
 
-| Control ID |               Miêu tả control                |
-| ---------- | :------------------------------------------: |
-| AC-6(9)    |  Log the execution of privileged functions.  |
-| AU-2       |                Event Logging                 |
-| AU-6(1)    | Audit Record Review, Analysis, and Reporting |
+| Control ID |                 Miêu tả control                 |
+| ---------- | :---------------------------------------------: |
+| AC-6(9)    |   Ghi logs thực hiện các chức năng đặc quyền.   |
+| AU-2       |                  Event Logging                  |
+| AU-6(1)    | AĐánh giá, phân tích và báo cáo hồ sơ kiểm toán |
 
 **Khách hàng yêu cầu**
 
-| Control ID          |                                                                         Miêu tả control                                                                         |
-| ------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| Voyager-ctrl-mon-01 | Systems must be appropriately monitored. Logs needs to be captured at the OS level and alerts will need to be triggered and sent to SOC team when root is used. |
+| Control ID          |                                                                       Miêu tả control                                                                       |
+| ------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| Voyager-ctrl-mon-01 | Hệ thống phải được giám sát thích hợp. Logs cần được ghi lại ở cấp hệ điều hành và các cảnh báo sẽ cần được kích hoạt và gửi đến nhóm SOC khi sử dụng root. |
 
 **AWS đánh giá tài nguyên**
 
 Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đến kết luận những gì cần phải làm để đáp ứng các yêu cầu kiểm soát của Voyager. Xem phần kết luận bên dưới.
 
-| Loại                        | Tên                                                                                                                                                                                                                                  | Kết luận                                                                                                                                                                                                                                                       |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS service user guide      | [AWS CloudWatch / What is Amazon CloudWatch Logs? ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)                                                                                              | CloudWatch Logs enables you to centralize the logs from all of your systems, applications, and AWS services that you use, in a single, highly scalable service.                                                                                                |
-| AWS service user guide      | [AWS CloudWatch agent guide / Collecting metrics and logs from Amazon EC2 instances and on-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) | The cloud native approach to record OS logs is by installing AWS CloudWatch agent in each instance.                                                                                                                                                            |
-| AWS service user guide      | [CloudWatch Alarm events and EventBridge](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-and-eventbridge.html)                                                                                            | CloudWatch sends events to Amazon EventBridge whenever a CloudWatch alarm is created, updated, deleted, or changes alarm state. You can use EventBridge and these events to write rules that take actions, such as notifying you, when an alarm changes state. |
-| AWS Conformance pack (NIST) | [AWS operational best practices for NIST 800 53 rev5](https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist-800-53_rev_5.html)                                                                | (Search for AC-6(9), AU-2, AU-6(1)) Use Amazon CloudWatch to centrally collect and manage log event activity. Inclusion of AWS CloudTrail data provides details of API call activity within your AWS account.                                                  |
+| Loại                        | Tên                                                                                                                                                                                                                                  | Kết luận                                                                                                                                                                                                                                                                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS service user guide      | [AWS CloudWatch / What is Amazon CloudWatch Logs? ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)                                                                                              | **CloudWatch Logs** cho phép bạn tập trung logs từ tất cả các hệ thống, ứng dụng và dịch vụ AWS mà bạn sử dụng trong một dịch vụ duy nhất có khả năng mở rộng cao.                                                                                                                                                         |
+| AWS service user guide      | [AWS CloudWatch agent guide / Collecting metrics and logs from Amazon EC2 instances and on-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) | Cách tiếp cận gốc trên nền tảng đám mây để ghi lại logs hệ điều hành là cài đặt **AWS CloudWatch agent** vào từng instance.                                                                                                                                                                                                |
+| AWS service user guide      | [CloudWatch Alarm events and EventBridge](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-and-eventbridge.html)                                                                                            | **CloudWatch** gửi sự kiện tới **Amazon EventBridge** bất cứ khi nào cảnh báo **CloudWatch** được tạo, cập nhật, xóa hoặc thay đổi trạng thái cảnh báo. Bạn có thể sử dụng **EventBridge** và những sự kiện này để viết các quy tắc thực hiện hành động, chẳng hạn như thông báo cho bạn khi cảnh báo thay đổi trạng thái. |
+| AWS Conformance pack (NIST) | [AWS operational best practices for NIST 800 53 rev5](https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist-800-53_rev_5.html)                                                                | (Tìm kiếm AC-6(9), AU-2, AU-6(1)) Sử dụng **Amazon CloudWatch** để thu thập và quản lý tập trung hoạt động sự kiện logs. Việc đưa dữ liệu **AWS CloudTrail** vào sẽ cung cấp thông tin chi tiết về hoạt động lệnh gọi API trong tài khoản AWS của bạn.                                                                     |
 
 ### Hướng dẫn
 
-#### CloudWatch Logs introduction
+#### Giới thiệu CloudWatch Logs
 
-Logs are an essential tool to gain visibility into what is happening in your instances. Besides Metrics, CloudWatch allows you to collect and search logs.
+Logs là một công cụ thiết yếu để có được khả năng hiển thị về những gì đang xảy ra trong phiên bản của bạn. Ngoài số liệu, **CloudWatch** cho phép bạn thu thập và tìm kiếm logs.
 
-Before we dive into CloudWatch Logs, we need to understand the concepts of log stream and log groups .
+Trước khi đi sâu vào **CloudWatch Logs**, chúng ta cần hiểu các khái niệm về luồng logs và nhóm logs.
 
-A log stream is a sequence of log events coming from the same source (e.g., EC2 instance).
+Luồng logs là một chuỗi các sự kiện logs đến từ cùng một nguồn (ví dụ: phiên bản EC2).
 
-A log group is a group of log streams that shares the same retention, monitoring and access control settings. Used for logical grouping of the log streams. If EC2 instances are running the same application, we can group their log streams into one log group.
+Nhóm logs là một nhóm các luồng logs có cùng cài đặt lưu giữ, giám sát và kiểm soát truy cập. Được sử dụng để nhóm logic các luồng logs. Nếu các phiên bản EC2 đang chạy cùng một ứng dụng, chúng ta có thể nhóm các luồng logs của chúng thành một nhóm logs.
 
-#### CloudWatch Logs analysis
+#### Phân tích CloudWatch Logs
 
-Our EC2 instances generates many log files. The Linux operating system has its own log, and our application running on it can also generate their own logs.
+Các EC2 instances tạo ra rất nhiều file log. Hệ điều hành Linux có logs riêng và ứng dụng của chúng tôi chạy trên đó cũng có thể tạo logs riêng.
 
-These logs can be collected by the CloudWatch agent , an agent application that (optionally) runs in your EC2 instances.
+Logs được thu thập bởi **CloudWatch agent** , một ứng dụng agent (tùy chọn) chạy trongEC2 instances.
 
-CloudWatch agent is pre-installed and configured to collect the logs in all the EC2 instances for this part of the workshop.
+CloudWatch agent được cài đặt sẵn và định cấu hình để thu thập nhật ký trong tất cả các EC2 instance cho phần này của workshop.
 
 1. To see the logs, open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/)
 2. In the left navigation pane, under Logs, choose Log groups.
@@ -129,4 +129,4 @@ CloudWatch agent is pre-installed and configured to collect the logs in all the 
 
 17. (Optional) Once you configure a metric you can configure [CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) to receive a notification every time someone logins with root user.
 
-**You have completed exercise three. Please proceed to the next exercise.**
+**Bạn đã hoàn thành bài tập thứ ba. Hãy chuyển sang bài tập tiếp theo.**
