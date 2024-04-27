@@ -25,56 +25,56 @@ Nhóm Voyager Security đã cung cấp các biện pháp kiểm soát và yêu c
 
 **NIST yêu cầu**
 
-| Control ID |                                                                                                                              Miêu tả control                                                                                                                              |
-| ---------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| SC-8(4)    |                                             Implement cryptographic mechanisms to conceal or randomize communication patterns unless otherwise protected by [Assignment: organization-defined alternative physical controls].                                             |
-| SC-12      | Establish and manage cryptographic keys when cryptography is employed within the system in accordance with the following key management requirements: [Assignment: organization-defined requirements for key generation, distribution, storage, access, and destruction]. |
+| Control ID |                                                                                                  Miêu tả control                                                                                                   |
+| ---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| SC-8(4)    |                   Triển khai các cơ chế mật mã để che giấu hoặc ngẫu nhiên hóa các mẫu liên lạc trừ khi được bảo vệ bởi [Nhiệm vụ: các biện pháp kiểm soát vật lý thay thế do tổ chức xác định].                   |
+| SC-12      | Thiết lập và quản lý khóa mật mã khi mật mã được sử dụng trong hệ thống theo các yêu cầu quản lý khóa sau: [Nhiệm vụ: các yêu cầu do tổ chức xác định đối với việc tạo, phân phối, lưu trữ, truy cập và hủy khóa]. |
 
 **Khách hàng yêu cầu**
 
-| Control ID         |                                                                               Miêu tả control                                                                               |
-| ------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| Voyager-ctrl-dp-02 |                             Storage resources including Databases shall be tagged with Data classification key (public, internal or restricted)                             |
-| Voyager-ctrl-dp-04 | Cryptographic key access policy to protect restricted data shall be limited to the authorized service and resource. Access to this key shall not be granted to individuals. |
+| Control ID         |                                                                                 Miêu tả control                                                                                 |
+| ------------------ | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| Voyager-ctrl-dp-02 |                               Các tài nguyên lưu trữ bao gồm Cơ sở dữ liệu phải được gắn khóa phân loại Dữ liệu (công khai, nội bộ hoặc hạn chế)                                |
+| Voyager-ctrl-dp-04 | Chính sách truy cập khóa mật mã để bảo vệ dữ liệu bị hạn chế sẽ được giới hạn ở dịch vụ và tài nguyên được ủy quyền. Quyền truy cập vào khóa này sẽ không được cấp cho cá nhân. |
 
 **AWS đánh giá tài nguyên**
 
 Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đến kết luận những gì cần phải làm để đáp ứng các yêu cầu kiểm soát của Voyager. Xem phần kết luận bên dưới.
 
-| Resource type          | Resource name                                                                                                                                       | Conclusion                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS service user guide | [Amazon RDS user guide / Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html)                    | An Amazon RDS tag is a name-value pair that you define and associate with an Amazon RDS resource. The name is referred to as the key. Supplying a value for the key is optional. You can use tags to assign arbitrary information to an Amazon RDS resource.                                                                                                                                                            |
-| AWS service user guide | [Amazon RDS user guide / Encrypting Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html)          | Amazon RDS uses an AWS KMS key to encrypt its resources. For an Amazon RDS encrypted DB instance, all logs, backups, and snapshots are encrypted.                                                                                                                                                                                                                                                                       |
-| AWS service user guide | [AWS KMS user guide / Permissions for AWS services in key policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-services.html) | AWS KMS key policy must allow the service the minimum permissions that it requires to protect the resource on your behalf. We recommend that you follow the principle of least privilege: give the service only the permissions that it requires. You can do this effectively by learning which permissions the service needs and using AWS global condition keys and AWS KMS condition keys to refine the permissions. |
+| Loại                   | Tên                                                                                                                                                 | Kết luận                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS service user guide | [Amazon RDS user guide / Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html)                    | Tag **Amazon RDS** là một cặp **key-value** mà bạn xác định và liên kết với tài nguyên Amazon RDS. Việc cung cấp giá trị cho khóa là tùy chọn. Bạn có thể sử dụng thẻ để gán thông tin tùy ý cho tài nguyên **Amazon RDS**.                                                                                                                                                                                                                        |
+| AWS service user guide | [Amazon RDS user guide / Encrypting Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html)          | **Amazon RDS** sử dụng khóa **AWS KMS** để mã hóa tài nguyên của mình. Đối với phiên bản DB được mã hóa **Amazon RDS**, tất cả log, bản sao lưu và bản kết xuất nhanh đều được mã hóa.                                                                                                                                                                                                                                                             |
+| AWS service user guide | [AWS KMS user guide / Permissions for AWS services in key policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-services.html) | Chính sách khóa của **AWS KMS** phải cấp cho dịch vụ những quyền tối thiểu cần thiết để thay mặt bạn bảo vệ tài nguyên. Chúng tôi khuyên bạn nên tuân theo nguyên tắc đặc quyền tối thiểu: chỉ cấp cho dịch vụ những quyền mà nó yêu cầu. Bạn có thể thực hiện việc này một cách hiệu quả bằng cách tìm hiểu các quyền mà dịch vụ cần và sử dụng các khóa điều kiện chung của AWS cũng như các khóa điều kiện **AWS KMS** để điều chỉnh các quyền. |
 
 ### Hướng dẫn
 
-1. Open the [Amazon RDS console](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#)
+1. Mở [Amazon RDS console](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#)
 
-2. Select the Databases section and click on the DB identifier to open instance properties
+2. Chọn **Databases** và nhấn vào tên của DB để mở cấu hình.
 
 ![FCJ_ws2](/images/2.scenario/51.png)
 
-3. Select Tags tab and click on Add
+3. Chọn tab **Tags** vả nhấn **Add**.
 
 ![FCJ_ws2](/images/2.scenario/52.png)
 
-4. Enter Tag Key: Classification, and Value: Restricted. Click Add
+4. Nhập Tag Key: `Classification`, và Value: `Restricted`. Nhấn **Add**
 
 ![FCJ_ws2](/images/2.scenario/53.png)
 
-5. Select the Configuration tab, click on the AWS KMS Key ID to navigate into its properties.
+5. Chọn tab **Configuration**, nhấn vào **AWS KMS Key ID** đề điều hướng tới cấu hình.
 
 ![FCJ_ws2](/images/2.scenario/54.png)
 
-6. Click Edit and review the Key policy. You will find that:
+6. Nhấn **Edit** và xem **Key policy**. Bạn sẽ thấy:
 
-- It allows the KMSAdminRole and root (Administrator Principal) to decrypt data. Typically, Admins should not be allowed this Action.
-- It allows the DevOpsRole (User Principal) to Delete or Revoke the key. Typically, users should not be allowed this Action.
+- **KMSAdminRole** và **root** (**Administrator Principal**) có quyền giải mã data. Thông thường, **Admins** không được thực hiện.
+- **DevOpsRole** (**User Principal**) có quyền **Delete or Revoke** key. Thông thường, người dùng không được thực hiện.
 
-7. Click Edit to update the Key policy:
+7. Nhấn **Edit** để điều chỉnh **Key policy**:
 
-- Remove the following Action(s) from the Administrators section (KMSAdminRole)
+- Bỏ **Action(s)** dưới đây trong mục **Administrators** (**KMSAdminRole**)
 
 ```
 "kms:Encrypt",
@@ -83,7 +83,7 @@ Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đ�
 "kms:GenerateDataKey*",
 ```
 
-- Remove the following Action(s) from the User section (DevOpsRole)
+- Bỏ **Action(s)** dưới đây trong mục **User** (**DevOpsRole**).
 
 ```
 "kms:Revoke*",
@@ -91,23 +91,23 @@ Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đ�
 "kms:Delete*",
 ```
 
-- Once you finish Save changes
+- Xong hãy nhấn **Save changes**.
 
 ![FCJ_ws2](/images/2.scenario/55.png)
 
-8. Go to the [AWS Config console](https://console.aws.amazon.com/config/home?region=us-east-1) to validate if the RDS instance has been tagged with data classification key. Click on Rules, Add rule
+8. Truy cập [AWS Config console](https://console.aws.amazon.com/config/home?region=us-east-1) để xác thực xem phiên bản RDS đã được gắn tag khóa data classification chưa. Nhấn vào **Rules**, sau đó**Add rule**.
 
 ![FCJ_ws2](/images/2.scenario/56.png)
 
-9. Select Add AWS Managed rule and search for required-tags. Select it and click Next.
+9. Chọn **Add AWS Managed rule** và tìm `required-tags`. Chọn và nhấn **Next**.
 
 ![FCJ_ws2](/images/2.scenario/57.png)
 
-10. Under Resource category, select AWS resources. Under Resource type pick AWS RDS DBInstance.
+10. Mục **Resource category**, chọn **AWS resources**. Mục **Resource type** chọn **AWS RDS DBInstance**.
 
 ![FCJ_ws2](/images/2.scenario/58.png)
 
-11. Under Parameters enter the following Key/Value
+11. Mục **Parameters**, nhập
 
 ```
 Key: tag1Key
@@ -120,19 +120,19 @@ Value: Public,Confidential,Restricted
 
 ![FCJ_ws2](/images/2.scenario/59.png)
 
-12. Click Next
+12. Nhấn **Next**.
 
-13. Review and click Add rule.
+13. Xem lại và nhấn **Add rule**.
 
-14. Click on the new rule name (required-tags)
+14. Nhấn **New rule name (required-tags)**.
 
-15. Click on Actions, Re-evaluate
+15. Nhấn **Actions**, **Re-evaluate**.
 
-16. In the Resources in scope, click the Refresh arrow and validate compliance status. (It can take a moment to update the compliance status)
+16. mục **Resources in scope**, nhấn mũi tên **Refresh** và xác nhận trạng thái tuân thủ. (Có thể mất chút thời gian để cập nhật trạng thái **Compliance**).
 
 ![FCJ_ws2](/images/2.scenario/60.png)
 
-17. Optional) Go back to the resource, change or remove the tagValue and validate if it changes the compliance status. Remember to re-evaluate, wait a moment, and refresh the resources in scope section to see the Compliance change.
+17. (Tùy chọn) Quay lại tài nguyên, thay đổi hoặc xóa **tagValue** và xác thực xem nó có thay đổi trạng thái tuân thủ hay không. Hãy nhớ đánh giá lại, đợi một lát và làm mới các tài nguyên trong phần phạm vi để xem sự thay đổi về **Compliance**.
 
 ![FCJ_ws2](/images/2.scenario/61.png)
 
