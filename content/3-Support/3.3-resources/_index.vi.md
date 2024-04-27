@@ -1,24 +1,17 @@
 ---
-title: "Kiểm tra log"
+title: "Tham khảo"
 date: "`r Sys.Date()`"
-weight: 2
+weight: 3
 chapter: false
-pre: " <b> 3. </b> "
+pre: " <b> 3.3 </b> "
 ---
 
-### Truy cập file và kiễm tra log
+### Tham khảo
 
-1. Mở một tab ẩn danh mới và nhập URL truy cập tới file chúng ta đã lưu.
+Hãy xem qua các tài liệu sau:
 
-2. Quay về giao diện buckets, chọn bucket **logging-workshop-destination**, chờ khoảng 15 phút, refresh lại bucket.
-
-3. Chúng ta sẽ thấy những file log đã được tạo ra. Chọn vào 1 file log.
-
-4. Chúng ta có thể thấy thông tin file log này. Chọn **Download** và mở file log ra
-
-5. File log sẽ có cấu trúc như sau:
-
-```
-b07c1e6c73fc3be646182d0400a50638e0703b6352275b2d165aa35f9791c572 logging-workshop [03/Mar/2024:12:52:26 +0000] 118.69.159.186 arn:aws:iam::928738046450:user/hung 2ET0N53Y32R632Q5 REST.GET.OWNERSHIP_CONTROLS - "GET /logging-workshop?ownershipControls= HTTP/1.1" 200 - 193 - 53 53 "-" "S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.488 Linux/5.10.209-175.858.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.372-b08 java/1.8.0_372 vendor/Oracle_Corporation cfg/retry-mode/standard" - xqa7XzBU4q1xnx4NmkVBFhDsnt0jk07Slo9F3j2kvD0/6zSveFBzQ5t+Zrfs/me6L4epr6/dG3k= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader s3.ap-southeast-1.amazonaws.com TLSv1.2 - -
-b07c1e6c73fc3be646182d0400a50638e0703b6352275b2d165aa35f9791c572 logging-workshop [03/Mar/2024:12:52:28 +0000] 118.69.159.186 arn:aws:iam::928738046450:user/hung YP9K97RHY7C5JPBC REST.GET.OBJECT_TAGGING S3_logging_workshop.txt "GET /logging-workshop/S3_logging_workshop.txt?tagging= HTTP/1.1" 200 - 115 - 13 10 "-" "S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.488 Linux/5.10.209-175.858.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.372-b08 java/1.8.0_372 vendor/Oracle_Corporation cfg/retry-mode/standard" - nGxxv80fXE5xGWiS6C7OIg7/ncxoVho61Lmw9+qyveqdOBbiqRD4HJZf8qU90j0IeUXNGmwcSwA= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader s3.ap-southeast-1.amazonaws.com TLSv1.2 - -
-```
+- [AWS Config Conformance Packs](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html) : Gói tuân thủ là tập hợp các quy tắc **AWS Config** và hành động khắc phục có thể dễ dàng triển khai dưới dạng một thực thể duy nhất trong một tài khoản và region hoặc trên toàn tổ chức trong **AWS Organizations**.
+- [Security standards and controls in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html) : **AWS Security Hub** sử dụng, tổng hợp và phân tích các phát hiện bảo mật từ nhiều sản phẩm AWS và bên thứ ba được hỗ trợ.
+- [Security in AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/security.html) : Cấu hình **AWS CloudFormation** để đáp ứng các mục tiêu bảo mật và tuân thủ của bạn. Bạn cũng tìm hiểu cách sử dụng các dịch vụ AWS khác giúp bạn giám sát và bảo mật tài nguyên **AWS CloudFormation** của mình.
+- [AWS Audit Manager Control library](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-library.html) : Thư viện điều khiển chứa danh mục các điều khiển tiêu chuẩn (các điều khiển được xác định trước do AWS cung cấp) và các điều khiển tùy chỉnh (các điều khiển tùy chỉnh mà bạn sở hữu và xác định).
+- [AWS Systems Manager Compliance](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-compliance.html) : Bạn có thể sử dụng **Compliance**, một khả năng của **AWS Systems Manager**, để quét nhóm nút được quản lý của bạn để phát hiện sự không nhất quán trong cấu hình và tuân thủ bản vá. Bạn có thể thu thập và tổng hợp dữ liệu từ nhiều tài khoản và Khu vực AWS, sau đó đi sâu vào các tài nguyên cụ thể không tuân thủ.

@@ -7,13 +7,6 @@
 	"content": "Workshop Control Design Trong workshop này, bạn sẽ trải nghiệm quy trình xác định, thiết kế và triển khai các cấu hình bảo mật, rào chắn phát hiện và phòng ngừa để đáp ứng các yêu cầu kiểm soát tùy chỉnh của bạn. Bạn sẽ được sử dụng môi trường AWS 3 Tier dựng sẵn với Phiên bản EC2 và RDS. Bạn sẽ sử dụng một tình huống chính về khách hàng và 4 bài tập về khách hàng để xác định hồ sơ của họ và các câu chuyện của người dùng dịch vụ cụ thể nhằm xác định nhu cầu kiểm soát bảo mật của họ. Đối với mỗi kịch bản, bạn sẽ có thể chọn cấu hình và cơ chế giám sát kiểm soát phù hợp cho từng cấp độ. Mục tiêu của hội thảo này là thực hành thiết kế và triển khai các cấu hình bảo mật và biện pháp bảo vệ đáp ứng nhu cầu tùy chỉnh ngoài các biện pháp thực hành tốt nhất của AWS.\nĐối tượng: Security Governance, Risk and Compliance Level: 300 - Advanced - Sessions dive deeper into the selected topic. Người hướng dẫn giả sử rằng người đọc đã quen thuộc với chủ đề này, nhưng có thể hoặc không có kinh nghiệm trực tiếp khi thực hiện một giải pháp tương tự. Duration 120 phút Điều kiện: AWS Account, Admin IAM User/Role. Authors:\nPablo Pagani - Security Practice Manager, ProServe LatAm Miguel Segura - Security Assurance Consultant Andrea Di Fabio - Security Assurance Consultant Issa Basza - Security Assurance Consultant Content Giới thiệu Các tình huống Hỗ trợ "
 },
 {
-	"uri": "//localhost:1313/vi/3-support/3.1-troubleshoot/",
-	"title": "Bật S3 Server Access Logging",
-	"tags": [],
-	"description": "",
-	"content": "Server access logging cung cấp cho bạn khả năng hiển thị các hoạt động cấp đối tượng chi tiết trên dữ liệu của bạn. Log là tệp văn bản có một dòng cho mỗi bản ghi nhật ký. Mỗi log đại diện cho một yêu cầu và bao gồm các trường được phân cách bằng dấu cách.\nCác trường liên quan đến operation, requester, resource và thông tin session. Dưới đây là một ví dụ:\n79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be awsexamplebucket1 [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 3E57427F3EXAMPLE REST.GET.VERSIONING - \u0026#34;GET /awsexamplebucket1?versioning HTTP/1.1\u0026#34; 200 - 113 - 7 - \u0026#34;-\u0026#34; \u0026#34;S3Console/0.4\u0026#34; - s9lzHYrFp76ZVxRcpX9+5cjAnEH2ROuNkd2BHfIa6UkFVdtjf5mKR3/eTPFvsiP/XV/VLi31234= SigV2 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader awsexamplebucket1.s3.us-west-1.amazonaws.com TLSV1.1 Kích hoạt Server access logging Trong giao diện S3, chọn bucket logging-workshop.\nTrong giao diện bucket, chọn Properties.\nKéo xuống tại muc Server access logging, chọn Edit\nChọn Enable, sau đó chọn Brow S3 để chọn bucket lưu log.\nChọn bucket logging-workshop-destination, sau đó nhấn Choose destination.\nReview lại bucket lưu log, sau đó nhấn Save changes.\nXác nhận Server access logging đã được bật.\n"
-},
-{
 	"uri": "//localhost:1313/vi/1-introduce/",
 	"title": "Giới thiệu",
 	"tags": [],
@@ -42,6 +35,13 @@
 	"content": "Tạo 2 bucket Truy cập vào AWS Management Console, tìm S3 và chọn S3.\nTrong giao diện S3, chọn Create bucket.\nTrong giao diện create bucket:\nMục AWS Region, chọn Asia Pacific (Singapore) ap-southeast-1. Mục Bucket name, nhập logging-workshop. Tiếp tục: Mục Block Public Access settings for this bucket, bỏ chọn Block all public access. Mục Turning off block all public access might result in this bucket and the objects within becoming public, xác nhận mục này. Kéo xuống dưới cùng, chọn Create bucket.\nXác nhận bucket đã được tạo thành công.\nTiếp tục tạo bucket logging-workshop-destination\nMục AWS Region, chọn Asia Pacific (Singapore) ap-southeast-1. Mục Bucket name, nhập logging-workshop-destination. Không cần bỏ chọn mục Block Public Access settings for this bucket. Kéo xuống dưới cùng, chọn Create bucket. Xác nhận bucket đã được tạo thành công. "
 },
 {
+	"uri": "//localhost:1313/vi/3-support/3.1-troubleshoot/",
+	"title": "Troubleshooting",
+	"tags": [],
+	"description": "",
+	"content": "Troubleshooting Troubleshoot EC2 instances or ASG launch error. Review instance type and Region combination General EC2 troubleshooting guide Troubleshoot VPC Flow Logs Troubleshooting Amazon CloudWatch Troubleshooting KMS - Key access "
+},
+{
 	"uri": "//localhost:1313/vi/2-scenario/",
 	"title": "Các bước chuẩn bị",
 	"tags": [],
@@ -56,25 +56,18 @@
 	"content": "Cập nhật quyền tạo log cho S3 log delivery group Quay về giao diện các bucket, chọn bucket logging-workshop-destination. Kéo xuống mục Object Ownership, chọn Edit\nChọn ACLs enabled, xác nhận I acknowledge that ACLS will be restored., nhấn Save changes. Bước này sẽ giúp những đối tượng trong Access control list (ACL) ngoài bucket owner có quyền tạo object.\nSau đó kéo xuống mục Access control list (ACL), chọn Edit.\nTại mục S3 log delivery group, chọn quyền Write, sau đó Save changes.\nXác nhận quyền Write cho S3 log delivery group.\nTrở vê giao diện các bucket.\n"
 },
 {
+	"uri": "//localhost:1313/vi/3-support/3.2-cleanup/",
+	"title": "Dọn dẹp",
+	"tags": [],
+	"description": "",
+	"content": "Clean Up Nếu bạn đang sử dụng điều này trong phiên LED của người hướng dẫn, với AWS Event Engine, bạn không cần phải chạy các bước dọn dẹp.\nĐể ngăn chặn các khoản phí, chúng tôi khuyên bạn nên dọn dẹp cơ sở hạ tầng được tạo ra trong workshop này. Nếu bạn có kế hoạch giữ mọi thứ hoạt động để bạn có thể học hỏi thêm sau, hãy nhớ dọn dẹp khi bạn hoàn thành.\nNếu bạn đang sử dụng tài khoản của riêng bạn. Bạn sẽ cần phải xóa thủ công một số tài nguyên trước khi bạn xóa các stack CloudFormation, vì vậy vui lòng thực hiện các bước sau theo thứ tự.\nTắt EC2 instances Mở EC2 console Chọn instance Nhấn Actions, Instance settings,sau đó change termination protection Bỏ chọn Enable, Nhấn Save. Xóa CloudFormation stack Truy cập AWS CloudFormation console Chọn stack mà bạn sử dụng Chọn Action Nhấn Delete Stack Truy cập AWS Config console Nhấn Controls Xóa các điều khiển không cần thiết. "
+},
+{
 	"uri": "//localhost:1313/vi/1-introduce/1.2-naae/",
 	"title": "Không tham dự event của AWS",
 	"tags": [],
 	"description": "",
 	"content": "Không tham dự event của AWS Nếu bạn đang tham dự một sự kiện do AWS tổ chức, bạn có thể ngừng đọc phần tiếp tục với bước tiếp theo bằng cách sử dụng các tài khoản được cung cấp.\nTải xuống (chuột phải và nhấn Save link as\u0026hellip;) CloudFormation template cho kiến trúc cơ bản cần cho workshop này.\nSử dụng tài khoản thử nghiệm của riêng bạn (vui lòng không sử dụng tài khoản product) đi tới CloudFormation console\nNhấn vào create stack, sau đó With new resources (standard)\nNhập Stack name control-design. Nhấn Next Sử dụng default stack options. Nhấn Next Kiểm tra lại Details Nhấn \u0026ldquo;I acknowledge\u0026hellip;\u0026rdquo; checkbox. Nhấn Create stack Đợi tất cả các tài nguyên Khởi tạo. Nếu bất kỳ lỗi nào xuất hiện, hãy tham khảo phần Hỗ trợ/Troubleshooting. Khi bạn hoàn thành workshop này, hãy đến phần Hỗ trợ/Dọn dẹp, để giảm chi phí phát sinh.\n"
-},
-{
-	"uri": "//localhost:1313/vi/3-support/3.2-cleanup/",
-	"title": "Kiểm tra log",
-	"tags": [],
-	"description": "",
-	"content": "Truy cập file và kiễm tra log Mở một tab ẩn danh mới và nhập URL truy cập tới file chúng ta đã lưu.\nQuay về giao diện buckets, chọn bucket logging-workshop-destination, chờ khoảng 15 phút, refresh lại bucket.\nChúng ta sẽ thấy những file log đã được tạo ra. Chọn vào 1 file log.\nChúng ta có thể thấy thông tin file log này. Chọn Download và mở file log ra\nFile log sẽ có cấu trúc như sau:\nb07c1e6c73fc3be646182d0400a50638e0703b6352275b2d165aa35f9791c572 logging-workshop [03/Mar/2024:12:52:26 +0000] 118.69.159.186 arn:aws:iam::928738046450:user/hung 2ET0N53Y32R632Q5 REST.GET.OWNERSHIP_CONTROLS - \u0026#34;GET /logging-workshop?ownershipControls= HTTP/1.1\u0026#34; 200 - 193 - 53 53 \u0026#34;-\u0026#34; \u0026#34;S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.488 Linux/5.10.209-175.858.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.372-b08 java/1.8.0_372 vendor/Oracle_Corporation cfg/retry-mode/standard\u0026#34; - xqa7XzBU4q1xnx4NmkVBFhDsnt0jk07Slo9F3j2kvD0/6zSveFBzQ5t+Zrfs/me6L4epr6/dG3k= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader s3.ap-southeast-1.amazonaws.com TLSv1.2 - -\rb07c1e6c73fc3be646182d0400a50638e0703b6352275b2d165aa35f9791c572 logging-workshop [03/Mar/2024:12:52:28 +0000] 118.69.159.186 arn:aws:iam::928738046450:user/hung YP9K97RHY7C5JPBC REST.GET.OBJECT_TAGGING S3_logging_workshop.txt \u0026#34;GET /logging-workshop/S3_logging_workshop.txt?tagging= HTTP/1.1\u0026#34; 200 - 115 - 13 10 \u0026#34;-\u0026#34; \u0026#34;S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.488 Linux/5.10.209-175.858.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.372-b08 java/1.8.0_372 vendor/Oracle_Corporation cfg/retry-mode/standard\u0026#34; - nGxxv80fXE5xGWiS6C7OIg7/ncxoVho61Lmw9+qyveqdOBbiqRD4HJZf8qU90j0IeUXNGmwcSwA= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader s3.ap-southeast-1.amazonaws.com TLSv1.2 - - "
-},
-{
-	"uri": "//localhost:1313/vi/3-support/3.3-resources/",
-	"title": "Kiểm tra log",
-	"tags": [],
-	"description": "",
-	"content": "Truy cập file và kiễm tra log Mở một tab ẩn danh mới và nhập URL truy cập tới file chúng ta đã lưu.\nQuay về giao diện buckets, chọn bucket logging-workshop-destination, chờ khoảng 15 phút, refresh lại bucket.\nChúng ta sẽ thấy những file log đã được tạo ra. Chọn vào 1 file log.\nChúng ta có thể thấy thông tin file log này. Chọn Download và mở file log ra\nFile log sẽ có cấu trúc như sau:\nb07c1e6c73fc3be646182d0400a50638e0703b6352275b2d165aa35f9791c572 logging-workshop [03/Mar/2024:12:52:26 +0000] 118.69.159.186 arn:aws:iam::928738046450:user/hung 2ET0N53Y32R632Q5 REST.GET.OWNERSHIP_CONTROLS - \u0026#34;GET /logging-workshop?ownershipControls= HTTP/1.1\u0026#34; 200 - 193 - 53 53 \u0026#34;-\u0026#34; \u0026#34;S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.488 Linux/5.10.209-175.858.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.372-b08 java/1.8.0_372 vendor/Oracle_Corporation cfg/retry-mode/standard\u0026#34; - xqa7XzBU4q1xnx4NmkVBFhDsnt0jk07Slo9F3j2kvD0/6zSveFBzQ5t+Zrfs/me6L4epr6/dG3k= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader s3.ap-southeast-1.amazonaws.com TLSv1.2 - -\rb07c1e6c73fc3be646182d0400a50638e0703b6352275b2d165aa35f9791c572 logging-workshop [03/Mar/2024:12:52:28 +0000] 118.69.159.186 arn:aws:iam::928738046450:user/hung YP9K97RHY7C5JPBC REST.GET.OBJECT_TAGGING S3_logging_workshop.txt \u0026#34;GET /logging-workshop/S3_logging_workshop.txt?tagging= HTTP/1.1\u0026#34; 200 - 115 - 13 10 \u0026#34;-\u0026#34; \u0026#34;S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.488 Linux/5.10.209-175.858.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.372-b08 java/1.8.0_372 vendor/Oracle_Corporation cfg/retry-mode/standard\u0026#34; - nGxxv80fXE5xGWiS6C7OIg7/ncxoVho61Lmw9+qyveqdOBbiqRD4HJZf8qU90j0IeUXNGmwcSwA= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader s3.ap-southeast-1.amazonaws.com TLSv1.2 - - "
 },
 {
 	"uri": "//localhost:1313/vi/1-introduce/1.3-aae/",
@@ -85,10 +78,17 @@
 },
 {
 	"uri": "//localhost:1313/vi/3-support/",
-	"title": "S3 Server Access Logging",
+	"title": "Support",
 	"tags": [],
 	"description": "",
-	"content": "Trong bước này, chúng ta sẽ thực hiện tạo sử dụng tính năng Server access logging.\nNội dung Bật S3 Server Access Logging Kiểm tra log "
+	"content": "Support Troubleshooting Cleanup Resources "
+},
+{
+	"uri": "//localhost:1313/vi/3-support/3.3-resources/",
+	"title": "Tham khảo",
+	"tags": [],
+	"description": "",
+	"content": "Tham khảo Hãy xem qua các tài liệu sau:\nAWS Config Conformance Packs : Gói tuân thủ là tập hợp các quy tắc AWS Config và hành động khắc phục có thể dễ dàng triển khai dưới dạng một thực thể duy nhất trong một tài khoản và region hoặc trên toàn tổ chức trong AWS Organizations. Security standards and controls in AWS Security Hub : AWS Security Hub sử dụng, tổng hợp và phân tích các phát hiện bảo mật từ nhiều sản phẩm AWS và bên thứ ba được hỗ trợ. Security in AWS CloudFormation : Cấu hình AWS CloudFormation để đáp ứng các mục tiêu bảo mật và tuân thủ của bạn. Bạn cũng tìm hiểu cách sử dụng các dịch vụ AWS khác giúp bạn giám sát và bảo mật tài nguyên AWS CloudFormation của mình. AWS Audit Manager Control library : Thư viện điều khiển chứa danh mục các điều khiển tiêu chuẩn (các điều khiển được xác định trước do AWS cung cấp) và các điều khiển tùy chỉnh (các điều khiển tùy chỉnh mà bạn sở hữu và xác định). AWS Systems Manager Compliance : Bạn có thể sử dụng Compliance, một khả năng của AWS Systems Manager, để quét nhóm nút được quản lý của bạn để phát hiện sự không nhất quán trong cấu hình và tuân thủ bản vá. Bạn có thể thu thập và tổng hợp dữ liệu từ nhiều tài khoản và Khu vực AWS, sau đó đi sâu vào các tài nguyên cụ thể không tuân thủ. "
 },
 {
 	"uri": "//localhost:1313/vi/2-scenario/2.4-iam/",

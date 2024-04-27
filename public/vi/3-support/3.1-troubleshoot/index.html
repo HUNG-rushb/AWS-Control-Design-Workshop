@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Bật S3 Server Access Logging :: AWS System Manager</title>
+    <title>Troubleshooting :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1714210786" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1714210786" rel="stylesheet">
-    <link href="/css/hybrid.css?1714210786" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1714210786" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1714210786" rel="stylesheet">
-    <link href="/css/auto-complete.css?1714210786" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1714210786" rel="stylesheet">
-    <link href="/css/theme.css?1714210786" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1714210786" rel="stylesheet">
+    <link href="/css/nucleus.css?1714213203" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714213203" rel="stylesheet">
+    <link href="/css/hybrid.css?1714213203" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714213203" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714213203" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714213203" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714213203" rel="stylesheet">
+    <link href="/css/theme.css?1714213203" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714213203" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1714210786" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714213203" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1714210786"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714213203"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1714210786"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1714210786"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714213203"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714213203"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1714210786"></script>
+<script type="text/javascript" src="/js/search.js?1714213203"></script>
 
     
   </div>
@@ -383,13 +383,13 @@
  
   
     
-    <li data-nav-id="/vi/3-support/" title="S3 Server Access Logging" class="dd-item 
+    <li data-nav-id="/vi/3-support/" title="Support" class="dd-item 
         parent
         
         
         ">
       <a href="/vi/3-support/">
-           <b> 3. </b> S3 Server Access Logging
+           <b> 3. </b> Support
           
             <i class="fas fa-check read-icon"></i>
           
@@ -414,13 +414,13 @@
  
   
     
-    <li data-nav-id="/vi/3-support/3.1-troubleshoot/" title="Bật S3 Server Access Logging" class="dd-item 
+    <li data-nav-id="/vi/3-support/3.1-troubleshoot/" title="Troubleshooting" class="dd-item 
         
         active
         
         ">
       <a href="/vi/3-support/3.1-troubleshoot/">
-           <b> 3. </b> Bật S3 Server Access Logging
+           <b> 3.1 </b> Troubleshooting
           
             <i class="fas fa-check read-icon"></i>
           
@@ -442,13 +442,13 @@
  
   
     
-    <li data-nav-id="/vi/3-support/3.2-cleanup/" title="Kiểm tra log" class="dd-item 
+    <li data-nav-id="/vi/3-support/3.2-cleanup/" title="Clean Up" class="dd-item 
         
         
         
         ">
       <a href="/vi/3-support/3.2-cleanup/">
-           <b> 3. </b> Kiểm tra log
+           <b> 3.2 </b> Clean Up
           
             <i class="fas fa-check read-icon"></i>
           
@@ -470,13 +470,13 @@
  
   
     
-    <li data-nav-id="/vi/3-support/3.3-resources/" title="Kiểm tra log" class="dd-item 
+    <li data-nav-id="/vi/3-support/3.3-resources/" title="Resources" class="dd-item 
         
         
         
         ">
       <a href="/vi/3-support/3.3-resources/">
-           <b> 3. </b> Kiểm tra log
+           <b> 3.3 </b> Resources
           
             <i class="fas fa-check read-icon"></i>
           
@@ -637,7 +637,7 @@
             
           
           
-            <a href='/vi/'>AWS Control Design</a> > <a href='/vi/3-support/'>S3 Server Access Logging</a> > Bật S3 Server Access Logging
+            <a href='/vi/'>AWS Control Design</a> > <a href='/vi/3-support/'>Support</a> > Troubleshooting
           
         
           
@@ -654,7 +654,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#kích-hoạt-server-access-logging">Kích hoạt Server access logging</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
       </ul>
     </li>
   </ul>
@@ -674,7 +674,7 @@
           
             <h1>
               
-              Bật S3 Server Access Logging
+              Troubleshooting
             </h1>
           
 
@@ -682,33 +682,14 @@
 
 
 
-	<p>Server access logging cung cấp cho bạn khả năng hiển thị các hoạt động cấp đối tượng chi tiết trên dữ liệu của bạn. Log là tệp văn bản có một dòng cho mỗi bản ghi nhật ký. Mỗi log đại diện cho một yêu cầu và bao gồm các trường được phân cách bằng dấu cách.</p>
-<p>Các trường liên quan đến operation, requester, resource và thông tin session. Dưới đây là một ví dụ:</p>
-<pre tabindex="0"><code>79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be awsexamplebucket1 [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 3E57427F3EXAMPLE REST.GET.VERSIONING - &#34;GET /awsexamplebucket1?versioning HTTP/1.1&#34; 200 - 113 - 7 - &#34;-&#34; &#34;S3Console/0.4&#34; - s9lzHYrFp76ZVxRcpX9+5cjAnEH2ROuNkd2BHfIa6UkFVdtjf5mKR3/eTPFvsiP/XV/VLi31234= SigV2 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader awsexamplebucket1.s3.us-west-1.amazonaws.com TLSV1.1
-</code></pre><h3 id="kích-hoạt-server-access-logging">Kích hoạt Server access logging</h3>
-<ol>
-<li>
-<p>Trong giao diện S3, chọn bucket <strong>logging-workshop</strong>.</p>
-</li>
-<li>
-<p>Trong giao diện bucket, chọn <strong>Properties</strong>.</p>
-</li>
-<li>
-<p>Kéo xuống tại muc <strong>Server access logging</strong>, chọn <strong>Edit</strong></p>
-</li>
-<li>
-<p>Chọn <strong>Enable</strong>, sau đó chọn <strong>Brow S3</strong> để chọn bucket lưu log.</p>
-</li>
-<li>
-<p>Chọn bucket <strong>logging-workshop-destination</strong>, sau đó nhấn <strong>Choose destination</strong>.</p>
-</li>
-<li>
-<p>Review lại bucket lưu log, sau đó nhấn <strong>Save changes</strong>.</p>
-</li>
-<li>
-<p>Xác nhận <strong>Server access logging</strong> đã được bật.</p>
-</li>
-</ol>
+	<h3 id="troubleshooting">Troubleshooting</h3>
+<ul>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-type-not-supported-az-error/">Troubleshoot EC2 instances or ASG launch error. Review instance type and Region combination</a></li>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html">General EC2 troubleshooting guide</a></li>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-troubleshooting.html">Troubleshoot VPC Flow Logs</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-troubleshoot.html">Troubleshooting Amazon CloudWatch</a></li>
+<li><a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html">Troubleshooting KMS - Key access</a></li>
+</ul>
 
 
 
@@ -975,10 +956,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/3-support/" title="S3 Server Access Logging"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/3-support/" title="Support"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/3-support/3.2-cleanup/" title="Kiểm tra log" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/3-support/3.2-cleanup/" title="Clean Up" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -988,19 +969,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1714210786"></script>
-    <script src="/js/perfect-scrollbar.min.js?1714210786"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1714210786"></script>
-    <script src="/js/jquery.sticky.js?1714210786"></script>
-    <script src="/js/featherlight.min.js?1714210786"></script>
-    <script src="/js/highlight.pack.js?1714210786"></script>
+    <script src="/js/clipboard.min.js?1714213203"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714213203"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714213203"></script>
+    <script src="/js/jquery.sticky.js?1714213203"></script>
+    <script src="/js/featherlight.min.js?1714213203"></script>
+    <script src="/js/highlight.pack.js?1714213203"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1714210786"></script>
-    <script src="/js/learn.js?1714210786"></script>
-    <script src="/js/hugo-learn.js?1714210786"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714213203"></script>
+    <script src="/js/learn.js?1714213203"></script>
+    <script src="/js/hugo-learn.js?1714213203"></script>
 
-    <link href="/mermaid/mermaid.css?1714210786" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1714210786"></script>
+    <link href="/mermaid/mermaid.css?1714213203" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714213203"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
