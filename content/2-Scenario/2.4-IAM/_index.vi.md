@@ -48,73 +48,73 @@ Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đ�
 
 ### Hướng dẫn
 
-1. Open to the [IAM Console](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#) under the Roles section, search for the DevOps role, and click over the Role Name. (it may have an aleatory suffix)
+1. Mở [IAM Console](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#), mục **Roles**, tìm `DevOps`, và nhấn vào **Role Name**. (nó có thể có một hậu tố thay thế)
 
 ![FCJ_ws2](/images/2.scenario/211.png)
 
-2. Expand the Policy clicking on the (+) sign. Click the Edit button.
+2. Mở rộng phần **Policy** bằng cách nhấn vào dấu (+). Nhấn **Edit**.
 
 ![FCJ_ws2](/images/2.scenario/212.png)
 
-3. Select the JSON tab. Modify the policy to remove the ability to create Traffic Mirror sessions under the NotAction policy element. These two actions:
+3. Chọn JSON tab. Loại bỏ quyền tạo **Traffic Mirror sessions** bằng cách thêm vào 2 action bên dưới vào mục **NotAction**.
 
 ```
 "ec2:CreateTrafficMirrorSession"
 "ec2:CreateTrafficMirrorTarget"
 ```
 
-Can be simplified into one element using a wildcard like this:
+Có thể đơn giản hóa thành một phần tử bằng cách sử dụng wildcard như thế này:
 
 ```
 "ec2:CreateTrafficMirror*"
 ```
 
-4. Select Review policy and then save changes.
+4. Chọn **Review policy** và **Save changes**.
 
 ![FCJ_ws2](/images/2.scenario/213.png)
 
-Now that you have reduced the DevOpsRole privileges, it's time to create a mechanism to detect if a traffic mirror is enabled. To do it you are going to create a new custom AWS Config rule. We have prepared a CloudFormation template that validates if TrafficMirror Sessions or Targets are in place. This cloudFormation template creates a Config rule that together with a Lambda function and the necessary permissions detects when a Traffic Mirror is in place. (This is an example of how custom controls can be implemented to suit your needs)
+Bây giờ bạn đã giảm các đặc quyền **DevOpsRole**, đã đến lúc tạo một cơ chế để phát hiện xem **traffic mirror** có được bật hay không. Để làm điều đó, bạn sẽ tạo một quy tắc AWS Config tùy chỉnh mới. Chúng tôi đã chuẩn bị mẫu **CloudFormation** để xác thực xem **TrafficMirror Sessions** hoặc **Targets** có sẵn sàng hay không. **Template cloudFormation** này tạo **Config rule** cùng với **Lambda function** và các quyền cần thiết để phát hiện khi có **Traffic Mirror**. (Đây là ví dụ về cách triển khai các điều khiển tùy chỉnh để phù hợp với nhu cầu của bạn)
 
-5. [Download this CloudFormation template](https://static.us-east-1.prod.workshops.aws/public/7609f68d-8f02-45f1-ac24-da0e810d440f/static/Custom-Rule-Traffic-Mirror.yaml) to your disk.
+5. [Tải về CloudFormation template](https://static.us-east-1.prod.workshops.aws/public/7609f68d-8f02-45f1-ac24-da0e810d440f/static/Custom-Rule-Traffic-Mirror.yaml).
 
-6. Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=traffic-mirror) and click create a new stack.
+6. Mở [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=traffic-mirror) và nhấn **create a new stack**.
 
 ![FCJ_ws2](/images/2.scenario/214.png)
 
-7. Select Template is ready and select Upload a template file. Click on Choose a file. Select the file you just downloaded to your disk. Click Next.
+7. Chọn **Template is ready**, Chọn **Upload a template file**. Nhấn **Choose a file**. Chọn file vừa tải và nhấn **Next**.
 
 ![FCJ_ws2](/images/2.scenario/215.png)
 
-8. Provide the following name to the stack, and click Next.
+8. Nhập `traffic-mirror` và nhấn **Next**.
 
 ![FCJ_ws2](/images/2.scenario/216.png)
 
-9. Leave the stack options as is, and click Next.
+9. Giữ nguyên và nhấn **Next**.
 
 ![FCJ_ws2](/images/2.scenario/217.png)
 
-10. Select the check box to acknowledge and press Create stack.
+10. Xác nhận checkbox và nhấn **Create stack**.
 
 ![FCJ_ws2](/images/2.scenario/218.png)
 
-11. Review the status, click on the refresh button until it has finished successfully.
-12. Go to the [AWS Config console](https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1#) and under rules option verify that the new config rule was created.
+11. Kiểm tra status, nhấn **refresh** cho tới khi thành công.
+12. Tới [AWS Config console](https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1#), vào **Rules**, hãy xác minh rằng config rule mới đã được tạo.
 
 ![FCJ_ws2](/images/2.scenario/219.png)
 
-13. To test this rule, go to [VPC console](https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1#)
+13. Để thử nghiệm rule này, tới [VPC console](https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1#)
 
-14. On the left under Traffic Mirroring, select Mirror targets.
+14. Bên trái, dưới **Traffic Mirroring**, chọn **Mirror targets**.
 
-15. On the top right, click on Create a new Traffic Mirror target. (Keep in mind that initially we have reduced the privileges of the DevOps role but not yours).
+15. Phía trên bên phải, nhấn **Create a new Traffic Mirror target**. (Hãy nhớ rằng ban đầu chúng tôi đã giảm các đặc quyền của vai trò DevOps nhưng không có đặc quyền của bạn).
 
 ![FCJ_ws2](/images/2.scenario/220.png)
 
-16. Click on the Target textbox and select any of the EC2 ENI. Click Create.
+16. Nhấn **Target** textbox and chọn any of the **EC2 ENI**. Nhấn **Create**.
 
 ![FCJ_ws2](/images/2.scenario/221.png)
 
-17. Go back to the [AWS Config console](https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1#) select the rule we created, and click Re-evaluate. Wait a moment and refresh. The rule should change from Compliant status to Noncompliant
+17. Trở về [AWS Config console](https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1#) chọn rule vừa tạo, và nhấn **Re-evaluate**. Đợi một lát và làm mới. Rule nên thay đổi từ **Compliant** sang **Noncompliant**
 
 ![FCJ_ws2](/images/2.scenario/222.png)
 

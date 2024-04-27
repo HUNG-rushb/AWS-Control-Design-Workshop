@@ -12,21 +12,21 @@
     <title>Quản lý danh tính và quyền truy cập :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1714227546" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1714227546" rel="stylesheet">
-    <link href="/css/hybrid.css?1714227546" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1714227546" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1714227546" rel="stylesheet">
-    <link href="/css/auto-complete.css?1714227546" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1714227546" rel="stylesheet">
-    <link href="/css/theme.css?1714227546" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1714227546" rel="stylesheet">
+    <link href="/css/nucleus.css?1714230486" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714230486" rel="stylesheet">
+    <link href="/css/hybrid.css?1714230486" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714230486" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714230486" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714230486" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714230486" rel="stylesheet">
+    <link href="/css/theme.css?1714230486" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714230486" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1714227546" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714230486" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1714227546"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714230486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1714227546"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1714227546"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714230486"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714230486"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1714227546"></script>
+<script type="text/javascript" src="/js/search.js?1714230486"></script>
 
     
   </div>
@@ -759,73 +759,73 @@
 </table>
 <h3 id="hướng-dẫn">Hướng dẫn</h3>
 <ol>
-<li>Open to the <a href="https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1">IAM Console</a> under the Roles section, search for the DevOps role, and click over the Role Name. (it may have an aleatory suffix)</li>
+<li>Mở <a href="https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1">IAM Console</a>, mục <strong>Roles</strong>, tìm <code>DevOps</code>, và nhấn vào <strong>Role Name</strong>. (nó có thể có một hậu tố thay thế)</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/211.png"></p>
 <ol start="2">
-<li>Expand the Policy clicking on the (+) sign. Click the Edit button.</li>
+<li>Mở rộng phần <strong>Policy</strong> bằng cách nhấn vào dấu (+). Nhấn <strong>Edit</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/212.png"></p>
 <ol start="3">
-<li>Select the JSON tab. Modify the policy to remove the ability to create Traffic Mirror sessions under the NotAction policy element. These two actions:</li>
+<li>Chọn JSON tab. Loại bỏ quyền tạo <strong>Traffic Mirror sessions</strong> bằng cách thêm vào 2 action bên dưới vào mục <strong>NotAction</strong>.</li>
 </ol>
 <pre tabindex="0"><code>&#34;ec2:CreateTrafficMirrorSession&#34;
 &#34;ec2:CreateTrafficMirrorTarget&#34;
-</code></pre><p>Can be simplified into one element using a wildcard like this:</p>
+</code></pre><p>Có thể đơn giản hóa thành một phần tử bằng cách sử dụng wildcard như thế này:</p>
 <pre tabindex="0"><code>&#34;ec2:CreateTrafficMirror*&#34;
 </code></pre><ol start="4">
-<li>Select Review policy and then save changes.</li>
+<li>Chọn <strong>Review policy</strong> và <strong>Save changes</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/213.png"></p>
-<p>Now that you have reduced the DevOpsRole privileges, it&rsquo;s time to create a mechanism to detect if a traffic mirror is enabled. To do it you are going to create a new custom AWS Config rule. We have prepared a CloudFormation template that validates if TrafficMirror Sessions or Targets are in place. This cloudFormation template creates a Config rule that together with a Lambda function and the necessary permissions detects when a Traffic Mirror is in place. (This is an example of how custom controls can be implemented to suit your needs)</p>
+<p>Bây giờ bạn đã giảm các đặc quyền <strong>DevOpsRole</strong>, đã đến lúc tạo một cơ chế để phát hiện xem <strong>traffic mirror</strong> có được bật hay không. Để làm điều đó, bạn sẽ tạo một quy tắc AWS Config tùy chỉnh mới. Chúng tôi đã chuẩn bị mẫu <strong>CloudFormation</strong> để xác thực xem <strong>TrafficMirror Sessions</strong> hoặc <strong>Targets</strong> có sẵn sàng hay không. <strong>Template cloudFormation</strong> này tạo <strong>Config rule</strong> cùng với <strong>Lambda function</strong> và các quyền cần thiết để phát hiện khi có <strong>Traffic Mirror</strong>. (Đây là ví dụ về cách triển khai các điều khiển tùy chỉnh để phù hợp với nhu cầu của bạn)</p>
 <ol start="5">
 <li>
-<p><a href="https://static.us-east-1.prod.workshops.aws/public/7609f68d-8f02-45f1-ac24-da0e810d440f/static/Custom-Rule-Traffic-Mirror.yaml">Download this CloudFormation template</a> to your disk.</p>
+<p><a href="https://static.us-east-1.prod.workshops.aws/public/7609f68d-8f02-45f1-ac24-da0e810d440f/static/Custom-Rule-Traffic-Mirror.yaml">Tải về CloudFormation template</a>.</p>
 </li>
 <li>
-<p>Open the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=traffic-mirror">AWS CloudFormation console</a> and click create a new stack.</p>
+<p>Mở <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=traffic-mirror">AWS CloudFormation console</a> và nhấn <strong>create a new stack</strong>.</p>
 </li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/214.png"></p>
 <ol start="7">
-<li>Select Template is ready and select Upload a template file. Click on Choose a file. Select the file you just downloaded to your disk. Click Next.</li>
+<li>Chọn <strong>Template is ready</strong>, Chọn <strong>Upload a template file</strong>. Nhấn <strong>Choose a file</strong>. Chọn file vừa tải và nhấn <strong>Next</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/215.png"></p>
 <ol start="8">
-<li>Provide the following name to the stack, and click Next.</li>
+<li>Nhập <code>traffic-mirror</code> và nhấn <strong>Next</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/216.png"></p>
 <ol start="9">
-<li>Leave the stack options as is, and click Next.</li>
+<li>Giữ nguyên và nhấn <strong>Next</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/217.png"></p>
 <ol start="10">
-<li>Select the check box to acknowledge and press Create stack.</li>
+<li>Xác nhận checkbox và nhấn <strong>Create stack</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/218.png"></p>
 <ol start="11">
-<li>Review the status, click on the refresh button until it has finished successfully.</li>
-<li>Go to the <a href="https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1">AWS Config console</a> and under rules option verify that the new config rule was created.</li>
+<li>Kiểm tra status, nhấn <strong>refresh</strong> cho tới khi thành công.</li>
+<li>Tới <a href="https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1">AWS Config console</a>, vào <strong>Rules</strong>, hãy xác minh rằng config rule mới đã được tạo.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/219.png"></p>
 <ol start="13">
 <li>
-<p>To test this rule, go to <a href="https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1">VPC console</a></p>
+<p>Để thử nghiệm rule này, tới <a href="https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1">VPC console</a></p>
 </li>
 <li>
-<p>On the left under Traffic Mirroring, select Mirror targets.</p>
+<p>Bên trái, dưới <strong>Traffic Mirroring</strong>, chọn <strong>Mirror targets</strong>.</p>
 </li>
 <li>
-<p>On the top right, click on Create a new Traffic Mirror target. (Keep in mind that initially we have reduced the privileges of the DevOps role but not yours).</p>
+<p>Phía trên bên phải, nhấn <strong>Create a new Traffic Mirror target</strong>. (Hãy nhớ rằng ban đầu chúng tôi đã giảm các đặc quyền của vai trò DevOps nhưng không có đặc quyền của bạn).</p>
 </li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/220.png"></p>
 <ol start="16">
-<li>Click on the Target textbox and select any of the EC2 ENI. Click Create.</li>
+<li>Nhấn <strong>Target</strong> textbox and chọn any of the <strong>EC2 ENI</strong>. Nhấn <strong>Create</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/221.png"></p>
 <ol start="17">
-<li>Go back to the <a href="https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1">AWS Config console</a> select the rule we created, and click Re-evaluate. Wait a moment and refresh. The rule should change from Compliant status to Noncompliant</li>
+<li>Trở về <a href="https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1">AWS Config console</a> chọn rule vừa tạo, và nhấn <strong>Re-evaluate</strong>. Đợi một lát và làm mới. Rule nên thay đổi từ <strong>Compliant</strong> sang <strong>Noncompliant</strong></li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/222.png"></p>
 <p><strong>Chúc mừng! Bạn đã hoàn thành bài tập cuối cùng.</strong></p>
@@ -1111,19 +1111,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1714227546"></script>
-    <script src="/js/perfect-scrollbar.min.js?1714227546"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1714227546"></script>
-    <script src="/js/jquery.sticky.js?1714227546"></script>
-    <script src="/js/featherlight.min.js?1714227546"></script>
-    <script src="/js/highlight.pack.js?1714227546"></script>
+    <script src="/js/clipboard.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714230486"></script>
+    <script src="/js/jquery.sticky.js?1714230486"></script>
+    <script src="/js/featherlight.min.js?1714230486"></script>
+    <script src="/js/highlight.pack.js?1714230486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1714227546"></script>
-    <script src="/js/learn.js?1714227546"></script>
-    <script src="/js/hugo-learn.js?1714227546"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714230486"></script>
+    <script src="/js/learn.js?1714230486"></script>
+    <script src="/js/hugo-learn.js?1714230486"></script>
 
-    <link href="/mermaid/mermaid.css?1714227546" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1714227546"></script>
+    <link href="/mermaid/mermaid.css?1714230486" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714230486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

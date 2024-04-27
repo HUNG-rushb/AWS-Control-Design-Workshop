@@ -12,21 +12,21 @@
     <title>Đảm bảo an ninh :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1714227546" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1714227546" rel="stylesheet">
-    <link href="/css/hybrid.css?1714227546" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1714227546" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1714227546" rel="stylesheet">
-    <link href="/css/auto-complete.css?1714227546" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1714227546" rel="stylesheet">
-    <link href="/css/theme.css?1714227546" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1714227546" rel="stylesheet">
+    <link href="/css/nucleus.css?1714230486" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714230486" rel="stylesheet">
+    <link href="/css/hybrid.css?1714230486" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714230486" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714230486" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714230486" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714230486" rel="stylesheet">
+    <link href="/css/theme.css?1714230486" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714230486" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1714227546" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714230486" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1714227546"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714230486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1714227546"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1714227546"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714230486"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714230486"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1714227546"></script>
+<script type="text/javascript" src="/js/search.js?1714230486"></script>
 
     
   </div>
@@ -777,68 +777,68 @@
 <p>Logs được thu thập bởi <strong>CloudWatch agent</strong> , một ứng dụng agent (tùy chọn) chạy trongEC2 instances.</p>
 <p>CloudWatch agent được cài đặt sẵn và định cấu hình để thu thập nhật ký trong tất cả các EC2 instance cho phần này của workshop.</p>
 <ol>
-<li>To see the logs, open the <a href="https://console.aws.amazon.com/cloudwatch/">CloudWatch console</a></li>
-<li>In the left navigation pane, under Logs, choose Log groups.</li>
+<li>Để xem logs, truy cập <a href="https://console.aws.amazon.com/cloudwatch/">CloudWatch console</a></li>
+<li>Ở menu bẹn trái, mục <strong>Logs</strong>, chọn <strong>Log groups</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/111.png"></p>
 <ol start="3">
-<li>There is already one log group named /var/log/secure. Click on it and you should see the log group details and a few log streams under for each instance.</li>
+<li>Đã có sẵn 1 log group <strong>/var/log/secure</strong>. Nhấp vào nó và bạn sẽ thấy chi tiết log group và một vài luồng log bên dưới cho từng instance.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/112.png"></p>
 <ol start="4">
-<li>Click Actions/Edit retention setting. Select the desired expiration time. (for this exercise choose 12 month). Click Save.</li>
+<li>Nhấn <strong>Actions/Edit retention setting</strong>. Chọn thời gian hết hạn mong muốn. (đối với workshop này chọn 12 tháng). Nhấn <strong>Save</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/113.png"></p>
 <ol start="5">
-<li>Click Actions from the top-right corner and click create metric filter.</li>
+<li>Nhấn <strong>Actions</strong> phía trên bên phải và nhấn <strong>Create metric filter</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/114.png"></p>
 <ol start="6">
-<li>Define a pattern to search for. You can input <code>session opened for user root</code> and it will look for it in the logs. Click Next.</li>
+<li>Xác định pattern để tìm kiếm. Bạn có thể nhập <code>session opened for user root</code> và nó sẽ tìm logs. Nhấn Next.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/115.png"></p>
 <ol start="7">
-<li>Complete the metric filter details as shown in the image. Click Next</li>
+<li>Hoàn thành chi tiết metric filter như trong hình. Nhấn <strong>Next</strong></li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/116.png"></p>
 <ol start="8">
-<li>Review details and click on Create metric filter.</li>
+<li>Kiếm tra lại và nhấn <strong>Create metric filter</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/117.png"></p>
 <ol start="9">
-<li>Click on Audit under Metric.</li>
+<li>Nhấn <strong>Audit</strong> bên dưới <strong>Metric</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/118.png"></p>
 <ol start="10">
-<li>An empty graph will appear. CloudWatch will only generate metrics from events generated after the metric was generated.</li>
+<li>Một biểu đồ trống sẽ xuất hiện. <strong>CloudWatch</strong> sẽ chỉ tạo số liệu từ các sự kiện được tạo sau khi số liệu được tạo.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/119.png"></p>
 <ol start="11">
-<li>Navigate to the <a href="https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:">EC2 console</a>, click on instances, select one of the instances and click Connect(top right) .</li>
+<li>Truy cập <a href="https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:">EC2 console</a>, vào <strong>Instances</strong> và chọn 1 instance, nhấn <strong>Connect</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/120.png"></p>
 <ol start="12">
-<li>Under Session Manager, click Connect.</li>
+<li>Chọn <strong>Session Manager</strong>, nhấn <strong>Connect</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/121.png"></p>
 <ol start="13">
-<li>Once the terminal connection opens. you can run sudo su to escalate to root user. This way you will generate additional events in the log. Click Terminate twice.</li>
+<li>Khi kết nối thiết bị đầu cuối mở ra. bạn có thể chạy <code>sudo su</code> để chuyển lên root user. Bằng cách này, bạn sẽ tạo thêm các sự kiện trong log. nhấn <strong>Terminate</strong> 2 lần.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/122.png"></p>
 <ol start="14">
-<li>Go back to <a href="https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1">CloudWatch console</a> on the left under Metrics, click All Metrics, and under Custom namespaces, click Audit and then Metrics with no dimensions.</li>
+<li>Trở về <a href="https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1">CloudWatch console</a>. Bên trái bên dưới <strong>Metrics</strong>, nhấn <strong>All Metrics</strong>, và dưới <strong>Custom namespaces</strong>, nhấn <strong>Audit</strong> và <strong>Metrics with no dimensions</strong>.</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/123.png"></p>
 <ol start="15">
-<li>Check session opened for user root checkbox. A dot with the session we generated will appear in the graph. (It can take up to 5 mins for the information to get displayed)</li>
+<li>Kiểm tra phiên đã mở cho hộp kiểm gốc của người dùng. Một dấu chấm có phiên chúng tôi đã tạo sẽ xuất hiện trong biểu đồ. (Có thể mất tối đa 5 phút để thông tin được hiển thị)</li>
 </ol>
 <p><img alt="FCJ_ws2" src="/images/2.scenario/124.png"></p>
 <ol start="16">
 <li>
-<p>(Optional) To learn more about filter patterns look at the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">CloudWatch documentation</a></p>
+<p>(Tùy chọn) Tìm hiểu thêm về pattern <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">CloudWatch documentation</a></p>
 </li>
 <li>
-<p>(Optional) Once you configure a metric you can configure <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html">CloudWatch alarms</a> to receive a notification every time someone logins with root user.</p>
+<p>(Tùy chọn) Một khi bạn đã cấu hình metric, bạn có thể cấu hình <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html">CloudWatch alarms</a> để nhận thông báo mỗi khi có user đăng nhập bằng root user.</p>
 </li>
 </ol>
 <p><strong>Bạn đã hoàn thành bài tập thứ ba. Hãy chuyển sang bài tập tiếp theo.</strong></p>
@@ -1124,19 +1124,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1714227546"></script>
-    <script src="/js/perfect-scrollbar.min.js?1714227546"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1714227546"></script>
-    <script src="/js/jquery.sticky.js?1714227546"></script>
-    <script src="/js/featherlight.min.js?1714227546"></script>
-    <script src="/js/highlight.pack.js?1714227546"></script>
+    <script src="/js/clipboard.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714230486"></script>
+    <script src="/js/jquery.sticky.js?1714230486"></script>
+    <script src="/js/featherlight.min.js?1714230486"></script>
+    <script src="/js/highlight.pack.js?1714230486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1714227546"></script>
-    <script src="/js/learn.js?1714227546"></script>
-    <script src="/js/hugo-learn.js?1714227546"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714230486"></script>
+    <script src="/js/learn.js?1714230486"></script>
+    <script src="/js/hugo-learn.js?1714230486"></script>
 
-    <link href="/mermaid/mermaid.css?1714227546" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1714227546"></script>
+    <link href="/mermaid/mermaid.css?1714230486" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714230486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
