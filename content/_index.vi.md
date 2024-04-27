@@ -1,21 +1,21 @@
 ---
-title: "AWS Control Design"
+title: "Thiết kế AWS Control"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: false
 ---
 
-# Triển khai Blue/Green pipeline trên nền tảng AWS
+# Workshop Thiết kế Control cho hệ thống
 
-### Tổng quan
+Trong workshop này, bạn sẽ trải nghiệm quy trình xác định, thiết kế và triển khai các cấu hình bảo mật, rào chắn phát hiện và phòng ngừa để đáp ứng các yêu cầu kiểm soát tùy chỉnh của bạn. Bạn sẽ được sử dụng môi trường **AWS 3 Tier** dựng sẵn với Phiên bản **EC2** và **RDS**. Bạn sẽ sử dụng một tình huống chính về khách hàng và 4 bài tập về khách hàng để xác định hồ sơ của họ và các tình huống của người dùng dịch vụ cụ thể nhằm xác định nhu cầu kiểm soát bảo mật của họ. Đối với mỗi kịch bản, bạn sẽ có thể chọn cấu hình và cơ chế giám sát kiểm soát phù hợp cho từng cấp độ. Mục tiêu của workshop này là thực hành thiết kế và triển khai các cấu hình bảo mật và biện pháp bảo vệ đáp ứng nhu cầu tùy chỉnh ngoài các biện pháp thực hành tốt nhất của AWS.
 
-Trong workshop này, chúng ta sẽ cùng nhau xây dựng một CD pipeline sử dụng **AWS CodePipeline**.
+- **Đối tượng**: Quản trị bảo mật, rủi ro và tuân thủ
+- **Level**: 300 - Nâng cao - Chuyên sâu về chủ đề.
+- **Người hướng dẫn** giả sử rằng người đọc đã quen thuộc với chủ đề này, nhưng có thể hoặc không có kinh nghiệm trực tiếp khi thực hiện một giải pháp tương tự.
+- **Thời lượng** 120 phút
+- **Điều kiện**: AWS Account, Admin IAM User/Role.
 
-![FCJ_ws2](/images/1.introduce/1.png)
-
-**AWS CodePipeline** là dịch vụ continuous delivery mà bạn có thể sử dụng để lập mô hình, trực quan hóa và tự động hóa các bước cần thiết để deploy phần mềm của mình. Bạn có thể nhanh chóng thiết lập mô hình, xác định cấu hình các giai đoạn khác nhau của quy trình phát hành phần mềm. **CodePipeline** tự động hóa các bước cần thiết để liên tục deploy các thay đổi phần mềm.
-
-Authors:
+Các tác giả:
 
 - **Pablo Pagani** - Security Practice Manager, ProServe LatAm
 - **Miguel Segura** - Security Assurance Consultant
@@ -24,10 +24,6 @@ Authors:
 
 ### Nội dung
 
-1.  [Giới thiệu](1-Introduce/)
-2.  [Các bước chuẩn bị](2-Prerequiste/)
-3.  [AWS CodeCommit](3-codecommit/)
-4.  [AWS CodeBuild](4-codebuild/)
-5.  [AWS CodeDeploy và AWS ECS](5-codedeploy/)
-6.  [AWS CodePipeline](6-codepipeline/)
-7.  [Dọn dẹp tài nguyên](7-cleanup/)
+1.  [Giới thiệu](1-Introduce/)
+2.  [Các tình huống](2-Scenario/)
+3.  [Hỗ trợ](3-Support/)

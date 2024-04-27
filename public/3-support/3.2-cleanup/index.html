@@ -12,21 +12,21 @@
     <title>Clean Up :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1713522491" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1713522491" rel="stylesheet">
-    <link href="/css/hybrid.css?1713522491" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1713522491" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1713522491" rel="stylesheet">
-    <link href="/css/auto-complete.css?1713522491" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1713522491" rel="stylesheet">
-    <link href="/css/theme.css?1713522491" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1713522491" rel="stylesheet">
+    <link href="/css/nucleus.css?1714230486" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714230486" rel="stylesheet">
+    <link href="/css/hybrid.css?1714230486" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714230486" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714230486" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714230486" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714230486" rel="stylesheet">
+    <link href="/css/theme.css?1714230486" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714230486" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1713522491" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714230486" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1713522491"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714230486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1713522491"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1713522491"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714230486"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714230486"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1713522491"></script>
+<script type="text/javascript" src="/js/search.js?1714230486"></script>
 
     
   </div>
@@ -654,7 +654,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#truy-cập-file-và-kiễm-tra-log">Truy cập file và kiễm tra log</a></li>
+        <li><a href="#clean-up">Clean Up</a></li>
       </ul>
     </li>
   </ul>
@@ -682,27 +682,43 @@
 
 
 
-	<h3 id="truy-cập-file-và-kiễm-tra-log">Truy cập file và kiễm tra log</h3>
+	<h3 id="clean-up">Clean Up</h3>
+
+<div class="notices note" ><p>If you are using this in an instructor led session, with AWS Event Engine you do not need to run the cleanup steps.</p>
+</div>
+
+<p>In order to prevent charges to your account we recommend cleaning up the infrastructure that was created during this workshop. If you plan to keep things running so you can
+examine the workshop later, remember to do the cleanup when you are done.</p>
+
+<div class="notices note" ><p>If you are running this in your own account. You will need to manually delete some resources before you delete the CloudFormation stacks so please do the following steps in order.</p>
+</div>
+
 <ol>
-<li>
-<p>Open new private tab and acces the file.</p>
-</li>
-<li>
-<p>In buckets console, select bucket <strong>logging-workshop-destination</strong>, wait about 15 minutes, refresh the bucket.</p>
-</li>
-<li>
-<p>We can see there are logs there, select one.</p>
-</li>
-<li>
-<p>Select <strong>Download</strong> and open it.</p>
-</li>
-<li>
-<p>the log file will looks like below:</p>
-</li>
+<li>Disable termination protection for the applicable EC2 instances</li>
 </ol>
-<pre tabindex="0"><code>b07c1e6c73fc3be646182d0400a50638e0703b6352275b2d165aa35f9791c572 logging-workshop [03/Mar/2024:12:52:26 +0000] 118.69.159.186 arn:aws:iam::928738046450:user/hung 2ET0N53Y32R632Q5 REST.GET.OWNERSHIP_CONTROLS - &#34;GET /logging-workshop?ownershipControls= HTTP/1.1&#34; 200 - 193 - 53 53 &#34;-&#34; &#34;S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.488 Linux/5.10.209-175.858.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.372-b08 java/1.8.0_372 vendor/Oracle_Corporation cfg/retry-mode/standard&#34; - xqa7XzBU4q1xnx4NmkVBFhDsnt0jk07Slo9F3j2kvD0/6zSveFBzQ5t+Zrfs/me6L4epr6/dG3k= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader s3.ap-southeast-1.amazonaws.com TLSv1.2 - -
-b07c1e6c73fc3be646182d0400a50638e0703b6352275b2d165aa35f9791c572 logging-workshop [03/Mar/2024:12:52:28 +0000] 118.69.159.186 arn:aws:iam::928738046450:user/hung YP9K97RHY7C5JPBC REST.GET.OBJECT_TAGGING S3_logging_workshop.txt &#34;GET /logging-workshop/S3_logging_workshop.txt?tagging= HTTP/1.1&#34; 200 - 115 - 13 10 &#34;-&#34; &#34;S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.488 Linux/5.10.209-175.858.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.372-b08 java/1.8.0_372 vendor/Oracle_Corporation cfg/retry-mode/standard&#34; - nGxxv80fXE5xGWiS6C7OIg7/ncxoVho61Lmw9+qyveqdOBbiqRD4HJZf8qU90j0IeUXNGmwcSwA= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader s3.ap-southeast-1.amazonaws.com TLSv1.2 - -
-</code></pre>
+<ul>
+<li>Open to EC2 console</li>
+<li>Select the instance</li>
+<li>Click on Actions, Instance settings, change termination protection</li>
+<li>Untick the Enable checkbox, click Save.</li>
+</ul>
+<ol start="2">
+<li>Delete the CloudFormation stack</li>
+</ol>
+<ul>
+<li>Go to the AWS CloudFormation console</li>
+<li>Select the appropriate stack</li>
+<li>Select Action</li>
+<li>Click Delete Stack</li>
+</ul>
+<ol start="3">
+<li>Go to the AWS Config console</li>
+</ol>
+<ul>
+<li>Click on Controls</li>
+<li>Delete the controls that are not needed.</li>
+</ul>
+
 
 
 
@@ -984,19 +1000,19 @@ b07c1e6c73fc3be646182d0400a50638e0703b6352275b2d165aa35f9791c572 logging-worksho
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1713522491"></script>
-    <script src="/js/perfect-scrollbar.min.js?1713522491"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1713522491"></script>
-    <script src="/js/jquery.sticky.js?1713522491"></script>
-    <script src="/js/featherlight.min.js?1713522491"></script>
-    <script src="/js/highlight.pack.js?1713522491"></script>
+    <script src="/js/clipboard.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714230486"></script>
+    <script src="/js/jquery.sticky.js?1714230486"></script>
+    <script src="/js/featherlight.min.js?1714230486"></script>
+    <script src="/js/highlight.pack.js?1714230486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1713522491"></script>
-    <script src="/js/learn.js?1713522491"></script>
-    <script src="/js/hugo-learn.js?1713522491"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714230486"></script>
+    <script src="/js/learn.js?1714230486"></script>
+    <script src="/js/hugo-learn.js?1714230486"></script>
 
-    <link href="/mermaid/mermaid.css?1713522491" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1713522491"></script>
+    <link href="/mermaid/mermaid.css?1714230486" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714230486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -12,21 +12,21 @@
     <title>Architecture :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1713522491" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1713522491" rel="stylesheet">
-    <link href="/css/hybrid.css?1713522491" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1713522491" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1713522491" rel="stylesheet">
-    <link href="/css/auto-complete.css?1713522491" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1713522491" rel="stylesheet">
-    <link href="/css/theme.css?1713522491" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1713522491" rel="stylesheet">
+    <link href="/css/nucleus.css?1714230486" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714230486" rel="stylesheet">
+    <link href="/css/hybrid.css?1714230486" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714230486" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714230486" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714230486" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714230486" rel="stylesheet">
+    <link href="/css/theme.css?1714230486" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714230486" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1713522491" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714230486" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1713522491"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714230486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1713522491"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1713522491"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714230486"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714230486"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1713522491"></script>
+<script type="text/javascript" src="/js/search.js?1714230486"></script>
 
     
   </div>
@@ -654,7 +654,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#create-2-bucket">Create 2 bucket</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#base-services">Base Services</a></li>
+        <li><a href="#control-services">Control Services</a></li>
       </ul>
     </li>
   </ul>
@@ -682,46 +684,27 @@
 
 
 
-	<h3 id="create-2-bucket">Create 2 bucket</h3>
-<ol>
-<li>
-<p>At <strong>AWS Management Console</strong>, find <strong>S3</strong> and select <strong>S3</strong>.</p>
-</li>
-<li>
-<p>At <strong>S3</strong> console, select <strong>Create bucket</strong>.</p>
-</li>
-<li>
-<p>In create bucket steps:</p>
-</li>
-</ol>
+	<h3 id="architecture">Architecture</h3>
+<p>The architecture is a 3-Tier web app based on <a href="https://aws.amazon.com/pt/ec2/autoscaling/">Amazon EC2 Auto Scaling</a> group using <a href="https://aws.amazon.com/rds/">Amazon RDS database</a> instance as persistent application storage.</p>
+<p><img alt="FCJ_ws2" src="/images/1.introduce/1.png"></p>
+<h3 id="base-services">Base Services</h3>
+<p>The workshops uses the following services as the base infrastructure:</p>
 <ul>
-<li>For <strong>AWS Region</strong>, select <strong>Asia Pacific (Singapore) ap-southeast-1</strong>.</li>
-<li>For <strong>Bucket name</strong>, insert <strong><code>logging-workshop</code></strong>.</li>
+<li>Amazon Elastic Cloud Computing (EC2)</li>
+<li>Amazon Relational Database Service (RDS)</li>
+<li>Amazon Elastic Load Balancer (ELB)</li>
+<li>Amazon Virtual Private Cloud (VPC) - Internet Gateway (IG)</li>
 </ul>
-<ol start="4">
-<li>Tiếp tục:</li>
-</ol>
+<h3 id="control-services">Control Services</h3>
+<p>The workshops leverages the following services to implement our controls:</p>
 <ul>
-<li>For <strong>Block Public Access settings for this bucket</strong>, untick <strong>Block all public access</strong>.</li>
-<li>For <strong>Turning off block all public access might result in this bucket and the objects within becoming public</strong>, confirm this.</li>
-</ul>
-<ol start="5">
-<li>
-<p>Scroll down, select <strong>Create bucket</strong>.</p>
-</li>
-<li>
-<p>Confirm bucket is created successfully.</p>
-</li>
-<li>
-<p>Continue creating bucket <strong>logging-workshop-destination</strong></p>
-</li>
-</ol>
-<ul>
-<li>For <strong>AWS Region</strong>, select <strong>Asia Pacific (Singapore) ap-southeast-1</strong>.</li>
-<li>For <strong>Bucket name</strong>, insert <strong><code>logging-workshop-destination</code></strong>.</li>
-<li>No need to untick <strong>Block Public Access settings for this bucket</strong>.</li>
-<li>Scroll down, select <strong>Create bucket</strong>.</li>
-<li>Confirm bucket is created successfully.</li>
+<li>AWS Key Management Service (KMS)</li>
+<li>AWS Identity and Access Management (IAM)</li>
+<li>AWS Systems Manager (SSM) - Patch Manager</li>
+<li>AWS Config</li>
+<li>Amazon CloudWatch</li>
+<li>Amazon Simple Notification Service (SNS)</li>
+<li>AWS Secrets Manager</li>
 </ul>
 
 
@@ -999,19 +982,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1713522491"></script>
-    <script src="/js/perfect-scrollbar.min.js?1713522491"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1713522491"></script>
-    <script src="/js/jquery.sticky.js?1713522491"></script>
-    <script src="/js/featherlight.min.js?1713522491"></script>
-    <script src="/js/highlight.pack.js?1713522491"></script>
+    <script src="/js/clipboard.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714230486"></script>
+    <script src="/js/jquery.sticky.js?1714230486"></script>
+    <script src="/js/featherlight.min.js?1714230486"></script>
+    <script src="/js/highlight.pack.js?1714230486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1713522491"></script>
-    <script src="/js/learn.js?1713522491"></script>
-    <script src="/js/hugo-learn.js?1713522491"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714230486"></script>
+    <script src="/js/learn.js?1714230486"></script>
+    <script src="/js/hugo-learn.js?1714230486"></script>
 
-    <link href="/mermaid/mermaid.css?1713522491" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1713522491"></script>
+    <link href="/mermaid/mermaid.css?1714230486" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714230486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

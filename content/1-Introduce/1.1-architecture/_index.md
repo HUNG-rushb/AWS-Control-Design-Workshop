@@ -6,30 +6,29 @@ chapter: false
 pre: " <b> 1.1 </b> "
 ---
 
-### Create 2 bucket
+### Architecture
 
-1. At **AWS Management Console**, find **S3** and select **S3**.
+The architecture is a 3-Tier web app based on [Amazon EC2 Auto Scaling](https://aws.amazon.com/pt/ec2/autoscaling/) group using [Amazon RDS database](https://aws.amazon.com/rds/) instance as persistent application storage.
 
-2. At **S3** console, select **Create bucket**.
+![FCJ_ws2](/images/1.introduce/1.png)
 
-3. In create bucket steps:
+### Base Services
 
-- For **AWS Region**, select **Asia Pacific (Singapore) ap-southeast-1**.
-- For **Bucket name**, insert **`logging-workshop`**.
+The workshops uses the following services as the base infrastructure:
 
-4. Tiếp tục:
+- Amazon Elastic Cloud Computing (EC2)
+- Amazon Relational Database Service (RDS)
+- Amazon Elastic Load Balancer (ELB)
+- Amazon Virtual Private Cloud (VPC) - Internet Gateway (IG)
 
-- For **Block Public Access settings for this bucket**, untick **Block all public access**.
-- For **Turning off block all public access might result in this bucket and the objects within becoming public**, confirm this.
+### Control Services
 
-5. Scroll down, select **Create bucket**.
+The workshops leverages the following services to implement our controls:
 
-6. Confirm bucket is created successfully.
-
-7. Continue creating bucket **logging-workshop-destination**
-
-- For **AWS Region**, select **Asia Pacific (Singapore) ap-southeast-1**.
-- For **Bucket name**, insert **`logging-workshop-destination`**.
-- No need to untick **Block Public Access settings for this bucket**.
-- Scroll down, select **Create bucket**.
-- Confirm bucket is created successfully.
+- AWS Key Management Service (KMS)
+- AWS Identity and Access Management (IAM)
+- AWS Systems Manager (SSM) - Patch Manager
+- AWS Config
+- Amazon CloudWatch
+- Amazon Simple Notification Service (SNS)
+- AWS Secrets Manager

@@ -12,21 +12,21 @@
     <title>Data Protection :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1713522491" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1713522491" rel="stylesheet">
-    <link href="/css/hybrid.css?1713522491" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1713522491" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1713522491" rel="stylesheet">
-    <link href="/css/auto-complete.css?1713522491" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1713522491" rel="stylesheet">
-    <link href="/css/theme.css?1713522491" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1713522491" rel="stylesheet">
+    <link href="/css/nucleus.css?1714230486" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714230486" rel="stylesheet">
+    <link href="/css/hybrid.css?1714230486" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714230486" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714230486" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714230486" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714230486" rel="stylesheet">
+    <link href="/css/theme.css?1714230486" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714230486" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1713522491" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714230486" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1713522491"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714230486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1713522491"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1713522491"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714230486"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714230486"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1713522491"></script>
+<script type="text/javascript" src="/js/search.js?1714230486"></script>
 
     
   </div>
@@ -652,9 +652,11 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#data-protection">Data Protection</a>
       <ul>
-        <li><a href="#create-2-bucket">Create 2 bucket</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#exercise">Exercise</a></li>
+        <li><a href="#instructions">Instructions</a></li>
       </ul>
     </li>
   </ul>
@@ -682,47 +684,177 @@
 
 
 
-	<h3 id="create-2-bucket">Create 2 bucket</h3>
+	<h2 id="data-protection">Data Protection</h2>
+<h3 id="introduction">Introduction</h3>
+<p><strong>Time to complete</strong>: 25 minutes</p>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>Learn how to tag your <a href="https://aws.amazon.com/rds/">Amazon Relational Database Service (Amazon RDS)</a> as Restricted.</li>
+<li>Modify an <a href="https://aws.amazon.com/kms/">AWS Key Management Service (KMS)</a> Customer Managed Key (CMK) policy to be more restrictive.</li>
+</ul>
+<h3 id="exercise">Exercise</h3>
+<h4 id="requirements-scenario">Requirements Scenario</h4>
+<p>Voyager Security team has provided the controls and technical requirements to ensure that databases are tagged according to their data classification requirements and where applicable approved key types with restrictive policies are in use. In this case the FRL application RDS, needs to be classified as restricted (tag key: restricted) and according to the requirements there must be an AWS KMS Customer managed Key (CMK) with some policy restrictions to ensure access follows least privileges. You as a Cloud Architect will need to understand the current architecture and determine, based on the RDS and KMS User Guides how to configure the right tag and an appropriate encryption key policy. Additionally, you will need to find and enable the appropriate AWS Config Manage Rule that should detect if a tag key: restricted is in place.</p>
+<p><strong>NIST Requirement</strong></p>
+<table>
+<thead>
+<tr>
+<th>Control ID</th>
+<th style="text-align:center">Control Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SC-8(4)</td>
+<td style="text-align:center">Implement cryptographic mechanisms to conceal or randomize communication patterns unless otherwise protected by [Assignment: organization-defined alternative physical controls].</td>
+</tr>
+<tr>
+<td>SC-12</td>
+<td style="text-align:center">Establish and manage cryptographic keys when cryptography is employed within the system in accordance with the following key management requirements: [Assignment: organization-defined requirements for key generation, distribution, storage, access, and destruction].</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Customer Requirement</strong></p>
+<table>
+<thead>
+<tr>
+<th>Control ID</th>
+<th style="text-align:center">Control Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voyager-ctrl-dp-02</td>
+<td style="text-align:center">Storage resources including Databases shall be tagged with Data classification key (public, internal or restricted)</td>
+</tr>
+<tr>
+<td>Voyager-ctrl-dp-04</td>
+<td style="text-align:center">Cryptographic key access policy to protect restricted data shall be limited to the authorized service and resource. Access to this key shall not be granted to individuals.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AWS resources review and conclusions</strong></p>
+<p>By reviewing the following available resources, you will come to conclude what needs to be done to meet Voyager’s control requirements. See below the conclusions.</p>
+<table>
+<thead>
+<tr>
+<th>Resource type</th>
+<th>Resource name</th>
+<th>Conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWS service user guide</td>
+<td><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Amazon RDS user guide / Tagging Amazon RDS resources</a></td>
+<td>An Amazon RDS tag is a name-value pair that you define and associate with an Amazon RDS resource. The name is referred to as the key. Supplying a value for the key is optional. You can use tags to assign arbitrary information to an Amazon RDS resource.</td>
+</tr>
+<tr>
+<td>AWS service user guide</td>
+<td><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html">Amazon RDS user guide / Encrypting Amazon RDS resources</a></td>
+<td>Amazon RDS uses an AWS KMS key to encrypt its resources. For an Amazon RDS encrypted DB instance, all logs, backups, and snapshots are encrypted.</td>
+</tr>
+<tr>
+<td>AWS service user guide</td>
+<td><a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-services.html">AWS KMS user guide / Permissions for AWS services in key policies</a></td>
+<td>AWS KMS key policy must allow the service the minimum permissions that it requires to protect the resource on your behalf. We recommend that you follow the principle of least privilege: give the service only the permissions that it requires. You can do this effectively by learning which permissions the service needs and using AWS global condition keys and AWS KMS condition keys to refine the permissions.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="instructions">Instructions</h3>
 <ol>
 <li>
-<p>At <strong>AWS Management Console</strong>, find <strong>S3</strong> and select <strong>S3</strong>.</p>
+<p>Open the <a href="https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1">Amazon RDS console</a></p>
 </li>
 <li>
-<p>At <strong>S3</strong> console, select <strong>Create bucket</strong>.</p>
-</li>
-<li>
-<p>In create bucket steps:</p>
+<p>Select the Databases section and click on the DB identifier to open instance properties</p>
 </li>
 </ol>
-<ul>
-<li>For <strong>AWS Region</strong>, select <strong>Asia Pacific (Singapore) ap-southeast-1</strong>.</li>
-<li>For <strong>Bucket name</strong>, insert <strong><code>logging-workshop</code></strong>.</li>
-</ul>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/51.png"></p>
+<ol start="3">
+<li>Select Tags tab and click on Add</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/52.png"></p>
 <ol start="4">
-<li>Tiếp tục:</li>
+<li>Enter Tag Key: Classification, and Value: Restricted. Click Add</li>
 </ol>
-<ul>
-<li>For <strong>Block Public Access settings for this bucket</strong>, untick <strong>Block all public access</strong>.</li>
-<li>For <strong>Turning off block all public access might result in this bucket and the objects within becoming public</strong>, confirm this.</li>
-</ul>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/53.png"></p>
 <ol start="5">
-<li>
-<p>Scroll down, select <strong>Create bucket</strong>.</p>
-</li>
-<li>
-<p>Confirm bucket is created successfully.</p>
-</li>
-<li>
-<p>Continue creating bucket <strong>logging-workshop-destination</strong></p>
-</li>
+<li>Select the Configuration tab, click on the AWS KMS Key ID to navigate into its properties.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/54.png"></p>
+<ol start="6">
+<li>Click Edit and review the Key policy. You will find that:</li>
 </ol>
 <ul>
-<li>For <strong>AWS Region</strong>, select <strong>Asia Pacific (Singapore) ap-southeast-1</strong>.</li>
-<li>For <strong>Bucket name</strong>, insert <strong><code>logging-workshop-destination</code></strong>.</li>
-<li>No need to untick <strong>Block Public Access settings for this bucket</strong>.</li>
-<li>Scroll down, select <strong>Create bucket</strong>.</li>
-<li>Confirm bucket is created successfully.</li>
+<li>It allows the KMSAdminRole and root (Administrator Principal) to decrypt data. Typically, Admins should not be allowed this Action.</li>
+<li>It allows the DevOpsRole (User Principal) to Delete or Revoke the key. Typically, users should not be allowed this Action.</li>
 </ul>
+<ol start="7">
+<li>Click Edit to update the Key policy:</li>
+</ol>
+<ul>
+<li>Remove the following Action(s) from the Administrators section (KMSAdminRole)</li>
+</ul>
+<pre tabindex="0"><code>&#34;kms:Encrypt&#34;,
+&#34;kms:Decrypt&#34;,
+&#34;kms:ReEncrypt*&#34;,
+&#34;kms:GenerateDataKey*&#34;,
+</code></pre><ul>
+<li>Remove the following Action(s) from the User section (DevOpsRole)</li>
+</ul>
+<pre tabindex="0"><code>&#34;kms:Revoke*&#34;,
+&#34;kms:Disable*&#34;,
+&#34;kms:Delete*&#34;,
+</code></pre><ul>
+<li>Once you finish Save changes</li>
+</ul>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/55.png"></p>
+<ol start="8">
+<li>Go to the <a href="https://console.aws.amazon.com/config/home?region=us-east-1">AWS Config console</a> to validate if the RDS instance has been tagged with data classification key. Click on Rules, Add rule</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/56.png"></p>
+<ol start="9">
+<li>Select Add AWS Managed rule and search for required-tags. Select it and click Next.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/57.png"></p>
+<ol start="10">
+<li>Under Resource category, select AWS resources. Under Resource type pick AWS RDS DBInstance.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/58.png"></p>
+<ol start="11">
+<li>Under Parameters enter the following Key/Value</li>
+</ol>
+<pre tabindex="0"><code>Key: tag1Key
+Value: Classification
+(Replace the value from CostCenter to Classification)
+
+Key: tag1Value
+Value: Public,Confidential,Restricted
+</code></pre><p><img alt="FCJ_ws2" src="/images/2.scenario/59.png"></p>
+<ol start="12">
+<li>
+<p>Click Next</p>
+</li>
+<li>
+<p>Review and click Add rule.</p>
+</li>
+<li>
+<p>Click on the new rule name (required-tags)</p>
+</li>
+<li>
+<p>Click on Actions, Re-evaluate</p>
+</li>
+<li>
+<p>In the Resources in scope, click the Refresh arrow and validate compliance status. (It can take a moment to update the compliance status)</p>
+</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/60.png"></p>
+<ol start="17">
+<li>Optional) Go back to the resource, change or remove the tagValue and validate if it changes the compliance status. Remember to re-evaluate, wait a moment, and refresh the resources in scope section to see the Compliance change.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/61.png"></p>
+<p><strong>You have completed exercise two. Please proceed to the next exercise.</strong></p>
 
 
 
@@ -1005,19 +1137,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1713522491"></script>
-    <script src="/js/perfect-scrollbar.min.js?1713522491"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1713522491"></script>
-    <script src="/js/jquery.sticky.js?1713522491"></script>
-    <script src="/js/featherlight.min.js?1713522491"></script>
-    <script src="/js/highlight.pack.js?1713522491"></script>
+    <script src="/js/clipboard.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714230486"></script>
+    <script src="/js/jquery.sticky.js?1714230486"></script>
+    <script src="/js/featherlight.min.js?1714230486"></script>
+    <script src="/js/highlight.pack.js?1714230486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1713522491"></script>
-    <script src="/js/learn.js?1713522491"></script>
-    <script src="/js/hugo-learn.js?1713522491"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714230486"></script>
+    <script src="/js/learn.js?1714230486"></script>
+    <script src="/js/hugo-learn.js?1714230486"></script>
 
-    <link href="/mermaid/mermaid.css?1713522491" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1713522491"></script>
+    <link href="/mermaid/mermaid.css?1714230486" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714230486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

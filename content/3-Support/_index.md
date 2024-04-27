@@ -6,9 +6,8 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-In this step, we will enable **Server access logging**.
+### Support
 
-### Content
-
-1.  [Enable S3 Server Access Logging](3.1-sal/)
-2.  [Check log](3.2-log/)
+1.  [Troubleshooting](3.1-troubleshoot/)
+2.  [Cleanup](3.2-cleanup/)
+3.  [Resources](3.3-resources/)

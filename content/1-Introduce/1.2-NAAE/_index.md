@@ -6,30 +6,40 @@ chapter: false
 pre: " <b> 1.2 </b> "
 ---
 
-### Create 2 bucket
+### Not Attending AWS hosted event
 
-1. At **AWS Management Console**, find **S3** and select **S3**.
+{{% notice info %}}
+If you are attending an AWS hosted event, you can stop reading an continue with next step using the provided accounts.
+{{% /notice %}}
 
-2. At **S3** console, select **Create bucket**.
+1. Download (right-click and Save link as...) [CloudFormation template with the base architecture](https://static.us-east-1.prod.workshops.aws/public/7609f68d-8f02-45f1-ac24-da0e810d440f/static/architecture.json) required to create the environment for this workshop.
 
-3. In create bucket steps:
+2. Using your own test account (please don't use production accounts) go to the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=control-design)
 
-- For **AWS Region**, select **Asia Pacific (Singapore) ap-southeast-1**.
-- For **Bucket name**, insert **`logging-workshop`**.
+3. Click on create stack, With new resources (standard)
 
-4. Tiếp tục:
+![FCJ_ws2](/images/1.introduce/2.png)
 
-- For **Block Public Access settings for this bucket**, untick **Block all public access**.
-- For **Turning off block all public access might result in this bucket and the objects within becoming public**, confirm this.
+4. Enter Stack name control-design. Click Next
 
-5. Scroll down, select **Create bucket**.
+![FCJ_ws2](/images/1.introduce/4.png)
 
-6. Confirm bucket is created successfully.
+5. Use default stack options. Click Next
 
-7. Continue creating bucket **logging-workshop-destination**
+![FCJ_ws2](/images/1.introduce/3.png)
 
-- For **AWS Region**, select **Asia Pacific (Singapore) ap-southeast-1**.
-- For **Bucket name**, insert **`logging-workshop-destination`**.
-- No need to untick **Block Public Access settings for this bucket**.
-- Scroll down, select **Create bucket**.
-- Confirm bucket is created successfully.
+6. Review Details
+
+![FCJ_ws2](/images/1.introduce/5.png)
+
+7. Click the "I acknowledge..." checkbox. Click Create stack
+
+![FCJ_ws2](/images/1.introduce/6.png)
+
+8. Wait for all resources to complete creation. If any error appears, refer to the Support/Troubleshooting section.
+
+![FCJ_ws2](/images/1.introduce/7.png)
+
+{{% notice info %}}
+Once you finish this workshop, go to the Support/Cleanup section, to reduce incurred costs.
+{{% /notice %}}

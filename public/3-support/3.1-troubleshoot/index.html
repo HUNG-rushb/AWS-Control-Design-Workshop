@@ -12,21 +12,21 @@
     <title>Troubleshooting :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1713522491" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1713522491" rel="stylesheet">
-    <link href="/css/hybrid.css?1713522491" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1713522491" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1713522491" rel="stylesheet">
-    <link href="/css/auto-complete.css?1713522491" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1713522491" rel="stylesheet">
-    <link href="/css/theme.css?1713522491" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1713522491" rel="stylesheet">
+    <link href="/css/nucleus.css?1714230486" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714230486" rel="stylesheet">
+    <link href="/css/hybrid.css?1714230486" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714230486" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714230486" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714230486" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714230486" rel="stylesheet">
+    <link href="/css/theme.css?1714230486" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714230486" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1713522491" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714230486" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1713522491"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714230486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1713522491"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1713522491"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714230486"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714230486"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1713522491"></script>
+<script type="text/javascript" src="/js/search.js?1714230486"></script>
 
     
   </div>
@@ -654,7 +654,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#kích-hoạt-server-access-logging">Kích hoạt Server access logging</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
       </ul>
     </li>
   </ul>
@@ -682,34 +682,14 @@
 
 
 
-	<p>In this step, we will enable <strong>Server access logging</strong>.</p>
-<p>Server access logs give you visibility into detailed object-level operations on your data. The log files are text files that have one line for each log record. Each log record represents one request and consists of space-delimited fields.</p>
-<p>The fields relate to operation, requester, resource, and session information. Here is an example:</p>
-<pre tabindex="0"><code>79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be awsexamplebucket1 [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 3E57427F3EXAMPLE REST.GET.VERSIONING - &#34;GET /awsexamplebucket1?versioning HTTP/1.1&#34; 200 - 113 - 7 - &#34;-&#34; &#34;S3Console/0.4&#34; - s9lzHYrFp76ZVxRcpX9+5cjAnEH2ROuNkd2BHfIa6UkFVdtjf5mKR3/eTPFvsiP/XV/VLi31234= SigV2 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader awsexamplebucket1.s3.us-west-1.amazonaws.com TLSV1.1
-</code></pre><h3 id="kích-hoạt-server-access-logging">Kích hoạt Server access logging</h3>
-<ol>
-<li>
-<p>In S3 console, select bucket <strong>logging-workshop</strong>.</p>
-</li>
-<li>
-<p>In bucket console, select <strong>Properties</strong>.</p>
-</li>
-<li>
-<p>Scroll dowm to <strong>Server access logging</strong>, select <strong>Edit</strong></p>
-</li>
-<li>
-<p>Select <strong>Enable</strong>, then select <strong>Brow S3</strong> for storing the logs afterward.</p>
-</li>
-<li>
-<p>Select bucket <strong>logging-workshop-destination</strong>, then select <strong>Choose destination</strong>.</p>
-</li>
-<li>
-<p>Review bucket, then select <strong>Save changes</strong>.</p>
-</li>
-<li>
-<p>Confirm <strong>Server access logging</strong> is enabled.</p>
-</li>
-</ol>
+	<h3 id="troubleshooting">Troubleshooting</h3>
+<ul>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-type-not-supported-az-error/">Troubleshoot EC2 instances or ASG launch error. Review instance type and Region combination</a></li>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html">General EC2 troubleshooting guide</a></li>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-troubleshooting.html">Troubleshoot VPC Flow Logs</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-troubleshoot.html">Troubleshooting Amazon CloudWatch</a></li>
+<li><a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html">Troubleshooting KMS - Key access</a></li>
+</ul>
 
 
 
@@ -989,19 +969,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1713522491"></script>
-    <script src="/js/perfect-scrollbar.min.js?1713522491"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1713522491"></script>
-    <script src="/js/jquery.sticky.js?1713522491"></script>
-    <script src="/js/featherlight.min.js?1713522491"></script>
-    <script src="/js/highlight.pack.js?1713522491"></script>
+    <script src="/js/clipboard.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714230486"></script>
+    <script src="/js/jquery.sticky.js?1714230486"></script>
+    <script src="/js/featherlight.min.js?1714230486"></script>
+    <script src="/js/highlight.pack.js?1714230486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1713522491"></script>
-    <script src="/js/learn.js?1713522491"></script>
-    <script src="/js/hugo-learn.js?1713522491"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714230486"></script>
+    <script src="/js/learn.js?1714230486"></script>
+    <script src="/js/hugo-learn.js?1714230486"></script>
 
-    <link href="/mermaid/mermaid.css?1713522491" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1713522491"></script>
+    <link href="/mermaid/mermaid.css?1714230486" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714230486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

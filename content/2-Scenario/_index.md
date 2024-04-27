@@ -6,12 +6,11 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-To prepare for this workshop, we will create 1 group with public access to hold the files we need to access and 1 private group to hold the server access logs.
+### Scenario
 
-### Content
+We are requested to implement [NIST 800-53r5](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf) controls using the [Cloud Adoption Framework (CAF) capabilities ](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/security-perspective.html):
 
-1.  [Create 2 bucket](2.1-2buckets/)
-2.  [Update permissiong](2.2-permission/)
-3.  [Upload file to bucket](2.3-upload/)
-4.  [Add policy for bucket](2.4-policy/)
-5.  [Access files](2.5-file/)
+1. Infrastructure Protection
+2. Data Protection
+3. Security Assurance
+4. Identity and Access Management

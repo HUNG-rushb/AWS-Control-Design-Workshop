@@ -6,28 +6,10 @@ chapter: false
 pre: " <b> 3.1 </b> "
 ---
 
-In this step, we will enable **Server access logging**.
+### Troubleshooting
 
-Server access logs give you visibility into detailed object-level operations on your data. The log files are text files that have one line for each log record. Each log record represents one request and consists of space-delimited fields.
-
-The fields relate to operation, requester, resource, and session information. Here is an example:
-
-```
-79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be awsexamplebucket1 [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 3E57427F3EXAMPLE REST.GET.VERSIONING - "GET /awsexamplebucket1?versioning HTTP/1.1" 200 - 113 - 7 - "-" "S3Console/0.4" - s9lzHYrFp76ZVxRcpX9+5cjAnEH2ROuNkd2BHfIa6UkFVdtjf5mKR3/eTPFvsiP/XV/VLi31234= SigV2 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader awsexamplebucket1.s3.us-west-1.amazonaws.com TLSV1.1
-```
-
-### Kích hoạt Server access logging
-
-1. In S3 console, select bucket **logging-workshop**.
-
-2. In bucket console, select **Properties**.
-
-3. Scroll dowm to **Server access logging**, select **Edit**
-
-4. Select **Enable**, then select **Brow S3** for storing the logs afterward.
-
-5. Select bucket **logging-workshop-destination**, then select **Choose destination**.
-
-6. Review bucket, then select **Save changes**.
-
-7. Confirm **Server access logging** is enabled.
+- [Troubleshoot EC2 instances or ASG launch error. Review instance type and Region combination](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-type-not-supported-az-error/)
+- [General EC2 troubleshooting guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html)
+- [Troubleshoot VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-troubleshooting.html)
+- [Troubleshooting Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-troubleshoot.html)
+- [Troubleshooting KMS - Key access](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html)

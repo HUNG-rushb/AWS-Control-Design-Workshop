@@ -50,30 +50,6 @@
                 href="//localhost:1313/vi/1-introduce/1.1-architecture/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/1-introduce/1.2-naae/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/1-introduce/1.2-naae/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/1-introduce/1.2-naae/"
-                />
-  </url><url>
-    <loc>//localhost:1313/vi/1-introduce/1.3-aae/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/1-introduce/1.3-aae/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/1-introduce/1.3-aae/"
-                />
-  </url><url>
     <loc>//localhost:1313/vi/2-scenario/2.1-infra_protect/</loc>
     <xhtml:link
                 rel="alternate"
@@ -122,6 +98,18 @@
                 href="//localhost:1313/vi/2-scenario/2.3-security_assurance/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/1-introduce/1.2-naae/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/1-introduce/1.2-naae/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/1-introduce/1.2-naae/"
+                />
+  </url><url>
     <loc>//localhost:1313/vi/3-support/3.2-cleanup/</loc>
     <xhtml:link
                 rel="alternate"
@@ -134,16 +122,28 @@
                 href="//localhost:1313/vi/3-support/3.2-cleanup/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/3-support/3.2-resources/</loc>
+    <loc>//localhost:1313/vi/3-support/3.3-resources/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-support/3.2-resources/"
+                href="//localhost:1313/3-support/3.3-resources/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-support/3.2-resources/"
+                href="//localhost:1313/vi/3-support/3.3-resources/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/1-introduce/1.3-aae/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/1-introduce/1.3-aae/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/1-introduce/1.3-aae/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/3-support/</loc>

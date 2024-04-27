@@ -12,21 +12,21 @@
     <title>Identity and Access Management :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1713522491" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1713522491" rel="stylesheet">
-    <link href="/css/hybrid.css?1713522491" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1713522491" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1713522491" rel="stylesheet">
-    <link href="/css/auto-complete.css?1713522491" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1713522491" rel="stylesheet">
-    <link href="/css/theme.css?1713522491" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1713522491" rel="stylesheet">
+    <link href="/css/nucleus.css?1714230486" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714230486" rel="stylesheet">
+    <link href="/css/hybrid.css?1714230486" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714230486" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714230486" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714230486" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714230486" rel="stylesheet">
+    <link href="/css/theme.css?1714230486" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714230486" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1713522491" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714230486" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1713522491"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714230486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -86,14 +86,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1713522491"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1713522491"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714230486"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714230486"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1713522491"></script>
+<script type="text/javascript" src="/js/search.js?1714230486"></script>
 
     
   </div>
@@ -652,9 +652,11 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#identity-and-access-management">Identity and Access Management</a>
       <ul>
-        <li><a href="#access-the-file">Access the file</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#exercise">Exercise</a></li>
+        <li><a href="#instructions">Instructions</a></li>
       </ul>
     </li>
   </ul>
@@ -682,18 +684,151 @@
 
 
 
-	<h3 id="access-the-file">Access the file</h3>
+	<h2 id="identity-and-access-management">Identity and Access Management</h2>
+<h3 id="introduction">Introduction</h3>
+<p><strong>Time to complete</strong>: 25 minutes</p>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>Configure your IAM policies to prevent unauthorized traffic mirroring of your VPC network.</li>
+<li>Deploy an AWS Config custom rule to detect traffic mirroring on the VPC.</li>
+</ul>
+<h3 id="exercise">Exercise</h3>
+<h4 id="requirements-scenario">Requirements Scenario</h4>
+<p>Voyager Security team has provided the controls and technical requirements to ensure that their developers follow least privileges when it comes to manage their VPC network components. The developer team is using the IAM Role DevOps which is now permissive enough to allow them to place a traffic mirror listener in the account without the security team knowing. Even if this traffic is internal, it is considered highly restricted. Your goal as a Cloud Architect will be to configure the right IAM permissions to prevent traffic mirror action and a detective mechanism to alert.</p>
+<p><strong>NIST Requirement</strong></p>
+<table>
+<thead>
+<tr>
+<th>Control ID</th>
+<th style="text-align:center">Control Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AC-4(21)</td>
+<td style="text-align:center">Separate information flows logically or physically using [Assignment: organization-defined mechanisms and/or techniques] to accomplish [Assignment: organization-defined required separations by types of information].</td>
+</tr>
+<tr>
+<td>AC-3</td>
+<td style="text-align:center">Enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Customer Requirement</strong></p>
+<table>
+<thead>
+<tr>
+<th>Control ID</th>
+<th style="text-align:center">Control Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voyager-ctrl-net-05</td>
+<td style="text-align:center">Developers must be restricted to make changes on VPC resources that could expose the network to unauthorized resources.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AWS resources review and conclusions</strong></p>
+<p>By reviewing the following available resources, you will come to conclude what needs to be done to meet Voyager’s control requirements. See below the conclusions.</p>
+<table>
+<thead>
+<tr>
+<th>Resource type</th>
+<th style="text-align:center">Resource name</th>
+<th style="text-align:center">Conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWS service IAM actions</td>
+<td style="text-align:center"><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html">Amazon VPC actions</a></td>
+<td style="text-align:center">You can use AWS Systems Manager Patch Manager to automate the process of installing security-related updates for both the operating system and applications.</td>
+</tr>
+<tr>
+<td>AWS service user guide</td>
+<td style="text-align:center"><a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">AWS Config / Managed rules</a></td>
+<td style="text-align:center">There isn’t a managed AWS config rule available to detect traffic mirror so we need to build a custom check.</td>
+</tr>
+<tr>
+<td>AWS Service user guide</td>
+<td style="text-align:center"><a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules_lambda-functions.html">AWS Config / Creating AWS Config custom Lambda rules</a></td>
+<td style="text-align:center">You can develop custom rules and add them to AWS Config with AWS Lambda functions. You associate each custom rule with an Lambda function, which contains the logic that evaluates whether your AWS resources comply with the rule.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="instructions">Instructions</h3>
 <ol>
+<li>Open to the <a href="https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1">IAM Console</a> under the Roles section, search for the DevOps role, and click over the Role Name. (it may have an aleatory suffix)</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/211.png"></p>
+<ol start="2">
+<li>Expand the Policy clicking on the (+) sign. Click the Edit button.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/212.png"></p>
+<ol start="3">
+<li>Select the JSON tab. Modify the policy to remove the ability to create Traffic Mirror sessions under the NotAction policy element. These two actions:</li>
+</ol>
+<pre tabindex="0"><code>&#34;ec2:CreateTrafficMirrorSession&#34;
+&#34;ec2:CreateTrafficMirrorTarget&#34;
+</code></pre><p>Can be simplified into one element using a wildcard like this:</p>
+<pre tabindex="0"><code>&#34;ec2:CreateTrafficMirror*&#34;
+</code></pre><ol start="4">
+<li>Select Review policy and then save changes.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/213.png"></p>
+<p>Now that you have reduced the DevOpsRole privileges, it&rsquo;s time to create a mechanism to detect if a traffic mirror is enabled. To do it you are going to create a new custom AWS Config rule. We have prepared a CloudFormation template that validates if TrafficMirror Sessions or Targets are in place. This cloudFormation template creates a Config rule that together with a Lambda function and the necessary permissions detects when a Traffic Mirror is in place. (This is an example of how custom controls can be implemented to suit your needs)</p>
+<ol start="5">
 <li>
-<p>In bucket console, select file <strong>S3_logging_workshop.txt</strong>.</p>
+<p><a href="https://static.us-east-1.prod.workshops.aws/public/7609f68d-8f02-45f1-ac24-da0e810d440f/static/Custom-Rule-Traffic-Mirror.yaml">Download this CloudFormation template</a> to your disk.</p>
 </li>
 <li>
-<p>Copy <strong>Object URL</strong>.</p>
-</li>
-<li>
-<p>Access the file in browser.</p>
+<p>Open the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=traffic-mirror">AWS CloudFormation console</a> and click create a new stack.</p>
 </li>
 </ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/214.png"></p>
+<ol start="7">
+<li>Select Template is ready and select Upload a template file. Click on Choose a file. Select the file you just downloaded to your disk. Click Next.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/215.png"></p>
+<ol start="8">
+<li>Provide the following name to the stack, and click Next.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/216.png"></p>
+<ol start="9">
+<li>Leave the stack options as is, and click Next.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/217.png"></p>
+<ol start="10">
+<li>Select the check box to acknowledge and press Create stack.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/218.png"></p>
+<ol start="11">
+<li>Review the status, click on the refresh button until it has finished successfully.</li>
+<li>Go to the <a href="https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1">AWS Config console</a> and under rules option verify that the new config rule was created.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/219.png"></p>
+<ol start="13">
+<li>
+<p>To test this rule, go to <a href="https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1">VPC console</a></p>
+</li>
+<li>
+<p>On the left under Traffic Mirroring, select Mirror targets.</p>
+</li>
+<li>
+<p>On the top right, click on Create a new Traffic Mirror target. (Keep in mind that initially we have reduced the privileges of the DevOps role but not yours).</p>
+</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/220.png"></p>
+<ol start="16">
+<li>Click on the Target textbox and select any of the EC2 ENI. Click Create.</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/221.png"></p>
+<ol start="17">
+<li>Go back to the <a href="https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1">AWS Config console</a> select the rule we created, and click Re-evaluate. Wait a moment and refresh. The rule should change from Compliant status to Noncompliant</li>
+</ol>
+<p><img alt="FCJ_ws2" src="/images/2.scenario/222.png"></p>
+<p><strong>Congratulations! You have completed the last exercise.</strong></p>
 
 
 
@@ -976,19 +1111,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1713522491"></script>
-    <script src="/js/perfect-scrollbar.min.js?1713522491"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1713522491"></script>
-    <script src="/js/jquery.sticky.js?1713522491"></script>
-    <script src="/js/featherlight.min.js?1713522491"></script>
-    <script src="/js/highlight.pack.js?1713522491"></script>
+    <script src="/js/clipboard.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714230486"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714230486"></script>
+    <script src="/js/jquery.sticky.js?1714230486"></script>
+    <script src="/js/featherlight.min.js?1714230486"></script>
+    <script src="/js/highlight.pack.js?1714230486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1713522491"></script>
-    <script src="/js/learn.js?1713522491"></script>
-    <script src="/js/hugo-learn.js?1713522491"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714230486"></script>
+    <script src="/js/learn.js?1714230486"></script>
+    <script src="/js/hugo-learn.js?1714230486"></script>
 
-    <link href="/mermaid/mermaid.css?1713522491" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1713522491"></script>
+    <link href="/mermaid/mermaid.css?1714230486" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714230486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
