@@ -50,11 +50,11 @@ Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đ�
 
 1. Mở [IAM Console](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#), mục **Roles**, tìm `DevOps`, và nhấn vào **Role Name**. (nó có thể có một hậu tố thay thế)
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/211.png)
+![FCJ_ws2](/images/2.scenario/211.png)
 
 2. Mở rộng phần **Policy** bằng cách nhấn vào dấu (+). Nhấn **Edit**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/212.png)
+![FCJ_ws2](/images/2.scenario/212.png)
 
 3. Chọn JSON tab. Loại bỏ quyền tạo **Traffic Mirror sessions** bằng cách thêm vào 2 action bên dưới vào mục **NotAction**.
 
@@ -71,7 +71,7 @@ Có thể đơn giản hóa thành một phần tử bằng cách sử dụng wi
 
 4. Chọn **Review policy** và **Save changes**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/213.png)
+![FCJ_ws2](/images/2.scenario/213.png)
 
 Bây giờ bạn đã giảm các đặc quyền **DevOpsRole**, đã đến lúc tạo một cơ chế để phát hiện xem **traffic mirror** có được bật hay không. Để làm điều đó, bạn sẽ tạo một quy tắc AWS Config tùy chỉnh mới. Chúng tôi đã chuẩn bị mẫu **CloudFormation** để xác thực xem **TrafficMirror Sessions** hoặc **Targets** có sẵn sàng hay không. **Template cloudFormation** này tạo **Config rule** cùng với **Lambda function** và các quyền cần thiết để phát hiện khi có **Traffic Mirror**. (Đây là ví dụ về cách triển khai các điều khiển tùy chỉnh để phù hợp với nhu cầu của bạn)
 
@@ -79,28 +79,28 @@ Bây giờ bạn đã giảm các đặc quyền **DevOpsRole**, đã đến lú
 
 6. Mở [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=traffic-mirror) và nhấn **create a new stack**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/214.png)
+![FCJ_ws2](/images/2.scenario/214.png)
 
 7. Chọn **Template is ready**, Chọn **Upload a template file**. Nhấn **Choose a file**. Chọn file vừa tải và nhấn **Next**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/215.png)
+![FCJ_ws2](/images/2.scenario/215.png)
 
 8. Nhập `traffic-mirror` và nhấn **Next**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/216.png)
+![FCJ_ws2](/images/2.scenario/216.png)
 
 9. Giữ nguyên và nhấn **Next**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/217.png)
+![FCJ_ws2](/images/2.scenario/217.png)
 
 10. Xác nhận checkbox và nhấn **Create stack**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/218.png)
+![FCJ_ws2](/images/2.scenario/218.png)
 
 11. Kiểm tra status, nhấn **refresh** cho tới khi thành công.
 12. Tới [AWS Config console](https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1#), vào **Rules**, hãy xác minh rằng config rule mới đã được tạo.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/219.png)
+![FCJ_ws2](/images/2.scenario/219.png)
 
 13. Để thử nghiệm rule này, tới [VPC console](https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1#)
 
@@ -108,14 +108,14 @@ Bây giờ bạn đã giảm các đặc quyền **DevOpsRole**, đã đến lú
 
 15. Phía trên bên phải, nhấn **Create a new Traffic Mirror target**. (Hãy nhớ rằng ban đầu chúng tôi đã giảm các đặc quyền của vai trò DevOps nhưng không có đặc quyền của bạn).
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/220.png)
+![FCJ_ws2](/images/2.scenario/220.png)
 
 16. Nhấn **Target** textbox and chọn any of the **EC2 ENI**. Nhấn **Create**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/221.png)
+![FCJ_ws2](/images/2.scenario/221.png)
 
 17. Trở về [AWS Config console](https://us-east-1.console.aws.amazon.com/config/home?region=us-east-1#) chọn rule vừa tạo, và nhấn **Re-evaluate**. Đợi một lát và làm mới. Rule nên thay đổi từ **Compliant** sang **Noncompliant**
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/222.png)
+![FCJ_ws2](/images/2.scenario/222.png)
 
 **Chúc mừng! Bạn đã hoàn thành bài tập cuối cùng.**

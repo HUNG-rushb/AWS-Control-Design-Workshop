@@ -71,59 +71,59 @@ CloudWatch agent được cài đặt sẵn và định cấu hình để thu th
 1. Để xem logs, truy cập [CloudWatch console](https://console.aws.amazon.com/cloudwatch/)
 2. Ở menu bẹn trái, mục **Logs**, chọn **Log groups**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/111.png)
+![FCJ_ws2](/images/2.scenario/111.png)
 
 3. Đã có sẵn 1 log group **/var/log/secure**. Nhấp vào nó và bạn sẽ thấy chi tiết log group và một vài luồng log bên dưới cho từng instance.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/112.png)
+![FCJ_ws2](/images/2.scenario/112.png)
 
 4. Nhấn **Actions/Edit retention setting**. Chọn thời gian hết hạn mong muốn. (đối với workshop này chọn 12 tháng). Nhấn **Save**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/113.png)
+![FCJ_ws2](/images/2.scenario/113.png)
 
 5. Nhấn **Actions** phía trên bên phải và nhấn **Create metric filter**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/114.png)
+![FCJ_ws2](/images/2.scenario/114.png)
 
 6. Xác định pattern để tìm kiếm. Bạn có thể nhập `session opened for user root` và nó sẽ tìm logs. Nhấn Next.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/115.png)
+![FCJ_ws2](/images/2.scenario/115.png)
 
 7. Hoàn thành chi tiết metric filter như trong hình. Nhấn **Next**
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/116.png)
+![FCJ_ws2](/images/2.scenario/116.png)
 
 8. Kiếm tra lại và nhấn **Create metric filter**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/117.png)
+![FCJ_ws2](/images/2.scenario/117.png)
 
 9. Nhấn **Audit** bên dưới **Metric**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/118.png)
+![FCJ_ws2](/images/2.scenario/118.png)
 
 10. Một biểu đồ trống sẽ xuất hiện. **CloudWatch** sẽ chỉ tạo số liệu từ các sự kiện được tạo sau khi số liệu được tạo.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/119.png)
+![FCJ_ws2](/images/2.scenario/119.png)
 
 11. Truy cập [EC2 console](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:), vào **Instances** và chọn 1 instance, nhấn **Connect**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/120.png)
+![FCJ_ws2](/images/2.scenario/120.png)
 
 12. Chọn **Session Manager**, nhấn **Connect**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/121.png)
+![FCJ_ws2](/images/2.scenario/121.png)
 
 13. Khi kết nối thiết bị đầu cuối mở ra. bạn có thể chạy `sudo su` để chuyển lên root user. Bằng cách này, bạn sẽ tạo thêm các sự kiện trong log. nhấn **Terminate** 2 lần.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/122.png)
+![FCJ_ws2](/images/2.scenario/122.png)
 
 14. Trở về [CloudWatch console](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#). Bên trái bên dưới **Metrics**, nhấn **All Metrics**, và dưới **Custom namespaces**, nhấn **Audit** và **Metrics with no dimensions**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/123.png)
+![FCJ_ws2](/images/2.scenario/123.png)
 
 15. Kiểm tra phiên đã mở cho hộp kiểm gốc của người dùng. Một dấu chấm có phiên chúng tôi đã tạo sẽ xuất hiện trong biểu đồ. (Có thể mất tối đa 5 phút để thông tin được hiển thị)
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/124.png)
+![FCJ_ws2](/images/2.scenario/124.png)
 
 16. (Tùy chọn) Tìm hiểu thêm về pattern [CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html)
 

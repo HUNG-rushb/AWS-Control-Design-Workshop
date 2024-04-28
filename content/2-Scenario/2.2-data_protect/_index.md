@@ -53,19 +53,19 @@ By reviewing the following available resources, you will come to conclude what n
 
 2. Select the Databases section and click on the DB identifier to open instance properties
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/51.png)
+![FCJ_ws2](/images/2.scenario/51.png)
 
 3. Select Tags tab and click on Add
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/52.png)
+![FCJ_ws2](/images/2.scenario/52.png)
 
 4. Enter Tag Key: Classification, and Value: Restricted. Click Add
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/53.png)
+![FCJ_ws2](/images/2.scenario/53.png)
 
 5. Select the Configuration tab, click on the AWS KMS Key ID to navigate into its properties.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/54.png)
+![FCJ_ws2](/images/2.scenario/54.png)
 
 6. Click Edit and review the Key policy. You will find that:
 
@@ -93,19 +93,19 @@ By reviewing the following available resources, you will come to conclude what n
 
 - Once you finish Save changes
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/55.png)
+![FCJ_ws2](/images/2.scenario/55.png)
 
 8. Go to the [AWS Config console](https://console.aws.amazon.com/config/home?region=us-east-1) to validate if the RDS instance has been tagged with data classification key. Click on Rules, Add rule
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/56.png)
+![FCJ_ws2](/images/2.scenario/56.png)
 
 9. Select Add AWS Managed rule and search for required-tags. Select it and click Next.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/57.png)
+![FCJ_ws2](/images/2.scenario/57.png)
 
 10. Under Resource category, select AWS resources. Under Resource type pick AWS RDS DBInstance.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/58.png)
+![FCJ_ws2](/images/2.scenario/58.png)
 
 11. Under Parameters enter the following Key/Value
 
@@ -118,7 +118,7 @@ Key: tag1Value
 Value: Public,Confidential,Restricted
 ```
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/59.png)
+![FCJ_ws2](/images/2.scenario/59.png)
 
 12. Click Next
 
@@ -130,10 +130,10 @@ Value: Public,Confidential,Restricted
 
 16. In the Resources in scope, click the Refresh arrow and validate compliance status. (It can take a moment to update the compliance status)
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/60.png)
+![FCJ_ws2](/images/2.scenario/60.png)
 
 17. Optional) Go back to the resource, change or remove the tagValue and validate if it changes the compliance status. Remember to re-evaluate, wait a moment, and refresh the resources in scope section to see the Compliance change.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/61.png)
+![FCJ_ws2](/images/2.scenario/61.png)
 
 **You have completed exercise two. Please proceed to the next exercise.**

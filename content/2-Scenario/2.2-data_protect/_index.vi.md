@@ -53,19 +53,19 @@ Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đ�
 
 2. Chọn **Databases** và nhấn vào tên của DB để mở cấu hình.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/51.png)
+![FCJ_ws2](/images/2.scenario/51.png)
 
 3. Chọn tab **Tags** vả nhấn **Add**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/52.png)
+![FCJ_ws2](/images/2.scenario/52.png)
 
 4. Nhập Tag Key: `Classification`, và Value: `Restricted`. Nhấn **Add**
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/53.png)
+![FCJ_ws2](/images/2.scenario/53.png)
 
 5. Chọn tab **Configuration**, nhấn vào **AWS KMS Key ID** đề điều hướng tới cấu hình.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/54.png)
+![FCJ_ws2](/images/2.scenario/54.png)
 
 6. Nhấn **Edit** và xem **Key policy**. Bạn sẽ thấy:
 
@@ -93,19 +93,19 @@ Bằng cách xem xét các tài nguyên sẵn có sau đây, bạn sẽ đi đ�
 
 - Xong hãy nhấn **Save changes**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/55.png)
+![FCJ_ws2](/images/2.scenario/55.png)
 
 8. Truy cập [AWS Config console](https://console.aws.amazon.com/config/home?region=us-east-1) để xác thực xem phiên bản RDS đã được gắn tag khóa data classification chưa. Nhấn vào **Rules**, sau đó**Add rule**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/56.png)
+![FCJ_ws2](/images/2.scenario/56.png)
 
 9. Chọn **Add AWS Managed rule** và tìm `required-tags`. Chọn và nhấn **Next**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/57.png)
+![FCJ_ws2](/images/2.scenario/57.png)
 
 10. Mục **Resource category**, chọn **AWS resources**. Mục **Resource type** chọn **AWS RDS DBInstance**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/58.png)
+![FCJ_ws2](/images/2.scenario/58.png)
 
 11. Mục **Parameters**, nhập
 
@@ -118,7 +118,7 @@ Key: tag1Value
 Value: Public,Confidential,Restricted
 ```
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/59.png)
+![FCJ_ws2](/images/2.scenario/59.png)
 
 12. Nhấn **Next**.
 
@@ -130,10 +130,10 @@ Value: Public,Confidential,Restricted
 
 16. mục **Resources in scope**, nhấn mũi tên **Refresh** và xác nhận trạng thái tuân thủ. (Có thể mất chút thời gian để cập nhật trạng thái **Compliance**).
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/60.png)
+![FCJ_ws2](/images/2.scenario/60.png)
 
 17. (Tùy chọn) Quay lại tài nguyên, thay đổi hoặc xóa **tagValue** và xác thực xem nó có thay đổi trạng thái tuân thủ hay không. Hãy nhớ đánh giá lại, đợi một lát và làm mới các tài nguyên trong phần phạm vi để xem sự thay đổi về **Compliance**.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/2.scenario/61.png)
+![FCJ_ws2](/images/2.scenario/61.png)
 
 **Bạn đã hoàn thành bài tập thứ hai. Hãy chuyển sang bài tập tiếp theo.**

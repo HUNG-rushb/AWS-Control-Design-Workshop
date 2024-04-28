@@ -18,27 +18,27 @@ If you are attending an AWS hosted event, you can stop reading an continue with 
 
 3. Click on create stack, With new resources (standard)
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/2.png)
+![FCJ_ws2](/images/1.introduce/2.png)
 
 4. Enter Stack name control-design. Click Next
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/4.png)
+![FCJ_ws2](/images/1.introduce/4.png)
 
 5. Use default stack options. Click Next
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/3.png)
+![FCJ_ws2](/images/1.introduce/3.png)
 
 6. Review Details
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/5.png)
+![FCJ_ws2](/images/1.introduce/5.png)
 
 7. Click the "I acknowledge..." checkbox. Click Create stack
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/6.png)
+![FCJ_ws2](/images/1.introduce/6.png)
 
 8. Wait for all resources to complete creation. If any error appears, refer to the Support/Troubleshooting section.
 
-![FCJ_ws2](/AWS-Control-Design-Workshop/images/1.introduce/7.png)
+![FCJ_ws2](/images/1.introduce/7.png)
 
 {{% notice info %}}
 Once you finish this workshop, go to the Support/Cleanup section, to reduce incurred costs.
